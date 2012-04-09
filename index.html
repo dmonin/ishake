@@ -3,20 +3,19 @@
     <head>
         <title>iShake</title>
         <meta charset="utf-8" />
-        <link rel="apple-touch-icon" href="asset/img/apple-touch-icon.png"/>
+        <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png"/>
         <link rel="apple-touch-startup-image" href="asset/img/splash.png" />  
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes" />  
         <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
-        <script type="text/javascript" charset="utf-8" src="phonegap.js"></script>
-        <link href="asset/css/application.css" media="all" rel="stylesheet" type="text/css" rev="stylesheet" />
+        <link href="assets/css/application.css" media="all" rel="stylesheet" type="text/css" rev="stylesheet" />
     </head>
     <body>
         <div id="loader"><div id="loader-spinner" class="spinner"></div></div>
         <div id="no-connection-msg" data-label="no-connection">No connection!</div>
-        <div class="view" id="view-home">
+        <div class="view hidden" id="view-home">
             <header>
-                <h1>iShaker</h1>
+                <h1>iShake</h1>
                 <a class="header-button header-button-right" href="#/lists" id="header-button-lists"></a>
             </header>
             
@@ -28,15 +27,34 @@
                     <span id="phone-text">Shake!</span>                    
                 </div>
                 
-                <a href="#/homeback" class="disclosure backside-btn" ></a>
+                <a href="#/homeback" class="backside-btn"></a>
                 
                 <div id="result"></div>
                 
             </section>
         </div>
         
-        <script src="asset/js/zepto.min.js"></script>
+        <div class="view hidden" id="view-lists">
+            <header>
+                <h1>iShake</h1>
+                
+            </header>
+            
+            <section>
+                second page
+                <a href="#/">back</a>
+                
+            </section>
+        </div>
         
+        <script src="assets/js/zepto.min.js"></script>
+        <script src="assets/js/director.js"></script>
+        <script src="assets/js/application.js"></script>
+        
+        <script>
+            var app = new iShake.App();
+            app.run();
+        </script>
         
     </body>
 </html>
