@@ -1,0 +1,133 @@
+@-webkit-keyframes slideinfromright {
+	from { -webkit-transform: translateX(100%); }
+	to { -webkit-transform: translateX(0); }
+}
+@-webkit-keyframes slideinfromleft {
+	from { -webkit-transform: translateX(-100%); }
+	to { -webkit-transform: translateX(0); }
+}
+@-webkit-keyframes slideouttoleft {
+	from { -webkit-transform: translateX(0); }
+	to { -webkit-transform: translateX(-100%); }
+}
+@-webkit-keyframes slideouttoright {
+	from { -webkit-transform: translateX(0); }
+	to { -webkit-transform: translateX(100%); }
+}
+
+@-webkit-keyframes slidefadeinfromright {
+        0% {
+            -webkit-transform: translateX(60%);
+            opacity: 0;
+        }
+        // this step is necessary for android, otherwise it didn't animate
+        // opacity of header text
+        99% {
+            -webkit-transform: translateX(0);
+            opacity: 1;
+        }
+        
+        100% {
+            -webkit-transform: translateX(0);
+            opacity: 1;
+        }
+}
+@-webkit-keyframes slidefadeinfromleft {
+	0% {
+		-webkit-transform: translateX(-60%);
+		opacity: 0;
+	}
+        99% {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+        
+	100% {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+}
+@-webkit-keyframes slidefadeouttoleft {
+	0% {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+        
+        99% {
+		-webkit-transform: translateX(-60%);
+		opacity: 0;
+	}
+        
+        100% {
+		-webkit-transform: translateX(-60%);
+		opacity: 0;
+	}
+}
+@-webkit-keyframes slidefadeouttoright {
+	0% {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+        
+        99% {
+		-webkit-transform: translateX(60%);
+		opacity: 0;
+	}
+        
+	100% {
+		-webkit-transform: translateX(60%);
+		opacity: 0;
+	}
+}
+
+@-webkit-keyframes fadein {
+	from { opacity: 0; }
+	to { opacity: 1; }
+}
+@-webkit-keyframes fadeout {
+	from { opacity: 1; }
+	to { opacity: 0; }
+}
+
+
+@-webkit-keyframes backinfromcenter {
+	from {
+		-webkit-transform: translateX(200%);
+		opacity: 0;
+	}
+	to {
+		left: 0;
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+}
+@-webkit-keyframes backinfromleft {
+	from {
+		-webkit-transform: translateX(-100%);
+		opacity: 0;
+	}
+	to {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+}
+@-webkit-keyframes backouttocenter {
+	from {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		-webkit-transform: translateX(200%);
+		opacity: 0;
+	}
+}
+@-webkit-keyframes backouttoleft {
+	from {
+		-webkit-transform: translateX(0);
+		opacity: 1;
+	}
+	to {
+		-webkit-transform: translateX(-100%);
+		opacity: 0;
+	}
+}

@@ -13,10 +13,13 @@ body {
     position: relative;
     word-wrap: break-word;
 }
-
 header {
     @include background(url(../img/common/nav-toolbar.gif), linear-gradient(top, #FFAC2A, #E58D23));
-        
+    
+    .sliding & {
+        background: transparent;
+    }
+    
     color: #fff;    
     height: 44px;
     line-height: 44px;
@@ -36,6 +39,7 @@ header {
         white-space: nowrap;
         text-overflow: ellipsis;
         overflow: hidden;
+/*                opacity: .5;*/
     }
 }
 

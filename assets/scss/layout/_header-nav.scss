@@ -1,0 +1,81 @@
+.header-button
+{
+    @include box-sizing(border-box);
+    
+    
+    
+/*    background: transparent url(../img/iphone/button-active.png) no-repeat;*/
+    
+    cursor: pointer;
+    height: 30px;
+    line-height: 25px;
+    font-weight: bold;
+    font-size: 12px;
+    color: #fff;
+    margin: 0;
+    padding: 0px 4px;
+    text-shadow: 0 -1px rgba(0,0,0,.6);
+    text-align: center;
+    top: 8px;
+    text-decoration: none;
+    position: absolute;
+    
+    -webkit-tap-highlight-color: rgba(0,0,0,0);    
+    
+    
+}
+
+.header-button.hidden
+{
+    display: none;
+}
+
+.header-button.button
+{
+/*    border: 1px solid rgba(255, 255, 255, .5);
+    border-radius: 5px;*/
+    
+    -webkit-border-image: url(../img/iphone/button-orange.png) 4 10 4 10;
+    -webkit-background-size: 0 0;
+    border-width: 2px 5px;
+    
+    &.tappable-active
+    {
+        -webkit-border-image: url(../img/iphone/button-orange-active.png) 4 10 4 10;
+    }
+}
+
+.header-button.button-back
+{
+    border-width: 2px 4px 2px 13px;
+    -webkit-border-image: url(../img/iphone/button-back-orange.png) 4 8 4 26;
+    
+    &.tappable-active
+    {
+        -webkit-border-image: url(../img/iphone/button-back-orange-active.png) 4 8 4 26;        
+    }
+}
+
+.header-button-left
+{
+    left: 5px;
+}
+
+.header-button-right
+{
+    right: 5px;
+}
+
+#header-button-lists
+{
+    background: transparent sprite($sprite, menu, 10px, 12px) no-repeat;
+    height: 44px;
+    right: 5px;
+    top: 0px;
+    width: 44px;
+    
+    &.tappable-active
+    {
+        background-position: sprite-position($sprite, menu-hover, 10px, 12px);
+    }
+}

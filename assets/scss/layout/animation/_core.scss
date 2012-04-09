@@ -1,0 +1,204 @@
+// This header is visible when sliding animation is playing:
+// in order to make an intersection of headers in both views (next and previous)
+// we need to make their background transparent and make this header to visible. 
+// We can't show this header always, because of flip effect.
+#fake-header {    
+    @extend header;
+    left: 0;
+    display: none;
+    position: absolute;
+    top: 0;
+    width: 100%;    
+    
+    .sliding & {
+        @include background(url(../img/common/nav-toolbar.gif), linear-gradient(top, #FFAC2A, #E58D23));
+        display: block;
+    }
+}
+
+
+
+.view,
+.view>.scroll,
+.view>header h1,
+.view>header .header-button{
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: 350ms;
+	-moz-animation-timing-function: ease-in-out;
+	-moz-animation-duration: 350ms;
+	animation-timing-function: ease-in-out;
+	animation-duration: 350ms;
+}
+.slow-anim .view,
+.slow-anim .view>.scroll,
+.slow-anim .view>header h1,
+.slow-anim .view>header .header-button{
+	-webkit-animation-duration: 3.5s;
+	-moz-animation-duration: 3.5s;
+	animation-duration: 3.5s;
+}
+
+.sliding{
+/*	pointer-events: none;*/
+}
+
+.slide-in-from-right>.scroll
+{
+    -webkit-animation-name: slideinfromright;
+    -moz-animation-name: slideinfromright;
+    animation-name: slideinfromright;
+}
+
+.slide-in-from-right>header h1
+{
+	-webkit-animation-name: slidefadeinfromright;
+	-moz-animation-name: slidefadeinfromright;
+	animation-name: slidefadeinfromright;
+}
+
+.slide-in-from-right>header .header-button
+{
+	-webkit-animation-name: fadein;
+	-moz-animation-name: fadein;
+	animation-name: fadein;
+}
+
+.slide-in-from-right>header .header-back-button
+{
+	-webkit-animation-name: backinfromcenter;
+	-moz-animation-name: backinfromcenter;
+	animation-name: backinfromcenter;
+}
+
+.slide-in-from-left>.scroll
+{
+	-webkit-animation-name: slideinfromleft;
+	-moz-animation-name: slideinfromleft;
+	animation-name: slideinfromleft;
+}
+.slide-in-from-left>header h1
+{
+	-webkit-animation-name: slidefadeinfromleft;
+	-moz-animation-name: slidefadeinfromleft;
+	animation-name: slidefadeinfromleft;
+}
+
+.slide-in-from-left>header .header-button
+{
+	-webkit-animation-name: fadein;
+	-moz-animation-name: fadein;
+	animation-name: fadein;
+}
+
+.slide-in-from-left>header .header-back-button
+{
+	-webkit-animation-name: backinfromleft;
+	-moz-animation-name: backinfromleft;
+	animation-name: backinfromleft;
+}
+
+.slide-in-from-bottom
+{
+	-webkit-animation-name: slideinfrombottom;
+	-moz-animation-name: slideinfrombottom;
+	animation-name: slideinfrombottom;
+}
+
+.slide-out-to-right>.scroll
+{
+	-webkit-animation-name: slideouttoright;
+	-moz-animation-name: slideouttoright;
+	animation-name: slideouttoright;
+}
+.slide-out-to-right>header h1
+{
+	-webkit-animation-name: slidefadeouttoright;
+	-moz-animation-name: slidefadeouttoright;
+	animation-name: slidefadeouttoright;
+}
+
+.slide-out-to-right>header .header-button
+{
+	-webkit-animation-name: fadeout;
+	-moz-animation-name: fadeout;
+	animation-name: fadeout;
+}
+
+.slide-out-to-right>header .header-back-button
+{
+	-webkit-animation-name: backouttocenter;
+	-moz-animation-name: backouttocenter;
+	animation-name: backouttocenter;
+}
+
+.slide-out-to-left>.scroll
+{
+	-webkit-animation-name: slideouttoleft;
+	-moz-animation-name: slideouttoleft;
+	animation-name: slideouttoleft;
+}
+
+.slide-out-to-left>header h1
+{
+	-webkit-animation-name: slidefadeouttoleft;
+	-moz-animation-name: slidefadeouttoleft;
+	animation-name: slidefadeouttoleft;
+}
+
+.slide-out-to-left>header .header-button
+{
+	-webkit-animation-name: fadeout;
+	-moz-animation-name: fadeout;
+	animation-name: fadeout;
+}
+
+.slide-out-to-left>header .header-back-button
+{
+	-webkit-animation-name: backouttoleft;
+	-moz-animation-name: backouttoleft;
+	animation-name: backouttoleft;
+}
+
+.slide-out-to-bottom
+{
+	-webkit-animation-name: slideouttobottom;
+	-moz-animation-name: slideouttobottom;
+	animation-name: slideouttobottom;
+}
+
+
+
+.viewport-flip {
+	-webkit-perspective: 1000;
+	background-color: #000;
+}
+.viewport-flip header.fake{
+	visibility: hidden;
+}
+
+.flip {
+	background-color: #fff;
+	-webkit-animation-timing-function: ease-in-out;
+	-webkit-animation-duration: .7s;
+	-webkit-backface-visibility: hidden;
+	-webkit-transform: none;
+	border: 1px solid #000;
+	margin: -1px;
+/*	pointer-events: none;*/
+}
+.slow-anim .flip{
+	-webkit-animation-duration: 7s;
+}
+
+.flip-out-to-left {
+	-webkit-animation-name: flipouttoleft;
+}
+.flip-out-to-right {
+	-webkit-animation-name: flipouttoright;
+}
+.flip-in-from-left {
+	-webkit-animation-name: flipinfromleft;        
+}
+.flip-in-from-right {
+	-webkit-animation-name: flipinfromright;
+}

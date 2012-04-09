@@ -3,7 +3,6 @@
 }
 
 .view {
-    background: transparent url(../img/bg.png);
     position: absolute;
     width: 100%;
     height: 100%;
@@ -15,10 +14,11 @@
     
     -webkit-box-orient: vertical;
     -moz-box-orient: vertical;
-    box-orient: vertical;
+    box-orient: vertical;    
 }
 
 .scroll {
+    background: transparent url(../img/bg.png);    
     -webkit-overflow-scrolling: touch;
     height: 300px;
     -webkit-box-flex: 1;
