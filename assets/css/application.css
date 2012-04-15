@@ -1423,9 +1423,9 @@ select {
 }
 
 /* line 41, ../scss/layout/_menu.scss */
-.menu-home #menu-home,
-.menu-lists #menu-lists,
-.menu-online #menu-online {
+.menu-home #menu-li-home,
+.menu-lists #menu-li-lists,
+.menu-online #menu-li-online {
   background: #fbe4ce;
 }
 

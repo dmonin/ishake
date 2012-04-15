@@ -123,7 +123,9 @@ iShake.App = function()
             
             $('.menu-button').on(evt, function(e) {
                 menu.addClass('visible');
-                menu.addClass(location.hash.replace('#/', ''));
+                var page = location.hash.replace('#/', '');
+                page = page || 'home';
+                menu.addClass('menu-' + page);
                 
                 if (me.timerId)
                 {
@@ -136,7 +138,7 @@ iShake.App = function()
                        e.stopPropagation();
                        if (!$(e.target).hasClass('menu-button'))
                        {
-                           menu.removeClass('visible home lists online');
+                           menu.removeClass('visible menu-home menu-lists menu-online');
                            
                        }                       
                     });
