@@ -1,9 +1,4 @@
-html {
-    height: 100%;
-}
-
-body {
-    background-color: #fff;
+html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-size: 16px;
     margin: 0;
@@ -13,6 +8,15 @@ body {
     position: relative;
     word-wrap: break-word;
 }
+#page
+{
+    background: #f00;
+    
+    height: 100%;
+    position: relative;
+    width: 100%;
+}
+
 header {
     @include background(url(../img/common/nav-toolbar.gif), linear-gradient(top, #FFAC2A, #E58D23));
     
@@ -25,6 +29,7 @@ header {
     line-height: 44px;
     position: relative;
     -webkit-user-select: none;
+    z-index: 2;
     
     a {
         -webkit-touch-callout: none;
@@ -45,6 +50,25 @@ header {
 
 .button {
     cursor: pointer;
+}
+
+.icon-button {
+    background: #ea841f sprite($sprite, menu-hover) no-repeat;
+    border-radius: 5px;
+    
+    display: block;
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    z-index: 10;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    
+    &.tappable-active
+    {
+        background-color: #000;
+    }
 }
 
 // State for offline buttons

@@ -1,0 +1,186 @@
+@-webkit-keyframes shake {
+    0% {
+            -webkit-transform: rotate(0deg);
+    }
+    33% {
+            -webkit-transform: rotate(+15deg);
+    }
+    66% {
+            -webkit-transform: rotate(-15deg);
+    }
+    100% {
+            -webkit-transform: rotate(0deg);
+    }
+}
+
+#result {
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    color: #000;
+    font-family: "gooddognew";
+    font-size: 30px;
+    padding: 10px;
+    position: absolute;
+    top: 118px;
+    text-align: center; 
+    width: 100%;
+    
+    -webkit-transition: all .5s;    
+    -webkit-transform: rotate3d(0, 0, 0, 0deg);
+    -webkit-transform-style: preserve-3d;
+    
+    .ready & {
+        display: none;
+    }
+    
+    
+    &.shaking {
+        color: transparent;
+        text-shadow: 0 0 8px #000;
+        -webkit-animation: shake .2s infinite linear;
+        -moz-animation:    shake .2s infinite linear;
+        -ms-animation:     shake .2s infinite linear;
+    }
+
+}
+
+.animate {
+    -webkit-animation-name: spaceboots;
+    -webkit-animation-duration: 0.8s;
+    -webkit-animation-delay: 0.3s;
+    -webkit-transform-origin:50% 50%;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+}
+
+#phone {
+    background: transparent url(../img/shake-animation/phone.png) no-repeat center top;
+    font-family: "gooddognew";
+    font-size: 20pt;
+    display: none;
+    left: 50%;
+    margin-left: -100px;
+    margin-top: -80px;
+    padding-top: 60px;
+    position: absolute;
+    top: 50%;
+    width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: center;
+    
+    .ready & {
+        display: block;
+    }
+}
+
+.shake-lines {
+    background: transparent url(../img/shake-animation/shake-lines.png) no-repeat;
+    height: 48px;
+    opacity: 0;
+    position: absolute;
+    top: 0px;
+    width: 22px;
+    @include transition(opacity .5s .3s);
+    
+    .animate &
+    {
+        @extend .animate;
+        opacity: 1;
+        
+    }
+}
+
+#phone-left {
+    left: 40px;    
+    -webkit-transform: rotate(-180deg);
+    
+    .animate & {
+        -webkit-animation-name: spaceboots-rotated;
+    }
+}
+
+#phone-right {
+    right: 40px;    
+    
+}
+
+/*#phone-text
+{
+    visibility: hidden;
+    
+    .animate &
+    {
+        visibility: visible;
+    }
+}*/
+
+
+@-webkit-keyframes spaceboots {
+    0% { -webkit-transform: translate(2px, 1px) rotate(0deg); }
+    10% { -webkit-transform: translate(-1px, -2px) rotate(-1deg); }
+    20% { -webkit-transform: translate(-3px, 0px) rotate(1deg); }
+    30% { -webkit-transform: translate(0px, 2px) rotate(0deg); }
+    40% { -webkit-transform: translate(1px, -1px) rotate(1deg); }
+    50% { -webkit-transform: translate(-1px, 2px) rotate(-1deg); }
+    60% { -webkit-transform: translate(-3px, 1px) rotate(0deg); }
+    70% { -webkit-transform: translate(2px, 1px) rotate(-1deg); }
+    80% { -webkit-transform: translate(-1px, -1px) rotate(1deg); }
+    90% { -webkit-transform: translate(2px, 2px) rotate(0deg); }
+    100% { -webkit-transform: translate(1px, -2px) rotate(-1deg); }
+}
+
+@-webkit-keyframes spaceboots-rotated {
+    0% { -webkit-transform: translate(2px, 1px) rotate(-180deg); }
+    10% { -webkit-transform: translate(-1px, -2px) rotate(-179deg); }
+    20% { -webkit-transform: translate(-3px, 0px) rotate(-181deg); }
+    30% { -webkit-transform: translate(0px, 2px) rotate(-180deg); }
+    40% { -webkit-transform: translate(1px, -1px) rotate(-181deg); }
+    50% { -webkit-transform: translate(-1px, 2px) rotate(-179deg); }
+    60% { -webkit-transform: translate(-3px, 1px) rotate(-180deg); }
+    70% { -webkit-transform: translate(2px, 1px) rotate(-179deg); }
+    80% { -webkit-transform: translate(-1px, -1px) rotate(-181deg); }
+    90% { -webkit-transform: translate(2px, 2px) rotate(-180deg); }
+    100% { -webkit-transform: translate(1px, -2px) rotate(-179deg); }
+}
+
+.backside-button {
+    background-position: sprite-position($sprite, rotate);
+    bottom: 20px;
+    left: 20px;
+    opacity: 0;
+    
+    visibility: hidden;
+    
+    @include transition(opacity .5s);
+    
+    .has-backside &,
+    #view-homeback & {
+        opacity: 1;
+        visibility: visible;
+    }
+    
+    &.tappable-active {
+        background-color: #000;
+    }
+}
+
+
+#backside-text {
+    -webkit-box-sizing: border-box;
+    -webkit-user-select: none;
+    box-sizing: border-box;
+    color: #000;
+    font-size: 16pt;
+    padding: 10px;
+    position: absolute;
+    top: 118px;
+    text-align: center; 
+    width: 100%;
+}
+
+.home-menu-button {
+    background-position: sprite-position($sprite, menu-hover, 4px, 5px);
+    top: 5px;
+    right: 5px;    
+}

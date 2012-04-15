@@ -1,0 +1,37 @@
+.facebook-login
+{
+    background: #637bad sprite($sprite, facebook, -1px, -1px) no-repeat;
+    border: 1px solid #29447e;
+    @include box-sizing(border-box);
+    color: #fff;    
+    display: block;
+    height: 39px;
+    padding: 8px 0 0 50px;
+    position: relative;
+    text-decoration: none;
+    
+    &.tappable-active
+    {
+        background-color: #1a356e;
+    }
+}
+
+.separator
+{
+    border-top: 1px solid #ccc;
+    margin-top: 15px;
+    padding-top: 1px;
+    text-align: center;
+    
+    -webkit-user-select: none;
+    
+    strong
+    {
+        background: #fff;
+        color: #999;
+        display: inline-block;
+        padding: 0 10px;
+        position: relative;
+        top: -13px;
+    }
+}

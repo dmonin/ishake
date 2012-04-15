@@ -1,0 +1,15 @@
+@import "form/core";
+@import "form/checkbox";
+
+select
+{
+    background: transparent url(../img/dropdown-arrow.png) right 15px no-repeat;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    height: 44px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    padding-left: 13px;
+    -webkit-appearance: none;
+    width: 100%;
+}

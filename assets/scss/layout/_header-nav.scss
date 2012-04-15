@@ -1,5 +1,4 @@
-.header-button
-{
+.header-button {
     @include box-sizing(border-box);
     
     
@@ -25,13 +24,11 @@
     
 }
 
-.header-button.hidden
-{
+.header-button.hidden {
     display: none;
 }
 
-.header-button.button
-{
+.header-button.button {
 /*    border: 1px solid rgba(255, 255, 255, .5);
     border-radius: 5px;*/
     
@@ -39,19 +36,16 @@
     -webkit-background-size: 0 0;
     border-width: 2px 5px;
     
-    &.tappable-active
-    {
+    &.tappable-active {
         -webkit-border-image: url(../img/iphone/button-orange-active.png) 4 10 4 10;
     }
 }
 
-.header-button.button-back
-{
+.header-button.button-back {
     border-width: 2px 4px 2px 13px;
     -webkit-border-image: url(../img/iphone/button-back-orange.png) 4 8 4 26;
     
-    &.tappable-active
-    {
+    &.tappable-active {
         -webkit-border-image: url(../img/iphone/button-back-orange-active.png) 4 8 4 26;        
     }
 }
@@ -66,7 +60,7 @@
     right: 5px;
 }
 
-#header-button-lists
+.header-button-menu
 {
     background: transparent sprite($sprite, menu, 10px, 12px) no-repeat;
     height: 44px;

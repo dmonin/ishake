@@ -1,11 +1,5 @@
 /* line 1, ../scss/layout/_core.scss */
-html {
-  height: 100%;
-}
-
-/* line 5, ../scss/layout/_core.scss */
-body {
-  background-color: #fff;
+html, body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-size: 16px;
   margin: 0;
@@ -16,7 +10,15 @@ body {
   word-wrap: break-word;
 }
 
-/* line 16, ../scss/layout/_core.scss */
+/* line 12, ../scss/layout/_core.scss */
+#page {
+  background: #f00;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+/* line 20, ../scss/layout/_core.scss */
 header, #fake-header {
   background: url(../img/common/nav-toolbar.gif), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffac2a), color-stop(100%, #e58d23));
   background: url(../img/common/nav-toolbar.gif), -webkit-linear-gradient(top, #ffac2a, #e58d23);
@@ -29,16 +31,17 @@ header, #fake-header {
   line-height: 44px;
   position: relative;
   -webkit-user-select: none;
+  z-index: 2;
 }
-/* line 19, ../scss/layout/_core.scss */
+/* line 23, ../scss/layout/_core.scss */
 .sliding header, .sliding #fake-header {
   background: transparent;
 }
-/* line 29, ../scss/layout/_core.scss */
+/* line 34, ../scss/layout/_core.scss */
 header a, #fake-header a {
   -webkit-touch-callout: none;
 }
-/* line 33, ../scss/layout/_core.scss */
+/* line 38, ../scss/layout/_core.scss */
 header h1, #fake-header h1 {
   padding: 0;
   text-align: center;
@@ -51,19 +54,36 @@ header h1, #fake-header h1 {
   /*                opacity: .5;*/
 }
 
-/* line 46, ../scss/layout/_core.scss */
+/* line 51, ../scss/layout/_core.scss */
 .button {
   cursor: pointer;
 }
 
-/* line 51, ../scss/layout/_core.scss */
+/* line 55, ../scss/layout/_core.scss */
+.icon-button {
+  background: #ea841f url('../img/sprite-s71aefe151b.png') 0 -329px no-repeat;
+  border-radius: 5px;
+  display: block;
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  z-index: 10;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+}
+/* line 69, ../scss/layout/_core.scss */
+.icon-button.tappable-active {
+  background-color: #000;
+}
+
+/* line 75, ../scss/layout/_core.scss */
 .offline .online {
   cursor: default;
   opacity: .2;
   pointer-events: none;
 }
 
-/* line 57, ../scss/layout/_core.scss */
+/* line 81, ../scss/layout/_core.scss */
 #no-connection-msg {
   background: rgba(0, 0, 0, 0.5);
   -moz-box-sizing: border-box;
@@ -92,7 +112,7 @@ header h1, #fake-header h1 {
   src: url("../fonts/gooddog-new/gooddog_new-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/gooddog-new/gooddog_new-webfont.woff") format("woff"), url("../fonts/gooddog-new/gooddog_new-webfont.ttf") format("truetype"), url("../fonts/gooddog-new/gooddog_new-webfont.svg#GoodDogNewRegular") format("svg");
 }
 
-/* line 2, ../scss/layout/_header-nav.scss */
+/* line 1, ../scss/layout/_header-nav.scss */
 .header-button {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -115,12 +135,12 @@ header h1, #fake-header h1 {
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
-/* line 29, ../scss/layout/_header-nav.scss */
+/* line 27, ../scss/layout/_header-nav.scss */
 .header-button.hidden {
   display: none;
 }
 
-/* line 34, ../scss/layout/_header-nav.scss */
+/* line 31, ../scss/layout/_header-nav.scss */
 .header-button.button {
   /*    border: 1px solid rgba(255, 255, 255, .5);
       border-radius: 5px;*/
@@ -128,47 +148,47 @@ header h1, #fake-header h1 {
   -webkit-background-size: 0 0;
   border-width: 2px 5px;
 }
-/* line 43, ../scss/layout/_header-nav.scss */
+/* line 39, ../scss/layout/_header-nav.scss */
 .header-button.button.tappable-active {
   -webkit-border-image: url(../img/iphone/button-orange-active.png) 4 10 4 10;
 }
 
-/* line 49, ../scss/layout/_header-nav.scss */
+/* line 44, ../scss/layout/_header-nav.scss */
 .header-button.button-back {
   border-width: 2px 4px 2px 13px;
   -webkit-border-image: url(../img/iphone/button-back-orange.png) 4 8 4 26;
 }
-/* line 54, ../scss/layout/_header-nav.scss */
+/* line 48, ../scss/layout/_header-nav.scss */
 .header-button.button-back.tappable-active {
   -webkit-border-image: url(../img/iphone/button-back-orange-active.png) 4 8 4 26;
 }
 
-/* line 60, ../scss/layout/_header-nav.scss */
+/* line 54, ../scss/layout/_header-nav.scss */
 .header-button-left {
   left: 5px;
 }
 
-/* line 65, ../scss/layout/_header-nav.scss */
+/* line 59, ../scss/layout/_header-nav.scss */
 .header-button-right {
   right: 5px;
 }
 
-/* line 70, ../scss/layout/_header-nav.scss */
-#header-button-lists {
-  background: transparent url('../img/sprite-sd673589886.png') 10px -297px no-repeat;
+/* line 64, ../scss/layout/_header-nav.scss */
+.header-button-menu {
+  background: transparent url('../img/sprite-s71aefe151b.png') 10px -386px no-repeat;
   height: 44px;
   right: 5px;
   top: 0px;
   width: 44px;
 }
-/* line 78, ../scss/layout/_header-nav.scss */
-#header-button-lists.tappable-active {
-  background-position: 10px -228px;
+/* line 72, ../scss/layout/_header-nav.scss */
+.header-button-menu.tappable-active {
+  background-position: 10px -317px;
 }
 
 /* line 1, ../scss/layout/_view.scss */
 .view.hidden {
-  display: none;
+  left: -9999px;
 }
 
 /* line 5, ../scss/layout/_view.scss */
@@ -179,6 +199,8 @@ header h1, #fake-header h1 {
   display: -webkit-box;
   display: -moz-box;
   display: box;
+  top: 0;
+  left: 0;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -186,13 +208,12 @@ header h1, #fake-header h1 {
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   box-orient: vertical;
+  z-index: 2;
 }
 
-/* line 20, ../scss/layout/_view.scss */
+/* line 22, ../scss/layout/_view.scss */
 .scroll {
   background: transparent url(../img/bg.png);
-  -webkit-overflow-scrolling: touch;
-  height: 300px;
   -webkit-box-flex: 1;
   -moz-box-flex: 1;
   box-flex: 1;
@@ -203,10 +224,11 @@ header h1, #fake-header h1 {
   -webkit-box-orient: vertical;
   -moz-box-orient: vertical;
   box-orient: vertical;
-  height: 100%;
+  /*    height: 100%;*/
+  -webkit-overflow-scrolling: touch;
 }
 
-/* line 5, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 5, ../scss/layout/animation/_core.scss */
 #fake-header {
   left: 0;
   display: none;
@@ -214,7 +236,7 @@ header h1, #fake-header h1 {
   top: 0;
   width: 100%;
 }
-/* line 13, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 13, ../scss/layout/animation/_core.scss */
 .sliding #fake-header {
   background: url(../img/common/nav-toolbar.gif), -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffac2a), color-stop(100%, #e58d23));
   background: url(../img/common/nav-toolbar.gif), -webkit-linear-gradient(top, #ffac2a, #e58d23);
@@ -225,7 +247,7 @@ header h1, #fake-header h1 {
   display: block;
 }
 
-/* line 24, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 24, ../scss/layout/animation/_core.scss */
 .view,
 .view > .scroll,
 .view > header h1,
@@ -240,7 +262,7 @@ header h1, #fake-header h1 {
   animation-duration: 350ms;
 }
 
-/* line 35, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 35, ../scss/layout/animation/_core.scss */
 .slow-anim .view,
 .slow-anim .view > .scroll,
 .slow-anim .view > header h1,
@@ -252,149 +274,149 @@ header h1, #fake-header h1 {
   animation-duration: 3.5s;
 }
 
-/* line 41, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 41, ../scss/layout/animation/_core.scss */
 .sliding {
-  /*	pointer-events: none;*/
+  pointer-events: none;
 }
 
-/* line 46, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 45, ../scss/layout/animation/_core.scss */
 .slide-in-from-right > .scroll {
   -webkit-animation-name: slideinfromright;
   -moz-animation-name: slideinfromright;
   animation-name: slideinfromright;
 }
 
-/* line 53, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 51, ../scss/layout/animation/_core.scss */
 .slide-in-from-right > header h1, .slide-in-from-right > #fake-header h1 {
   -webkit-animation-name: slidefadeinfromright;
   -moz-animation-name: slidefadeinfromright;
   animation-name: slidefadeinfromright;
 }
 
-/* line 60, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 57, ../scss/layout/animation/_core.scss */
 .slide-in-from-right > header .header-button, .slide-in-from-right > #fake-header .header-button {
   -webkit-animation-name: fadein;
   -moz-animation-name: fadein;
   animation-name: fadein;
 }
 
-/* line 67, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 63, ../scss/layout/animation/_core.scss */
 .slide-in-from-right > header .header-back-button, .slide-in-from-right > #fake-header .header-back-button {
   -webkit-animation-name: backinfromcenter;
   -moz-animation-name: backinfromcenter;
   animation-name: backinfromcenter;
 }
 
-/* line 74, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 69, ../scss/layout/animation/_core.scss */
 .slide-in-from-left > .scroll {
   -webkit-animation-name: slideinfromleft;
   -moz-animation-name: slideinfromleft;
   animation-name: slideinfromleft;
 }
 
-/* line 80, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 75, ../scss/layout/animation/_core.scss */
 .slide-in-from-left > header h1, .slide-in-from-left > #fake-header h1 {
   -webkit-animation-name: slidefadeinfromleft;
   -moz-animation-name: slidefadeinfromleft;
   animation-name: slidefadeinfromleft;
 }
 
-/* line 87, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 81, ../scss/layout/animation/_core.scss */
 .slide-in-from-left > header .header-button, .slide-in-from-left > #fake-header .header-button {
   -webkit-animation-name: fadein;
   -moz-animation-name: fadein;
   animation-name: fadein;
 }
 
-/* line 94, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 87, ../scss/layout/animation/_core.scss */
 .slide-in-from-left > header .header-back-button, .slide-in-from-left > #fake-header .header-back-button {
   -webkit-animation-name: backinfromleft;
   -moz-animation-name: backinfromleft;
   animation-name: backinfromleft;
 }
 
-/* line 101, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 93, ../scss/layout/animation/_core.scss */
 .slide-in-from-bottom {
   -webkit-animation-name: slideinfrombottom;
   -moz-animation-name: slideinfrombottom;
   animation-name: slideinfrombottom;
 }
 
-/* line 108, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 99, ../scss/layout/animation/_core.scss */
 .slide-out-to-right > .scroll {
   -webkit-animation-name: slideouttoright;
   -moz-animation-name: slideouttoright;
   animation-name: slideouttoright;
 }
 
-/* line 114, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 104, ../scss/layout/animation/_core.scss */
 .slide-out-to-right > header h1, .slide-out-to-right > #fake-header h1 {
   -webkit-animation-name: slidefadeouttoright;
   -moz-animation-name: slidefadeouttoright;
   animation-name: slidefadeouttoright;
 }
 
-/* line 121, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 110, ../scss/layout/animation/_core.scss */
 .slide-out-to-right > header .header-button, .slide-out-to-right > #fake-header .header-button {
   -webkit-animation-name: fadeout;
   -moz-animation-name: fadeout;
   animation-name: fadeout;
 }
 
-/* line 128, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 116, ../scss/layout/animation/_core.scss */
 .slide-out-to-right > header .header-back-button, .slide-out-to-right > #fake-header .header-back-button {
   -webkit-animation-name: backouttocenter;
   -moz-animation-name: backouttocenter;
   animation-name: backouttocenter;
 }
 
-/* line 135, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 122, ../scss/layout/animation/_core.scss */
 .slide-out-to-left > .scroll {
   -webkit-animation-name: slideouttoleft;
   -moz-animation-name: slideouttoleft;
   animation-name: slideouttoleft;
 }
 
-/* line 142, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 128, ../scss/layout/animation/_core.scss */
 .slide-out-to-left > header h1, .slide-out-to-left > #fake-header h1 {
   -webkit-animation-name: slidefadeouttoleft;
   -moz-animation-name: slidefadeouttoleft;
   animation-name: slidefadeouttoleft;
 }
 
-/* line 149, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 134, ../scss/layout/animation/_core.scss */
 .slide-out-to-left > header .header-button, .slide-out-to-left > #fake-header .header-button {
   -webkit-animation-name: fadeout;
   -moz-animation-name: fadeout;
   animation-name: fadeout;
 }
 
-/* line 156, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 140, ../scss/layout/animation/_core.scss */
 .slide-out-to-left > header .header-back-button, .slide-out-to-left > #fake-header .header-back-button {
   -webkit-animation-name: backouttoleft;
   -moz-animation-name: backouttoleft;
   animation-name: backouttoleft;
 }
 
-/* line 163, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 146, ../scss/layout/animation/_core.scss */
 .slide-out-to-bottom {
   -webkit-animation-name: slideouttobottom;
   -moz-animation-name: slideouttobottom;
   animation-name: slideouttobottom;
 }
 
-/* line 171, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 152, ../scss/layout/animation/_core.scss */
 .viewport-flip {
   -webkit-perspective: 1000;
   background-color: #000;
 }
 
-/* line 175, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 156, ../scss/layout/animation/_core.scss */
 .viewport-flip header.fake, .viewport-flip .fake#fake-header {
   visibility: hidden;
 }
 
-/* line 179, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 160, ../scss/layout/animation/_core.scss */
 .flip {
   background-color: #fff;
   -webkit-animation-timing-function: ease-in-out;
@@ -406,93 +428,93 @@ header h1, #fake-header h1 {
   /*	pointer-events: none;*/
 }
 
-/* line 189, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 170, ../scss/layout/animation/_core.scss */
 .slow-anim .flip {
   -webkit-animation-duration: 7s;
 }
 
-/* line 193, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 174, ../scss/layout/animation/_core.scss */
 .flip-out-to-left {
   -webkit-animation-name: flipouttoleft;
 }
 
-/* line 196, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 177, ../scss/layout/animation/_core.scss */
 .flip-out-to-right {
   -webkit-animation-name: flipouttoright;
 }
 
-/* line 199, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 180, ../scss/layout/animation/_core.scss */
 .flip-in-from-left {
   -webkit-animation-name: flipinfromleft;
 }
 
-/* line 202, e:/Development/Sites/ishake/assets/scss/layout/animation/_core.scss */
+/* line 183, ../scss/layout/animation/_core.scss */
 .flip-in-from-right {
   -webkit-animation-name: flipinfromright;
 }
 
 @-webkit-keyframes slideinfromright {
-  /* line 2, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 2, ../scss/layout/animation/_slide.scss */
   from {
     -webkit-transform: translateX(100%);
   }
 
-  /* line 3, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 3, ../scss/layout/animation/_slide.scss */
   to {
     -webkit-transform: translateX(0);
   }
 }
 
 @-webkit-keyframes slideinfromleft {
-  /* line 6, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 6, ../scss/layout/animation/_slide.scss */
   from {
     -webkit-transform: translateX(-100%);
   }
 
-  /* line 7, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 7, ../scss/layout/animation/_slide.scss */
   to {
     -webkit-transform: translateX(0);
   }
 }
 
 @-webkit-keyframes slideouttoleft {
-  /* line 10, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 10, ../scss/layout/animation/_slide.scss */
   from {
     -webkit-transform: translateX(0);
   }
 
-  /* line 11, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 11, ../scss/layout/animation/_slide.scss */
   to {
     -webkit-transform: translateX(-100%);
   }
 }
 
 @-webkit-keyframes slideouttoright {
-  /* line 14, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 14, ../scss/layout/animation/_slide.scss */
   from {
     -webkit-transform: translateX(0);
   }
 
-  /* line 15, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 15, ../scss/layout/animation/_slide.scss */
   to {
     -webkit-transform: translateX(100%);
   }
 }
 
 @-webkit-keyframes slidefadeinfromright {
-  /* line 19, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 19, ../scss/layout/animation/_slide.scss */
   0% {
     -webkit-transform: translateX(60%);
     opacity: 0;
   }
 
-  /* line 25, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 25, ../scss/layout/animation/_slide.scss */
   99% {
     -webkit-transform: translateX(0);
     opacity: 1;
   }
 
-  /* line 30, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 30, ../scss/layout/animation/_slide.scss */
   100% {
     -webkit-transform: translateX(0);
     opacity: 1;
@@ -500,19 +522,19 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes slidefadeinfromleft {
-  /* line 36, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 36, ../scss/layout/animation/_slide.scss */
   0% {
     -webkit-transform: translateX(-60%);
     opacity: 0;
   }
 
-  /* line 40, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 40, ../scss/layout/animation/_slide.scss */
   99% {
     -webkit-transform: translateX(0);
     opacity: 1;
   }
 
-  /* line 45, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 45, ../scss/layout/animation/_slide.scss */
   100% {
     -webkit-transform: translateX(0);
     opacity: 1;
@@ -520,19 +542,19 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes slidefadeouttoleft {
-  /* line 51, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 51, ../scss/layout/animation/_slide.scss */
   0% {
     -webkit-transform: translateX(0);
     opacity: 1;
   }
 
-  /* line 56, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 56, ../scss/layout/animation/_slide.scss */
   99% {
     -webkit-transform: translateX(-60%);
     opacity: 0;
   }
 
-  /* line 61, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 61, ../scss/layout/animation/_slide.scss */
   100% {
     -webkit-transform: translateX(-60%);
     opacity: 0;
@@ -540,19 +562,19 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes slidefadeouttoright {
-  /* line 67, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 67, ../scss/layout/animation/_slide.scss */
   0% {
     -webkit-transform: translateX(0);
     opacity: 1;
   }
 
-  /* line 72, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 72, ../scss/layout/animation/_slide.scss */
   99% {
     -webkit-transform: translateX(60%);
     opacity: 0;
   }
 
-  /* line 77, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 77, ../scss/layout/animation/_slide.scss */
   100% {
     -webkit-transform: translateX(60%);
     opacity: 0;
@@ -560,37 +582,37 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes fadein {
-  /* line 84, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 84, ../scss/layout/animation/_slide.scss */
   from {
     opacity: 0;
   }
 
-  /* line 85, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 85, ../scss/layout/animation/_slide.scss */
   to {
     opacity: 1;
   }
 }
 
 @-webkit-keyframes fadeout {
-  /* line 88, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 88, ../scss/layout/animation/_slide.scss */
   from {
     opacity: 1;
   }
 
-  /* line 89, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 89, ../scss/layout/animation/_slide.scss */
   to {
     opacity: 0;
   }
 }
 
 @-webkit-keyframes backinfromcenter {
-  /* line 94, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 94, ../scss/layout/animation/_slide.scss */
   from {
     -webkit-transform: translateX(200%);
     opacity: 0;
   }
 
-  /* line 98, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 98, ../scss/layout/animation/_slide.scss */
   to {
     left: 0;
     -webkit-transform: translateX(0);
@@ -599,13 +621,13 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes backinfromleft {
-  /* line 105, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 105, ../scss/layout/animation/_slide.scss */
   from {
     -webkit-transform: translateX(-100%);
     opacity: 0;
   }
 
-  /* line 109, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 109, ../scss/layout/animation/_slide.scss */
   to {
     -webkit-transform: translateX(0);
     opacity: 1;
@@ -613,13 +635,13 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes backouttocenter {
-  /* line 115, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 115, ../scss/layout/animation/_slide.scss */
   from {
     -webkit-transform: translateX(0);
     opacity: 1;
   }
 
-  /* line 119, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 119, ../scss/layout/animation/_slide.scss */
   to {
     -webkit-transform: translateX(200%);
     opacity: 0;
@@ -627,13 +649,13 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes backouttoleft {
-  /* line 125, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 125, ../scss/layout/animation/_slide.scss */
   from {
     -webkit-transform: translateX(0);
     opacity: 1;
   }
 
-  /* line 129, e:/Development/Sites/ishake/assets/scss/layout/animation/_slide.scss */
+  /* line 129, ../scss/layout/animation/_slide.scss */
   to {
     -webkit-transform: translateX(-100%);
     opacity: 0;
@@ -641,18 +663,18 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes flipinfromright {
-  /* line 4, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 4, ../scss/layout/animation/_flip.scss */
   from {
     -webkit-transform: rotateY(-180deg) scale(0.65);
     opacity: 0;
   }
 
-  /* line 5, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 5, ../scss/layout/animation/_flip.scss */
   50% {
     opacity: .4;
   }
 
-  /* line 6, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 6, ../scss/layout/animation/_flip.scss */
   to {
     -webkit-transform: rotateY(0) scale(1);
     opacity: 1;
@@ -660,18 +682,18 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes flipinfromleft {
-  /* line 10, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 10, ../scss/layout/animation/_flip.scss */
   from {
     -webkit-transform: rotateY(180deg) scale(0.65);
     opacity: 0;
   }
 
-  /* line 11, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 11, ../scss/layout/animation/_flip.scss */
   50% {
     opacity: .4;
   }
 
-  /* line 12, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 12, ../scss/layout/animation/_flip.scss */
   to {
     -webkit-transform: rotateY(0) scale(1);
     opacity: 1;
@@ -679,18 +701,18 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes flipouttoleft {
-  /* line 16, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 16, ../scss/layout/animation/_flip.scss */
   from {
     -webkit-transform: rotateY(0) scale(1);
     opacity: 1;
   }
 
-  /* line 17, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 17, ../scss/layout/animation/_flip.scss */
   50% {
     opacity: .4;
   }
 
-  /* line 18, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 18, ../scss/layout/animation/_flip.scss */
   to {
     -webkit-transform: rotateY(-180deg) scale(0.65);
     opacity: 0;
@@ -698,20 +720,1104 @@ header h1, #fake-header h1 {
 }
 
 @-webkit-keyframes flipouttoright {
-  /* line 22, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 22, ../scss/layout/animation/_flip.scss */
   from {
     -webkit-transform: rotateY(0) scale(1);
     opacity: 1;
   }
 
-  /* line 23, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 23, ../scss/layout/animation/_flip.scss */
   50% {
     opacity: .4;
   }
 
-  /* line 24, e:/Development/Sites/ishake/assets/scss/layout/animation/_flip.scss */
+  /* line 24, ../scss/layout/animation/_flip.scss */
   to {
     -webkit-transform: rotateY(180deg) scale(0.65);
     opacity: 0;
   }
+}
+
+/* line 2, ../scss/layout/_loader.scss */
+#loader,
+#loader-spinner {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+}
+
+/* line 9, ../scss/layout/_loader.scss */
+#loader {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  height: 80px;
+  margin-left: -40px;
+  margin-top: -40px;
+  visibility: hidden;
+  width: 80px;
+  z-index: 3000;
+}
+/* line 20, ../scss/layout/_loader.scss */
+#loader.visible {
+  visibility: visible;
+}
+
+/* line 26, ../scss/layout/_loader.scss */
+.spinner {
+  display: block;
+  -webkit-background-size: 20px auto;
+  -moz-background-size: 20px auto;
+  background-size: 20px auto;
+  -webkit-animation: loading-sprite 1s step-start infinite;
+  -moz-animation: loading-sprite 1s step-start infinite;
+  animation: loading-sprite 1s step-start infinite;
+  background: transparent url(../img/activity-indicator.png) no-repeat center center;
+  height: 20px;
+  margin-left: -10px;
+  margin-top: -10px;
+  width: 20px;
+  pointer-events: none;
+}
+
+@-webkit-keyframes loading-sprite {
+  /* line 43, ../scss/layout/_loader.scss */
+  0% {
+    background-position: 0 0;
+  }
+
+  /* line 44, ../scss/layout/_loader.scss */
+  8.33% {
+    background-position: 0 -20px;
+  }
+
+  /* line 45, ../scss/layout/_loader.scss */
+  16.67% {
+    background-position: 0 -40px;
+  }
+
+  /* line 46, ../scss/layout/_loader.scss */
+  25% {
+    background-position: 0 -60px;
+  }
+
+  /* line 47, ../scss/layout/_loader.scss */
+  33.33% {
+    background-position: 0 -80px;
+  }
+
+  /* line 48, ../scss/layout/_loader.scss */
+  41.67% {
+    background-position: 0 -100px;
+  }
+
+  /* line 49, ../scss/layout/_loader.scss */
+  50% {
+    background-position: 0 -120px;
+  }
+
+  /* line 50, ../scss/layout/_loader.scss */
+  58.33% {
+    background-position: 0 -140px;
+  }
+
+  /* line 51, ../scss/layout/_loader.scss */
+  66.67% {
+    background-position: 0 -160px;
+  }
+
+  /* line 52, ../scss/layout/_loader.scss */
+  75% {
+    background-position: 0 -180px;
+  }
+
+  /* line 53, ../scss/layout/_loader.scss */
+  83.33% {
+    background-position: 0 -200px;
+  }
+
+  /* line 54, ../scss/layout/_loader.scss */
+  91.67% {
+    background-position: 0 -220px;
+  }
+
+  /* line 55, ../scss/layout/_loader.scss */
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@-moz-keyframes loading-sprite {
+  /* line 58, ../scss/layout/_loader.scss */
+  0% {
+    background-position: 0 0;
+  }
+
+  /* line 59, ../scss/layout/_loader.scss */
+  8.33% {
+    background-position: 0 -20px;
+  }
+
+  /* line 60, ../scss/layout/_loader.scss */
+  16.67% {
+    background-position: 0 -40px;
+  }
+
+  /* line 61, ../scss/layout/_loader.scss */
+  25% {
+    background-position: 0 -60px;
+  }
+
+  /* line 62, ../scss/layout/_loader.scss */
+  33.33% {
+    background-position: 0 -80px;
+  }
+
+  /* line 63, ../scss/layout/_loader.scss */
+  41.67% {
+    background-position: 0 -100px;
+  }
+
+  /* line 64, ../scss/layout/_loader.scss */
+  50% {
+    background-position: 0 -120px;
+  }
+
+  /* line 65, ../scss/layout/_loader.scss */
+  58.33% {
+    background-position: 0 -140px;
+  }
+
+  /* line 66, ../scss/layout/_loader.scss */
+  66.67% {
+    background-position: 0 -160px;
+  }
+
+  /* line 67, ../scss/layout/_loader.scss */
+  75% {
+    background-position: 0 -180px;
+  }
+
+  /* line 68, ../scss/layout/_loader.scss */
+  83.33% {
+    background-position: 0 -200px;
+  }
+
+  /* line 69, ../scss/layout/_loader.scss */
+  91.67% {
+    background-position: 0 -220px;
+  }
+
+  /* line 70, ../scss/layout/_loader.scss */
+  100% {
+    background-position: 0 0;
+  }
+}
+
+@keyframes loading-sprite {
+  /* line 73, ../scss/layout/_loader.scss */
+  0% {
+    background-position: 0 0;
+  }
+
+  /* line 74, ../scss/layout/_loader.scss */
+  8.33% {
+    background-position: 0 -20px;
+  }
+
+  /* line 75, ../scss/layout/_loader.scss */
+  16.67% {
+    background-position: 0 -40px;
+  }
+
+  /* line 76, ../scss/layout/_loader.scss */
+  25% {
+    background-position: 0 -60px;
+  }
+
+  /* line 77, ../scss/layout/_loader.scss */
+  33.33% {
+    background-position: 0 -80px;
+  }
+
+  /* line 78, ../scss/layout/_loader.scss */
+  41.67% {
+    background-position: 0 -100px;
+  }
+
+  /* line 79, ../scss/layout/_loader.scss */
+  50% {
+    background-position: 0 -120px;
+  }
+
+  /* line 80, ../scss/layout/_loader.scss */
+  58.33% {
+    background-position: 0 -140px;
+  }
+
+  /* line 81, ../scss/layout/_loader.scss */
+  66.67% {
+    background-position: 0 -160px;
+  }
+
+  /* line 82, ../scss/layout/_loader.scss */
+  75% {
+    background-position: 0 -180px;
+  }
+
+  /* line 83, ../scss/layout/_loader.scss */
+  83.33% {
+    background-position: 0 -200px;
+  }
+
+  /* line 84, ../scss/layout/_loader.scss */
+  91.67% {
+    background-position: 0 -220px;
+  }
+
+  /* line 85, ../scss/layout/_loader.scss */
+  100% {
+    background-position: 0 0;
+  }
+}
+
+/* line 2, ../scss/layout/_tableview.scss */
+ul.tableview {
+  margin: 0;
+  padding: 0;
+}
+/* line 7, ../scss/layout/_tableview.scss */
+ul.tableview li {
+  border-bottom: 1px solid #dad6d6;
+  list-style: none;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  padding-right: 9px;
+  -webkit-user-select: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  /*.delete-icon,
+  .delete-confirm,*/
+  /*.delete-confirm
+  {
+      overflow: hidden;
+      width: 0;
+      @include transition(width .218s);            
+  }
+  
+  &.deletable
+  {
+      .delete-confirm
+      {
+          width: 80px;
+      }
+      
+      .delete-icon .minus
+      {
+          -webkit-transform: rotate3d(0, 0, 1, -90deg) translateY(1px) translateX(1px);
+      }
+  }
+  
+  .red-button
+  {
+      background:transparent !important;
+      cursor: pointer;
+      text-shadow: #7a0001 0 -1px 0;
+      display: block;
+      border-width: 0 12px;
+      padding: 5px 0 0 0;
+      height: 29px;
+      text-align: center;
+      margin-top: 7px;
+      
+      color:#fff;
+      font-size: 15px;
+      font-weight: bold;
+      
+      -webkit-border-image: url(../img/iphone/red-button.png) 0 12 0 12;
+      -moz-border-image: url(../img/iphone/red-button.png) 0 12 0 12;
+      
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      
+      background-size: 59px 29px;            
+  }*/
+}
+/* line 19, ../scss/layout/_tableview.scss */
+ul.tableview li .item-content,
+ul.tableview li .list-edit {
+  color: #000;
+  display: block;
+  font-size: 20px;
+  height: 44px;
+  line-height: 44px;
+  padding: 0 0 0 45px;
+  -webkit-touch-callout: none;
+  -webkit-box-flex: 1;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+/* line 34, ../scss/layout/_tableview.scss */
+ul.tableview li .list-edit {
+  background: none;
+  border: 0;
+  line-height: 30px;
+  padding-left: 0px;
+}
+/* line 42, ../scss/layout/_tableview.scss */
+ul.tableview li.new-item {
+  position: relative;
+}
+/* line 45, ../scss/layout/_tableview.scss */
+ul.tableview li.new-item .list-edit {
+  position: relative;
+  z-index: 2;
+}
+/* line 51, ../scss/layout/_tableview.scss */
+ul.tableview li.new-item .new-item-empty {
+  color: #999;
+  font-size: 20px;
+  display: none;
+  height: 44px;
+  left: 0;
+  line-height: 44px;
+  position: absolute;
+  top: 0;
+  padding: 0 0 0 47px;
+  pointer-events: none;
+  z-index: 1;
+}
+/* line 66, ../scss/layout/_tableview.scss */
+ul.tableview li.new-item.empty .new-item-empty {
+  display: block;
+}
+/* line 74, ../scss/layout/_tableview.scss */
+ul.tableview li .item-content {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-decoration: none;
+}
+/* line 85, ../scss/layout/_tableview.scss */
+ul.tableview li a.item-content.tappable-active {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffac2a), to(#e58d23));
+}
+/* line 91, ../scss/layout/_tableview.scss */
+ul.tableview li.selected {
+  background: transparent url('../img/sprite-s71aefe151b.png') 9px -537px no-repeat;
+}
+/* line 96, ../scss/layout/_tableview.scss */
+ul.tableview li.inactive {
+  color: #999;
+}
+/* line 101, ../scss/layout/_tableview.scss */
+ul.tableview li .disclosure {
+  background: #ea841f url('../img/sprite-s71aefe151b.png') 0 -80px no-repeat;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  height: 30px;
+  margin-top: 7px;
+  width: 30px;
+  top: 8px;
+  -webkit-touch-callout: none;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+}
+/* line 104, ../scss/layout/_tableview.scss */
+ul.tableview li .disclosure.tappable-active {
+  background-color: #000;
+}
+/* line 129, ../scss/layout/_tableview.scss */
+ul.tableview li .disclosure.plus {
+  background-position: 0 -160px;
+}
+/* line 134, ../scss/layout/_tableview.scss */
+ul.tableview li .disclosure.minus {
+  background-position: 0 0;
+}
+/* line 142, ../scss/layout/_tableview.scss */
+ul.tableview li .item-loader {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+}
+/* line 157, ../scss/layout/_tableview.scss */
+ul.tableview li .item-loader {
+  height: 29px;
+  margin-top: 9px;
+  width: 45px;
+}
+/* line 163, ../scss/layout/_tableview.scss */
+ul.tableview li .item-loader .spinner {
+  display: none;
+  margin-left: 2px;
+}
+/* line 170, ../scss/layout/_tableview.scss */
+ul.tableview li.loading .item-loader .spinner {
+  display: inline-block;
+}
+/* line 175, ../scss/layout/_tableview.scss */
+ul.tableview li .delete-icon {
+  background: transparent url(../img/iphone/delete.png) no-repeat center;
+  background-size: 29px 29px;
+  cursor: pointer;
+  height: 29px;
+  margin-top: 7px;
+  width: 44px;
+  text-align: center;
+}
+/* line 185, ../scss/layout/_tableview.scss */
+ul.tableview li .delete-icon .minus {
+  background: transparent url(../img/iphone/delete-minus.png) no-repeat center;
+  background-size: 29px 29px;
+  height: 29px;
+  display: inline-block;
+  margin-left: 2px;
+  width: 29px;
+  -webkit-transition: -webkit-transform .218s;
+  -webkit-transform: rotate3d(0, 0, 1, 0deg);
+}
+
+/* line 2, ../scss/layout/form/_core.scss */
+.form {
+  padding: 10px;
+}
+
+/* line 7, ../scss/layout/form/_core.scss */
+.form-item {
+  position: relative;
+}
+
+/* line 12, ../scss/layout/form/_core.scss */
+.form-input, .form-input-textarea, .form-input-main {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  font-size: 13pt;
+  height: 42px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  width: 100%;
+  -webkit-appearance: none;
+  -webkit-user-select: text;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-drag: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 32, ../scss/layout/form/_core.scss */
+.form-input-textarea {
+  height: 150px;
+  padding: 10px;
+}
+
+/* line 39, ../scss/layout/form/_core.scss */
+.no-select {
+  -webkit-user-select: none;
+}
+
+/* line 44, ../scss/layout/form/_core.scss */
+.form-input-label {
+  color: #ccc;
+  font-size: 13pt;
+  line-height: 42px;
+  left: 12px;
+  position: absolute;
+  top: -1px;
+  visibility: hidden;
+}
+/* line 54, ../scss/layout/form/_core.scss */
+.empty .form-input-label {
+  visibility: visible;
+}
+
+/* line 65, ../scss/layout/form/_core.scss */
+.form-item .form-input, .form-item .form-input-textarea, .form-item .form-input-main {
+  position: relative;
+  z-index: 2;
+}
+
+/* line 71, ../scss/layout/form/_core.scss */
+.red-button {
+  background: rgba(234, 46, 65, 0.07);
+  border: 1px solid #ccc;
+  color: #ea2e41;
+  font-size: 13pt;
+  height: 42px;
+  padding: 7px;
+  text-shadow: 1px 1px rgba(255, 255, 255, 0.4);
+  text-align: center;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+}
+/* line 83, ../scss/layout/form/_core.scss */
+.red-button.tappable-active {
+  background: rgba(234, 46, 65, 0.12);
+}
+
+/* line 2, ../scss/layout/form/_checkbox.scss */
+.form-item-checkbox {
+  background: transparent;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  font-size: 13pt;
+  height: 42px;
+  margin-bottom: 10px;
+  padding: 0 10px;
+  width: 100%;
+  -webkit-appearance: none;
+  -webkit-user-select: text;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-user-drag: none;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  -webkit-box-orient: horizontal;
+  -moz-box-orient: horizontal;
+  box-orient: horizontal;
+}
+/* line 28, ../scss/layout/form/_checkbox.scss */
+.form-item-checkbox .form-item-label {
+  -webkit-box-flex: 1;
+  box-flex: 1;
+  color: #999;
+  padding-top: 9px;
+}
+/* line 36, ../scss/layout/form/_checkbox.scss */
+.form-item-checkbox input[type=checkbox] {
+  border: 1px solid rgba(150, 150, 150, 0.6);
+  height: 29px;
+  width: 79px;
+  -webkit-appearance: none;
+  -webkit-border-radius: 14px;
+  border-radius: 16px;
+  background-image: url(../img/iphone/switch2.png);
+  background-size: 160px auto;
+  /* 148 / 296 x 27 / 54*/
+  background-size: 148px 27px;
+  background-repeat: no-repeat;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-duration: 350ms;
+  -webkit-animation-name: checkbox-switch-off;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  background-position: -60px 0;
+  box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
+}
+/* line 56, ../scss/layout/form/_checkbox.scss */
+.form-item-checkbox input:checked[type=checkbox] {
+  background-position: -8px 0;
+  -webkit-appearance: none;
+  -webkit-animation-name: checkbox-switch-on;
+}
+/* line 64, ../scss/layout/form/_checkbox.scss */
+.form-item-checkbox .disabled input.form-item-checkbox[type=checkbox],
+.form-item-checkbox input.form-item-checkbox[type=checkbox][disabled] {
+  opacity: 0.5;
+}
+
+@-webkit-keyframes checkbox-switch-on {
+  /* line 73, ../scss/layout/form/_checkbox.scss */
+  from {
+    background-position: -60px 0;
+  }
+
+  /* line 77, ../scss/layout/form/_checkbox.scss */
+  to {
+    background-position: -8px 0;
+  }
+}
+
+@-webkit-keyframes checkbox-switch-off {
+  /* line 85, ../scss/layout/form/_checkbox.scss */
+  from {
+    background-position: -8px 0;
+  }
+
+  /* line 89, ../scss/layout/form/_checkbox.scss */
+  to {
+    background-position: -60px 0;
+  }
+}
+
+/* line 5, ../scss/layout/_form.scss */
+select {
+  background: transparent url(../img/dropdown-arrow.png) right 15px no-repeat;
+  border: 1px solid #ccc;
+  border-radius: 0;
+  height: 44px;
+  margin-bottom: 10px;
+  font-size: 16px;
+  padding-left: 13px;
+  -webkit-appearance: none;
+  width: 100%;
+}
+
+/* line 1, ../scss/layout/_menu.scss */
+#menu {
+  background: #fff;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.1);
+  right: -100px;
+  position: absolute;
+  visibility: hidden;
+  top: 44px;
+  z-index: 5;
+  -moz-transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -moz-transition: right 0.5s;
+  -webkit-transition: right 0.5s;
+  -o-transition: right 0.5s;
+  transition: right 0.5s;
+}
+/* line 13, ../scss/layout/_menu.scss */
+#menu.visible {
+  visibility: visible;
+  right: 0px;
+}
+/* line 19, ../scss/layout/_menu.scss */
+#menu .menu-ul,
+#menu .menu-li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* line 25, ../scss/layout/_menu.scss */
+#menu .menu-li-a {
+  border-top: 1px solid #e2e2e2;
+  color: #4b4b4b;
+  display: block;
+  padding: 10px 15px;
+  text-decoration: none;
+}
+/* line 32, ../scss/layout/_menu.scss */
+#menu .menu-li-a.tappable-active {
+  background: #fbe4ce;
+}
+
+/* line 41, ../scss/layout/_menu.scss */
+.menu-home #menu-home,
+.menu-lists #menu-lists,
+.menu-online #menu-online {
+  background: #fbe4ce;
+}
+
+/* line 1, ../scss/layout/_login-toolbar.scss */
+.login-toolbar {
+  background: transparent url(../img/iphone/footer-toolbar.png) repeat-x;
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  height: 44px;
+  overflow: hidden;
+  text-align: center;
+  -webkit-box-align: center;
+  box-align: center;
+  -webkit-box-pack: center;
+  -moz-box-pack: center;
+  box-pack: center;
+}
+/* line 16, ../scss/layout/_login-toolbar.scss */
+.logged .login-toolbar {
+  display: none;
+}
+/* line 20, ../scss/layout/_login-toolbar.scss */
+.login-toolbar .button {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3a3a3a), color-stop(100%, #1c1c1c));
+  background: -webkit-linear-gradient(top, #3a3a3a, #1c1c1c);
+  background: -moz-linear-gradient(top, #3a3a3a, #1c1c1c);
+  background: -o-linear-gradient(top, #3a3a3a, #1c1c1c);
+  background: -ms-linear-gradient(top, #3a3a3a, #1c1c1c);
+  background: linear-gradient(top, #3a3a3a, #1c1c1c);
+  border-radius: 3px;
+  border: 1px solid #151515;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.3);
+  color: #fff;
+  display: inline-block;
+  margin: 5px;
+  height: 30px;
+  padding: 3px 10px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 12pt;
+  text-shadow: 1px -1px black;
+  text-decoration: none;
+  -webkit-touch-callout: none;
+}
+/* line 38, ../scss/layout/_login-toolbar.scss */
+.login-toolbar .button.tappable-active {
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1c1c1c), color-stop(100%, #3a3a3a));
+  background: -webkit-linear-gradient(top, #1c1c1c, #3a3a3a);
+  background: -moz-linear-gradient(top, #1c1c1c, #3a3a3a);
+  background: -o-linear-gradient(top, #1c1c1c, #3a3a3a);
+  background: -ms-linear-gradient(top, #1c1c1c, #3a3a3a);
+  background: linear-gradient(top, #1c1c1c, #3a3a3a);
+  border-color: #000;
+  /*            box-shadow: 0 0 5px rgba(255, 255, 255, .4);*/
+}
+
+/*@import "layout/scrollable";*/
+@-webkit-keyframes shake {
+  /* line 2, ../scss/view/_home.scss */
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+
+  /* line 5, ../scss/view/_home.scss */
+  33% {
+    -webkit-transform: rotate(15deg);
+  }
+
+  /* line 8, ../scss/view/_home.scss */
+  66% {
+    -webkit-transform: rotate(-15deg);
+  }
+
+  /* line 11, ../scss/view/_home.scss */
+  100% {
+    -webkit-transform: rotate(0deg);
+  }
+}
+
+/* line 16, ../scss/view/_home.scss */
+#result {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #000;
+  font-family: "gooddognew";
+  font-size: 30px;
+  padding: 10px;
+  position: absolute;
+  top: 118px;
+  text-align: center;
+  width: 100%;
+  -webkit-transition: all .5s;
+  -webkit-transform: rotate3d(0, 0, 0, 0deg);
+  -webkit-transform-style: preserve-3d;
+}
+/* line 32, ../scss/view/_home.scss */
+.ready #result {
+  display: none;
+}
+/* line 37, ../scss/view/_home.scss */
+#result.shaking {
+  color: transparent;
+  text-shadow: 0 0 8px #000;
+  -webkit-animation: shake .2s infinite linear;
+  -moz-animation: shake .2s infinite linear;
+  -ms-animation: shake .2s infinite linear;
+}
+
+/* line 47, ../scss/view/_home.scss */
+.animate, .animate .shake-lines {
+  -webkit-animation-name: spaceboots;
+  -webkit-animation-duration: 0.8s;
+  -webkit-animation-delay: 0.3s;
+  -webkit-transform-origin: 50% 50%;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
+}
+
+/* line 56, ../scss/view/_home.scss */
+#phone {
+  background: transparent url(../img/shake-animation/phone.png) no-repeat center top;
+  font-family: "gooddognew";
+  font-size: 20pt;
+  display: none;
+  left: 50%;
+  margin-left: -100px;
+  margin-top: -80px;
+  padding-top: 60px;
+  position: absolute;
+  top: 50%;
+  width: 200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+/* line 72, ../scss/view/_home.scss */
+.ready #phone {
+  display: block;
+}
+
+/* line 77, ../scss/view/_home.scss */
+.shake-lines {
+  background: transparent url(../img/shake-animation/shake-lines.png) no-repeat;
+  height: 48px;
+  opacity: 0;
+  position: absolute;
+  top: 0px;
+  width: 22px;
+  -moz-transition: opacity 0.5s 0.3s;
+  -webkit-transition: opacity 0.5s 0.3s;
+  -o-transition: opacity 0.5s 0.3s;
+  transition: opacity 0.5s 0.3s;
+}
+/* line 87, ../scss/view/_home.scss */
+.animate .shake-lines, .animate .shake-lines .shake-lines {
+  opacity: 1;
+}
+
+/* line 94, ../scss/view/_home.scss */
+#phone-left {
+  left: 40px;
+  -webkit-transform: rotate(-180deg);
+}
+/* line 98, ../scss/view/_home.scss */
+.animate #phone-left, .animate .shake-lines #phone-left {
+  -webkit-animation-name: spaceboots-rotated;
+}
+
+/* line 103, ../scss/view/_home.scss */
+#phone-right {
+  right: 40px;
+}
+
+/*#phone-text
+{
+    visibility: hidden;
+    
+    .animate &
+    {
+        visibility: visible;
+    }
+}*/
+@-webkit-keyframes spaceboots {
+  /* line 120, ../scss/view/_home.scss */
+  0% {
+    -webkit-transform: translate(2px, 1px) rotate(0deg);
+  }
+
+  /* line 121, ../scss/view/_home.scss */
+  10% {
+    -webkit-transform: translate(-1px, -2px) rotate(-1deg);
+  }
+
+  /* line 122, ../scss/view/_home.scss */
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(1deg);
+  }
+
+  /* line 123, ../scss/view/_home.scss */
+  30% {
+    -webkit-transform: translate(0px, 2px) rotate(0deg);
+  }
+
+  /* line 124, ../scss/view/_home.scss */
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(1deg);
+  }
+
+  /* line 125, ../scss/view/_home.scss */
+  50% {
+    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
+  }
+
+  /* line 126, ../scss/view/_home.scss */
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(0deg);
+  }
+
+  /* line 127, ../scss/view/_home.scss */
+  70% {
+    -webkit-transform: translate(2px, 1px) rotate(-1deg);
+  }
+
+  /* line 128, ../scss/view/_home.scss */
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(1deg);
+  }
+
+  /* line 129, ../scss/view/_home.scss */
+  90% {
+    -webkit-transform: translate(2px, 2px) rotate(0deg);
+  }
+
+  /* line 130, ../scss/view/_home.scss */
+  100% {
+    -webkit-transform: translate(1px, -2px) rotate(-1deg);
+  }
+}
+
+@-webkit-keyframes spaceboots-rotated {
+  /* line 134, ../scss/view/_home.scss */
+  0% {
+    -webkit-transform: translate(2px, 1px) rotate(-180deg);
+  }
+
+  /* line 135, ../scss/view/_home.scss */
+  10% {
+    -webkit-transform: translate(-1px, -2px) rotate(-179deg);
+  }
+
+  /* line 136, ../scss/view/_home.scss */
+  20% {
+    -webkit-transform: translate(-3px, 0px) rotate(-181deg);
+  }
+
+  /* line 137, ../scss/view/_home.scss */
+  30% {
+    -webkit-transform: translate(0px, 2px) rotate(-180deg);
+  }
+
+  /* line 138, ../scss/view/_home.scss */
+  40% {
+    -webkit-transform: translate(1px, -1px) rotate(-181deg);
+  }
+
+  /* line 139, ../scss/view/_home.scss */
+  50% {
+    -webkit-transform: translate(-1px, 2px) rotate(-179deg);
+  }
+
+  /* line 140, ../scss/view/_home.scss */
+  60% {
+    -webkit-transform: translate(-3px, 1px) rotate(-180deg);
+  }
+
+  /* line 141, ../scss/view/_home.scss */
+  70% {
+    -webkit-transform: translate(2px, 1px) rotate(-179deg);
+  }
+
+  /* line 142, ../scss/view/_home.scss */
+  80% {
+    -webkit-transform: translate(-1px, -1px) rotate(-181deg);
+  }
+
+  /* line 143, ../scss/view/_home.scss */
+  90% {
+    -webkit-transform: translate(2px, 2px) rotate(-180deg);
+  }
+
+  /* line 144, ../scss/view/_home.scss */
+  100% {
+    -webkit-transform: translate(1px, -2px) rotate(-179deg);
+  }
+}
+
+/* line 147, ../scss/view/_home.scss */
+.backside-button {
+  background-position: 0 -467px;
+  bottom: 20px;
+  left: 20px;
+  opacity: 0;
+  visibility: hidden;
+  -moz-transition: opacity 0.5s;
+  -webkit-transition: opacity 0.5s;
+  -o-transition: opacity 0.5s;
+  transition: opacity 0.5s;
+}
+/* line 158, ../scss/view/_home.scss */
+.has-backside .backside-button, #view-homeback .backside-button {
+  opacity: 1;
+  visibility: visible;
+}
+/* line 163, ../scss/view/_home.scss */
+.backside-button.tappable-active {
+  background-color: #000;
+}
+
+/* line 169, ../scss/view/_home.scss */
+#backside-text {
+  -webkit-box-sizing: border-box;
+  -webkit-user-select: none;
+  box-sizing: border-box;
+  color: #000;
+  font-size: 16pt;
+  padding: 10px;
+  position: absolute;
+  top: 118px;
+  text-align: center;
+  width: 100%;
+}
+
+/* line 182, ../scss/view/_home.scss */
+.home-menu-button {
+  background-position: 4px -324px;
+  top: 5px;
+  right: 5px;
+}
+
+/* line 2, ../scss/view/_item.scss */
+#item-backside-text {
+  height: 160px;
+  opacity: 1;
+  overflow: hidden;
+  -moz-transition: opacity 0.5s, height 0.5s;
+  -webkit-transition: opacity 0.5s, height 0.5s;
+  -o-transition: opacity 0.5s, height 0.5s;
+  transition: opacity 0.5s, height 0.5s;
+}
+/* line 9, ../scss/view/_item.scss */
+#item-backside-text.hidden {
+  height: 0;
+  opacity: 0;
+}
+
+/* line 2, ../scss/view/_user.scss */
+.facebook-login {
+  background: #637bad url('../img/sprite-s71aefe151b.png') -1px -241px no-repeat;
+  border: 1px solid #29447e;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  display: block;
+  height: 39px;
+  padding: 8px 0 0 50px;
+  position: relative;
+  text-decoration: none;
+}
+/* line 14, ../scss/view/_user.scss */
+.facebook-login.tappable-active {
+  background-color: #1a356e;
+}
+
+/* line 20, ../scss/view/_user.scss */
+.separator {
+  border-top: 1px solid #ccc;
+  margin-top: 15px;
+  padding-top: 1px;
+  text-align: center;
+  -webkit-user-select: none;
+}
+/* line 29, ../scss/view/_user.scss */
+.separator strong {
+  background: #fff;
+  color: #999;
+  display: inline-block;
+  padding: 0 10px;
+  position: relative;
+  top: -13px;
 }

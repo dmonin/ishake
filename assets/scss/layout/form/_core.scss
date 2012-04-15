@@ -1,0 +1,87 @@
+.form
+{
+    padding: 10px;
+}
+
+.form-item
+{
+    position: relative;    
+}
+
+.form-input
+{
+    background: transparent;
+    border: 1px solid #ccc;
+    border-radius: 0;
+    font-size: 13pt;
+    height: 42px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    margin-bottom: 10px;
+    padding: 0 10px;
+    width: 100%;
+    
+    -webkit-appearance: none;
+    -webkit-user-select: text;   
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-user-drag: none;
+    
+    @include box-sizing(border-box);
+}
+
+.form-input-textarea
+{
+    @extend .form-input;
+    height: 150px;
+    padding: 10px;
+}
+
+.no-select
+{
+    -webkit-user-select: none;   
+}
+
+.form-input-label
+{
+    color: #ccc;
+    font-size: 13pt;
+    line-height: 42px;
+    left: 12px;
+    position: absolute;
+    top: -1px;
+    
+    visibility: hidden;
+    .empty &
+    {
+        visibility: visible;
+    }
+}
+
+.form-input-main
+{
+    @extend .form-input;
+}
+
+.form-item .form-input
+{
+    position: relative;
+    z-index: 2;
+}
+
+.red-button
+{
+    background: rgba(234, 46, 65, .07);
+    border: 1px solid #ccc;
+    color: #ea2e41;
+    font-size: 13pt;
+    height: 42px;
+    padding: 7px;
+    text-shadow: 1px 1px rgba(255, 255, 255, .4);
+    text-align: center;
+    @include box-sizing(border-box);
+    
+    &.tappable-active
+    {
+        background: rgba(234, 46, 65, .12);
+    }
+}
+

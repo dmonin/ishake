@@ -1,16 +1,34 @@
 iShake = {
     ui: {},
-    view: {}
+    lang: {},
+    view: {},
+    model: {},
+    repository: {},
+    util: {
+        indexOf : function(arr, item)
+        {
+            for (var i = 0; i < arr.length; i++)
+            {
+                if (arr[i] == item)
+                {
+                    return; i;
+                }
+            }
+            
+            return -1;
+        }
+    }
 };
 
 iShake.App = function()
 {
     var currentView,
-        pageTransition = new iShake.ui.PageTransition($(document.body));
+        pageTransition = null;
         
     function switchPage(viewName, id) {
         var nextView = $('#view-' + viewName);
-        
+//        nextView.css('height', window.innerHeight + 'px');
+//        nextView.css('background', '#f00');
         if (!currentView)
         {
             $('.view').addClass('hidden');
@@ -52,8 +70,6 @@ iShake.App = function()
             }
         }      
         
-        currentView = viewName;
-        
         if (currentView && currentView.unload)
         {
             currentView.unload();
@@ -63,10 +79,70 @@ iShake.App = function()
     }
     
     return {
+        server: 'http://lindalino.com/ishake',
+        lang: 'en',
         run: function() {
             console.log('run forest, run!');
             
+            pageTransition = new iShake.ui.PageTransition($(document.body));
+            
+            this.initLanguage();
+            this.initMenu();
             this.initRouting();
+            this.initTouches();
+        },
+        getMsg: function(label)
+        {
+            if (!label)
+            {
+                return label;
+            }
+            
+            return iShake.lang[this.lang][label] || label;
+        },
+        initLanguage: function()
+        {
+            var languages = ['en', 'de'],
+                language = navigator.language.substr(0, 2);
+                
+            this.lang = languages.indexOf(language) != -1 ? language : 'en';
+            
+            var me = this;
+            $('[data-label]').each(function(index, el) {
+                el = $(el);
+                el.html(me.getMsg(el.data('label')));
+            });            
+        },
+        initMenu: function()
+        {
+            var isTouch = "ontouchstart" in window,
+                evt = isTouch ? 'touchstart' : 'mousedown';
+            
+            var me = this,
+                menu = $('#menu');
+            
+            $('.menu-button').on(evt, function(e) {
+                menu.addClass('visible');
+                menu.addClass(location.hash.replace('#/', ''));
+                
+                if (me.timerId)
+                {
+                    clearTimeout(me.timerId);
+                }
+                
+                me.timerId = setTimeout(function() {
+                    $(document.body).one(evt, function(e) {
+                       e.preventDefault();
+                       e.stopPropagation();
+                       if (!$(e.target).hasClass('menu-button'))
+                       {
+                           menu.removeClass('visible home lists online');
+                           
+                       }                       
+                    });
+                }, 100);
+                
+            });
         },
         initRouting: function() {
             var routes = {
@@ -125,7 +201,126 @@ iShake.App = function()
                     location.hash = '/';
                 }
             }).init(initialRoute);   
+        },
+        initTouches: function()
+        {
+            tappable('.header-button, .button, .icon-button', {
+                containerElement: document.body,
+                noScroll: true,
+                onTap: function(e, target) {
+                    if (target.tagName.toLowerCase() == 'a' && target.hash)
+                    {
+                        location.hash = target.hash;                    
+                    }
+                }
+            });
+            
+            tappable('.menu-li-a', {
+                containerElement: document.body,
+                noScroll: true,
+                onStart: function(e, target) {
+                    location.hash = target.hash;                                        
+                }
+            });
+            
+            
+            tappable('.tableview .item-content', {
+                containerElement: document.body,
+                allowClick: true,
+		activeClassDelay: 80,
+		inactiveClassDelay: 1000,
+
+                onTap: function(e, target) {
+                    if (target.tagName.toLowerCase() == 'a' && target.hash)
+                    {
+                        location.hash = target.hash;
+                    }
+                    
+                }
+            });
+            
+            tappable('.disclosure', {
+                containerElement: document.body,
+                onTap: function(e, target) {
+                    if (target.tagName.toLowerCase() == 'a' && target.hash)
+                    {
+                        location.hash = target.hash;
+                    }
+                    
+                }
+            });
+            
+            tappable('.facebook-login', {
+                containerElement: document.body
+            });
+        },
+        request: function(path, callback, scope, data, silent) {
+            if (!navigator.onLine)
+            {
+                return;
+            }
+            
+            app.setLoading(!silent);
+            
+            data = data || {};
+            
+            var user = iShake.repository.user.current(),
+                me = this;
+            data.sessionId = user && user.sessionId;
+            
+            $.ajax({
+                type: 'POST',
+                data: data,
+                url: this.server + path,
+                dataType: 'json',
+                success: function(response) {
+                    app.setLoading(false);
+                    if (callback)
+                    {
+                        callback.call(scope, response);
+                    }
+                    
+                    me.updateOnlineStatus(true);
+                },
+                error: function(xhr, type) {
+                    app.setLoading(false);
+                    iShake.ui.notify.alert('no-connection', null, 'error');
+                    
+                    me.updateOnlineStatus(false);
+                }
+            });
+        },
+        setLoading: function(isLoading)
+        {
+            $('#loader').toggleClass('visible', isLoading);
+        },
+        showNoConnection: function()
+        {
+            $('#no-connection-msg').css('display', 'block');
+        },
+        updateLoginStatus: function()
+        {
+            var isLogged = iShake.repository.user.current();
+            $(document.body).toggleClass('logged', !!isLogged);
+        },
+        updateOnlineStatus : function(onlineStatus)
+        {
+            onlineStatus = typeof onlineStatus != 'undefined' ? onlineStatus : navigator.onLine;
+            $(document.body).toggleClass('offline', !onlineStatus);            
+            $('#no-connection-msg').css('display', 'none');            
+        },
+        user: function(userData) {
+            return iShake.repository.user.current();
         }
+        
     };
 }
 
+
+window.onerror = function()
+{
+    for (var i = 0; i < arguments.length; i++)
+    {
+        alert(arguments[i]);
+    }
+}

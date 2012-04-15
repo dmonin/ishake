@@ -3,68 +3,327 @@
     <head>
         <title>iShake</title>
         <meta charset="utf-8" />
-        <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png"/>
-        <link rel="apple-touch-startup-image" href="asset/img/splash.png" />  
+        <link rel="apple-touch-icon" href="assets/img/apple-touch-icon-iphone.png" />
+        <link rel="apple-touch-icon" sizes="72x72" href="assets/img/apple-touch-icon-ipad.png" />
+        <link rel="apple-touch-icon" sizes="114x114" href="assets/img/apple-touch-icon-iphone4.png" />
+<!--        <link rel="apple-touch-startup-image" href="asset/img/splash.png" />  -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes" />  
         <!--<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />-->
         <link href="assets/css/application.css" media="all" rel="stylesheet" type="text/css" rev="stylesheet" />
     </head>
-    <body class="slow-anim1">
+    <body>
         <div id="loader"><div id="loader-spinner" class="spinner"></div></div>
-        <div id="no-connection-msg" data-label="no-connection">No connection!</div>
+        <div id="no-connection-msg" data-label="common.no-connection">No connection!</div>
+        
+        <div id="menu">
+            <ul class="menu-ul">
+                <li class="menu-li">
+                    <a class="menu-li-a" id="menu-li-home" data-label="menu.iShake" href="#/home">iShake</a>
+                </li>
+                <li class="menu-li">
+                    <a class="menu-li-a" id="menu-li-lists" data-label="menu.mylists" href="#/lists">My lists</a>
+                </li>
+                <li class="menu-li">
+                    <a class="menu-li-a" id="menu-li-online" data-label="menu.onlinelists" href="#/online">Online lists</a>
+                </li>   
+            </ul>            
+        </div>
+        
         <div id="fake-header"></div>
-        <div class="view hidden" id="view-home">
-            <header>
-                <h1>iShake</h1>
-                <a class="header-button header-button-right" href="#/lists" id="header-button-lists"></a>
-            </header>
-            
-            <div class="scroll">
+        
+        <div class="view" id="view-home">
+           <div class="scroll">
                 <section>
                     <div id="phone">
                         <div id="phone-left" class="shake-lines"></div>
                         <div id="phone-right" class="shake-lines"></div>
                         <span id="phone-text">Shake!</span>                    
                     </div>
-
-                    <a href="#/homeback" class="backside-btn"></a>
+                    
+                    <span class="icon-button menu-button home-menu-button"></span>
+                    <a href="#/homeback" class="icon-button backside-button"></a>
 
                     <div id="result"></div>
 
+                </section>
+            </div>
+            
+            
+        </div>
+        
+        <div class="view hidden" id="view-homeback">
+            
+            
+            <div class="scroll">
+                <section>
+                    <div id="backside-text"></div>
+
+                    <span class="icon-button menu-button home-menu-button"></span>
+                    <a href="#/home" class="icon-button backside-button" ></a>
                 </section>
             </div>
         </div>
         
         <div class="view hidden" id="view-lists">
             <header>
-                <h1>iShake</h1>
-                
+                <h1 data-label="lists.hd">My lists</h1>
+                <span class="header-button header-button-right menu-button header-button-menu"></span>
             </header>
             
             <div class="scroll">
                 <section>
-                    second page
-                    <a href="#/">back</a>
+                    
+                </section>                
+            </div>
+            <div class="login-toolbar visible ">
+                <a class="button online" href="#/register" data-label="common.register">Register</a>
+                <a class="button online" href="#/login" data-label="common.login">Login</a>
+            </div>
+        </div>
+        
+        <div class="view hidden" id="view-online">
+            <header>
+                <h1 data-label="online.hd">Online lists</h1>
+                <span class="header-button header-button-right menu-button header-button-menu"></span>
+            </header>
+            
+            <div class="scroll">
+                <section>
 
+                </section>
+            </div>
+            
+            <div class="login-toolbar visible ">
+                <a class="button online" href="#/register" data-label="common.register">Register</a>
+                <a class="button online" href="#/login" data-label="common.login">Login</a>
+            </div>
+        </div>
+        
+        <div class="view hidden" id="view-list">
+            <header>
+                <span class="button-back header-button header-button-left" onclick="history.back()" data-label="common.back">Back</span>
+                <h1>iShake</h1>
+                <a href="" class="button header-button header-button-right" data-label="common.edit">Edit</a>
+            </header>
+            
+            <div class="scroll">
+                <section>
+                    
                 </section>
             </div>
         </div>
         
+        <div class="view hidden" id="view-listedit">
+            <header>
+                <span class="button-back header-button header-button-left" onclick="history.back()" data-label="common.back">Back</span>                
+                <h1>Edit list</h1>                
+                <span class="button header-button header-button-right" data-label="common.save">Save</span>                
+            </header>
+            <section class="scroll form">
+                <form method="post" action="">
+                    <div class="form-item empty">
+                        <input type="text" class="form-input" maxlength="30" name="name" />
+                        <div class="form-input-label" data-label="listedit.name">Name</div>
+                    </div>
+                    
+                    <div class="form-item empty">
+                        <select>
+                            <option value="">Kategorie...</option>
+                            <option value="fun">Games / Fun</option>
+                            <option value="lifestyle">Lifestyle</option>
+                            <option value="learning">Learning</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-item empty">
+                        <select>
+                            <option value="">Language...</option>
+                            
+                        </select>
+                    </div>
+
+                    <div class="form-item form-item-checkbox">
+                        <div class="form-item-label" data-label="listedit.public">This list is public</div>
+                        <input type="checkbox" name="is_public" class="form-input-checkbox" value="1" />
+                    </div>
+
+                    <div class="button red-button online" data-label="common.delete">
+                        Delete
+                    </div>
+                </form>
+            </section>
+            
+        </div>
+        
+        <div class="view hidden" id="view-item">
+            <header>
+                <span class="button-back header-button header-button-left" onclick="history.back()" data-label="common.back">Back</span>                              
+                <h1>iShake</h1>
+                <span class="button header-button header-button-right" data-label="common.save">Save</span>                
+            </header>
+            
+            <div class="scroll form">
+                <section>
+                    <form method="post" action="">
+                        <div class="form-item empty">
+                            <div class="form-input-label" data-label="item.text">Text</div>
+                            <input type="text" name="text" value="" maxlength="40" class="form-input form-input-main" />
+                        </div>
+
+                        <div class="form-item form-item-checkbox">
+                            <div class="form-item-label" data-label="item.backside">Backside</div>
+                            <input type="checkbox" name="has_backside" class="form-input-checkbox" value="1" />
+                        </div>
+
+                        <div class="form-item empty hidden" id="item-backside-text">
+                            <div class="form-input-label" data-label="item.backside-text">Backside text</div>
+                            <textarea name="backside_text" class="form-input-textarea"></textarea>                        
+                        </div>
+                    </form>
+
+                    <div class="button red-button" data-label="common.delete">
+                        Delete
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <div class="view hidden" id="view-register">
+            <header>
+                <a class="button-back header-button header-button-left" href="#/lists" data-label="back">Back</a>                
+                <h1>Register</h1>
+                <span class="button header-button header-button-right online" data-label="common.finish">Finish</span>                
+            </header>
+            <section class="form">
+                <form method="post" action="">
+                    <div class="form-item empty">
+                        <input type="email" class="form-input" maxlength="255" name="email" />
+                        <div class="form-input-label" data-label="user.email">E-Mail</div>
+                    </div>
+                    
+                    <div class="form-item empty">
+                        <input type="text" class="form-input" maxlength="16" name="username" />
+                        <div class="form-input-label" data-label="user.username">Username</div>
+                    </div>
+                    
+                    <div class="form-item empty">
+                        <input type="password" class="form-input" maxlength="40" name="password" />
+                        <div class="form-input-label" data-label="user.password">Password</div>
+                    </div>
+                    
+                    <div class="form-item empty">
+                        <input type="password" class="form-input" maxlength="40" name="password_repeat" />
+                        <div class="form-input-label" data-label="user.password-repeat">Repeat password</div>
+                    </div>                    
+                </form>
+                
+                <div class="separator">
+                    <strong>or</strong>
+                </div>
+                
+                <a href="" class="facebook-login">
+                    <span data-label="user.signinwith">Sign in with</span> <strong>Facebook</strong>
+                </a>
+                
+            </section>
+        </div>
+        
+        <div class="view hidden" id="view-login">
+            <header>
+                <a class="button-back header-button header-button-left" href="#/lists">Back</a>                
+                <h1>Login</h1>
+                <span class="button header-button header-button-right online">Login</span>                
+            </header>
+            <section class="form">
+                <form method="post" action="">
+                    <div class="form-item empty">
+                        <input type="text" class="form-input" name="username" maxlength="16" />
+                        <div class="form-input-label" data-label="user.username">Username</div>
+                    </div>
+                    
+                    <div class="form-item empty">
+                        <input type="password" class="form-input" maxlength="40" name="password" />
+                        <div class="form-input-label" data-label="user.password">Password</div>
+                    </div>
+                </form>
+                <div class="separator">
+                    <strong>or</strong>
+                </div>
+                
+                <a href="" class="facebook-login">
+                    <span data-label="user.signinwith">Sign in with</span> <strong>Facebook</strong>
+                </a>
+            </section>
+        </div>
+        <div id="fb-root"></div>
+        
         <script src="assets/js/third-party/zepto.min.js"></script>
         <script src="assets/js/third-party/director.js"></script>
+        <script src="assets/js/third-party/amplify.store.js"></script>
+        <script src="assets/js/third-party/tappable.js"></script>
         
         <script src="assets/js/ishake/application.js"></script>
         
+        <script src="assets/js/ishake/lang/de.js"></script>
+        <script src="assets/js/ishake/lang/en.js"></script>
+        
         <script src="assets/js/ishake/ui/page-transition.js"></script>
+        <script src="assets/js/ishake/ui/new-item-input.js"></script>
+        <script src="assets/js/ishake/ui/notify.js"></script>
+        <script src="assets/js/ishake/ui/form.js"></script>
+        
+        <script src="assets/js/ishake/model/vector.js"></script>
+        
+        
+        <script src="assets/js/ishake/repository/list.js"></script>
+        <script src="assets/js/ishake/repository/user.js"></script>
         
         <script src="assets/js/ishake/view/view.js"></script>
         <script src="assets/js/ishake/view/home.js"></script>
+        <script src="assets/js/ishake/view/homeback.js"></script>
         <script src="assets/js/ishake/view/lists.js"></script>
+        <script src="assets/js/ishake/view/list.js"></script>
+        <script src="assets/js/ishake/view/listedit.js"></script>
+        <script src="assets/js/ishake/view/item.js"></script>
+        <script src="assets/js/ishake/view/online.js"></script>
+        
+        <script src="assets/js/ishake/view/register.js"></script>
+        <script src="assets/js/ishake/view/login.js"></script>
         
         <script>
             var app = new iShake.App();
             app.run();
+            setTimeout(function() {
+                window.scrollTo(0, 1);
+            }, 1000);
+        </script>
+        
+        <script>
+          window.fbAsyncInit = function() {
+            FB.init({
+              appId      : '191347574317731', // App ID
+              status     : true, // check login status
+              cookie     : true // enable cookies to allow the server to access the session
+            });
+
+            FB.getLoginStatus(function(response) {
+                if (response.status == 'connected')
+                {
+                    iShake.repository.user.setFacebook();
+                }
+            });
+          };
+
+          // Load the SDK Asynchronously
+          (function(d){
+             var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+             if (d.getElementById(id)) {return;}
+             js = d.createElement('script'); js.id = id; js.async = true;
+             js.src = "//connect.facebook.net/en_US/all.js";
+             ref.parentNode.insertBefore(js, ref);
+           }(document));
         </script>
         
     </body>

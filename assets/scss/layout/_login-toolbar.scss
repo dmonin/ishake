@@ -1,0 +1,44 @@
+.login-toolbar {
+    background: transparent url(../img/iphone/footer-toolbar.png) repeat-x;
+    display: -moz-box;
+    display: -webkit-box;
+    display: box;
+    height: 44px;
+    overflow: hidden;
+    text-align: center;
+    
+    -webkit-box-align: center;
+    box-align: center;
+    -webkit-box-pack: center;
+    -moz-box-pack: center;
+    box-pack: center;
+    
+    .logged & {
+        display: none;
+    }
+    
+    .button {
+        @include background(linear-gradient(top, #3a3a3a, #1c1c1c));
+        border-radius: 3px;
+        border: 1px solid #151515;
+        box-shadow: 0 0 2px rgba(255, 255, 255, .3);
+        color: #fff;
+        display: inline-block;
+        margin: 5px;
+        height: 30px;
+        padding: 3px 10px;
+        @include box-sizing(border-box);
+        font-size: 12pt;
+        text-shadow: 1px -1px #000;
+        text-decoration: none;
+        
+        -webkit-touch-callout: none;
+        
+        
+        &.tappable-active {
+            @include background(linear-gradient(top, #1c1c1c, #3a3a3a));
+            border-color: #000;
+/*            box-shadow: 0 0 5px rgba(255, 255, 255, .4);*/
+        }
+    }
+}

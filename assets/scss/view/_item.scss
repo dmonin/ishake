@@ -1,0 +1,13 @@
+#item-backside-text
+{
+    height: 160px;
+    opacity: 1;
+    overflow: hidden;
+    @include transition(opacity .5s, height .5s);
+        
+    &.hidden
+    {
+        height: 0;
+        opacity: 0;
+    }
+}

@@ -1,0 +1,43 @@
+#menu {
+    background: #fff;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, .1);
+    right: -100px;
+    position: absolute;
+    visibility: hidden;
+    top: 44px;
+    z-index: 5;
+    
+    @include transform(translate3d(0, 0, 0));
+    @include transition(right .5s);
+    
+    &.visible {
+        visibility: visible;
+        right: 0px;
+    }
+    
+    .menu-ul,
+    .menu-li {
+        margin: 0;
+        padding: 0;
+        list-style: none
+    }
+    
+    .menu-li-a {
+        border-top: 1px solid #e2e2e2;
+        color: #4b4b4b;
+        display: block;
+        padding: 10px 15px;
+        text-decoration: none;
+        
+        &.tappable-active {
+            background: #fbe4ce; 
+        }
+    }
+}
+
+.menu-home #menu-home,
+.menu-lists #menu-lists,
+.menu-online #menu-online
+{
+    background: #fbe4ce; 
+}
