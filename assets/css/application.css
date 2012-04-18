@@ -83,7 +83,7 @@ header h1, #fake-header h1 {
   pointer-events: none;
 }
 
-/* line 81, ../scss/layout/_core.scss */
+/* line 82, ../scss/layout/_core.scss */
 #no-connection-msg {
   background: rgba(0, 0, 0, 0.5);
   -moz-box-sizing: border-box;
@@ -103,6 +103,20 @@ header h1, #fake-header h1 {
   text-align: center;
   width: 80%;
   z-index: 100;
+}
+
+/* line 102, ../scss/layout/_core.scss */
+.logged .login-required {
+  display: none;
+}
+
+/* line 107, ../scss/layout/_core.scss */
+.only-logged {
+  display: none;
+}
+/* line 110, ../scss/layout/_core.scss */
+.logged .only-logged {
+  display: block;
 }
 
 @font-face {
@@ -1051,7 +1065,7 @@ ul.tableview li .list-edit {
   height: 44px;
   line-height: 44px;
   padding: 0 0 0 45px;
-  -webkit-touch-callout: none;
+  /*            -webkit-touch-callout: none;*/
   -webkit-box-flex: 1;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1413,16 +1427,17 @@ select {
 #menu .menu-li-a {
   border-top: 1px solid #e2e2e2;
   color: #4b4b4b;
+  cursor: pointer;
   display: block;
   padding: 10px 15px;
   text-decoration: none;
 }
-/* line 32, ../scss/layout/_menu.scss */
+/* line 33, ../scss/layout/_menu.scss */
 #menu .menu-li-a.tappable-active {
   background: #fbe4ce;
 }
 
-/* line 41, ../scss/layout/_menu.scss */
+/* line 42, ../scss/layout/_menu.scss */
 .menu-home #menu-li-home,
 .menu-lists #menu-li-lists,
 .menu-online #menu-li-online {
@@ -1520,9 +1535,9 @@ select {
   top: 118px;
   text-align: center;
   width: 100%;
+  -webkit-transform: rotate(0deg);
   -webkit-transition: all .5s;
-  -webkit-transform: rotate3d(0, 0, 0, 0deg);
-  -webkit-transform-style: preserve-3d;
+  /*    -webkit-transform-style: preserve-3d;*/
 }
 /* line 32, ../scss/view/_home.scss */
 .ready #result {
@@ -1532,12 +1547,17 @@ select {
 #result.shaking {
   color: transparent;
   text-shadow: 0 0 8px #000;
-  -webkit-animation: shake .2s infinite linear;
+  /*        color: #f2f2f2;*/
+  /*        -webkit-animation: shake .2s infinite linear;*/
+  -webkit-animation-name: shake;
+  -webkit-animation-duration: .2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: linear;
   -moz-animation: shake .2s infinite linear;
   -ms-animation: shake .2s infinite linear;
 }
 
-/* line 47, ../scss/view/_home.scss */
+/* line 53, ../scss/view/_home.scss */
 .animate, .animate .shake-lines {
   -webkit-animation-name: spaceboots;
   -webkit-animation-duration: 0.8s;
@@ -1547,7 +1567,7 @@ select {
   -webkit-animation-timing-function: linear;
 }
 
-/* line 56, ../scss/view/_home.scss */
+/* line 62, ../scss/view/_home.scss */
 #phone {
   background: transparent url(../img/shake-animation/phone.png) no-repeat center top;
   font-family: "gooddognew";
@@ -1564,12 +1584,12 @@ select {
   text-overflow: ellipsis;
   text-align: center;
 }
-/* line 72, ../scss/view/_home.scss */
+/* line 78, ../scss/view/_home.scss */
 .ready #phone {
   display: block;
 }
 
-/* line 77, ../scss/view/_home.scss */
+/* line 83, ../scss/view/_home.scss */
 .shake-lines {
   background: transparent url(../img/shake-animation/shake-lines.png) no-repeat;
   height: 48px;
@@ -1582,22 +1602,22 @@ select {
   -o-transition: opacity 0.5s 0.3s;
   transition: opacity 0.5s 0.3s;
 }
-/* line 87, ../scss/view/_home.scss */
+/* line 93, ../scss/view/_home.scss */
 .animate .shake-lines, .animate .shake-lines .shake-lines {
   opacity: 1;
 }
 
-/* line 94, ../scss/view/_home.scss */
+/* line 100, ../scss/view/_home.scss */
 #phone-left {
   left: 40px;
   -webkit-transform: rotate(-180deg);
 }
-/* line 98, ../scss/view/_home.scss */
+/* line 104, ../scss/view/_home.scss */
 .animate #phone-left, .animate .shake-lines #phone-left {
   -webkit-animation-name: spaceboots-rotated;
 }
 
-/* line 103, ../scss/view/_home.scss */
+/* line 109, ../scss/view/_home.scss */
 #phone-right {
   right: 40px;
 }
@@ -1612,142 +1632,142 @@ select {
     }
 }*/
 @-webkit-keyframes spaceboots {
-  /* line 120, ../scss/view/_home.scss */
+  /* line 126, ../scss/view/_home.scss */
   0% {
     -webkit-transform: translate(2px, 1px) rotate(0deg);
   }
 
-  /* line 121, ../scss/view/_home.scss */
+  /* line 127, ../scss/view/_home.scss */
   10% {
     -webkit-transform: translate(-1px, -2px) rotate(-1deg);
   }
 
-  /* line 122, ../scss/view/_home.scss */
+  /* line 128, ../scss/view/_home.scss */
   20% {
     -webkit-transform: translate(-3px, 0px) rotate(1deg);
   }
 
-  /* line 123, ../scss/view/_home.scss */
+  /* line 129, ../scss/view/_home.scss */
   30% {
     -webkit-transform: translate(0px, 2px) rotate(0deg);
   }
 
-  /* line 124, ../scss/view/_home.scss */
+  /* line 130, ../scss/view/_home.scss */
   40% {
     -webkit-transform: translate(1px, -1px) rotate(1deg);
   }
 
-  /* line 125, ../scss/view/_home.scss */
+  /* line 131, ../scss/view/_home.scss */
   50% {
     -webkit-transform: translate(-1px, 2px) rotate(-1deg);
   }
 
-  /* line 126, ../scss/view/_home.scss */
+  /* line 132, ../scss/view/_home.scss */
   60% {
     -webkit-transform: translate(-3px, 1px) rotate(0deg);
   }
 
-  /* line 127, ../scss/view/_home.scss */
+  /* line 133, ../scss/view/_home.scss */
   70% {
     -webkit-transform: translate(2px, 1px) rotate(-1deg);
   }
 
-  /* line 128, ../scss/view/_home.scss */
+  /* line 134, ../scss/view/_home.scss */
   80% {
     -webkit-transform: translate(-1px, -1px) rotate(1deg);
   }
 
-  /* line 129, ../scss/view/_home.scss */
+  /* line 135, ../scss/view/_home.scss */
   90% {
     -webkit-transform: translate(2px, 2px) rotate(0deg);
   }
 
-  /* line 130, ../scss/view/_home.scss */
+  /* line 136, ../scss/view/_home.scss */
   100% {
     -webkit-transform: translate(1px, -2px) rotate(-1deg);
   }
 }
 
 @-webkit-keyframes spaceboots-rotated {
-  /* line 134, ../scss/view/_home.scss */
+  /* line 140, ../scss/view/_home.scss */
   0% {
     -webkit-transform: translate(2px, 1px) rotate(-180deg);
   }
 
-  /* line 135, ../scss/view/_home.scss */
+  /* line 141, ../scss/view/_home.scss */
   10% {
     -webkit-transform: translate(-1px, -2px) rotate(-179deg);
   }
 
-  /* line 136, ../scss/view/_home.scss */
+  /* line 142, ../scss/view/_home.scss */
   20% {
     -webkit-transform: translate(-3px, 0px) rotate(-181deg);
   }
 
-  /* line 137, ../scss/view/_home.scss */
+  /* line 143, ../scss/view/_home.scss */
   30% {
     -webkit-transform: translate(0px, 2px) rotate(-180deg);
   }
 
-  /* line 138, ../scss/view/_home.scss */
+  /* line 144, ../scss/view/_home.scss */
   40% {
     -webkit-transform: translate(1px, -1px) rotate(-181deg);
   }
 
-  /* line 139, ../scss/view/_home.scss */
+  /* line 145, ../scss/view/_home.scss */
   50% {
     -webkit-transform: translate(-1px, 2px) rotate(-179deg);
   }
 
-  /* line 140, ../scss/view/_home.scss */
+  /* line 146, ../scss/view/_home.scss */
   60% {
     -webkit-transform: translate(-3px, 1px) rotate(-180deg);
   }
 
-  /* line 141, ../scss/view/_home.scss */
+  /* line 147, ../scss/view/_home.scss */
   70% {
     -webkit-transform: translate(2px, 1px) rotate(-179deg);
   }
 
-  /* line 142, ../scss/view/_home.scss */
+  /* line 148, ../scss/view/_home.scss */
   80% {
     -webkit-transform: translate(-1px, -1px) rotate(-181deg);
   }
 
-  /* line 143, ../scss/view/_home.scss */
+  /* line 149, ../scss/view/_home.scss */
   90% {
     -webkit-transform: translate(2px, 2px) rotate(-180deg);
   }
 
-  /* line 144, ../scss/view/_home.scss */
+  /* line 150, ../scss/view/_home.scss */
   100% {
     -webkit-transform: translate(1px, -2px) rotate(-179deg);
   }
 }
 
-/* line 147, ../scss/view/_home.scss */
+/* line 153, ../scss/view/_home.scss */
 .backside-button {
   background-position: 0 -467px;
   bottom: 20px;
   left: 20px;
-  opacity: 0;
+  /*    opacity: 0;*/
   visibility: hidden;
   -moz-transition: opacity 0.5s;
   -webkit-transition: opacity 0.5s;
   -o-transition: opacity 0.5s;
   transition: opacity 0.5s;
 }
-/* line 158, ../scss/view/_home.scss */
+/* line 164, ../scss/view/_home.scss */
 .has-backside .backside-button, #view-homeback .backside-button {
-  opacity: 1;
+  /*        opacity: 1;*/
   visibility: visible;
 }
-/* line 163, ../scss/view/_home.scss */
+/* line 169, ../scss/view/_home.scss */
 .backside-button.tappable-active {
   background-color: #000;
 }
 
-/* line 169, ../scss/view/_home.scss */
+/* line 175, ../scss/view/_home.scss */
 #backside-text {
   -webkit-box-sizing: border-box;
   -webkit-user-select: none;
@@ -1761,7 +1781,7 @@ select {
   width: 100%;
 }
 
-/* line 182, ../scss/view/_home.scss */
+/* line 188, ../scss/view/_home.scss */
 .home-menu-button {
   background-position: 4px -324px;
   top: 5px;

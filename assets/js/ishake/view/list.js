@@ -72,11 +72,14 @@ iShake.view.list.prototype = {
         var html = [],
             items = this.listData.items;
         
+        iShake.util.sortByAlphabet(items, 'text');
+        
         $('#view-list h1').html(this.listData.name);
         
         var user = app.user(),
             canEdit = user && user.username == this.listData.username,
             listName;
+            
         
         $('section', this.el).html('<ul class="tableview"></ul>');
         
@@ -114,10 +117,12 @@ iShake.view.list.prototype = {
                 this
             );
         }
+        
+        this.initScroll();
     },
     unload: function()
     {
-         
+         this.disposeScroll();
     }
 };
 

@@ -2,8 +2,6 @@ iShake.repository.user = {
     user_: null,
     listIds_: null,
     current: function(userData) {
-        
-        
         if (userData)
         {
             this.user_ = userData;
@@ -14,11 +12,35 @@ iShake.repository.user = {
         {
             this.user_ = amplify.store('user');
         }
+        
+        if (userData === null)
+        {
+            amplify.store('user', null, {expires: 0});
+            this.user_ = null;
+        }
 
         return this.user_;
     },
     listIds: function(listIds) {
         var user = this.current();
+        
+        if (listIds)
+        {
+//            removes doubles (there should be no doubles in the list)
+//            for (var i = listIds.length - 1; i >= 0; i--)
+//            {
+//                if ($.inArray(listIds[i], listIds, i + 1) != -1)
+//                {
+//                    listIds.splice(i, 1);
+//                }
+//            }
+            
+            var currentId = iShake.repository.list.currentId();
+            if (listIds.length && $.inArray(currentId, listIds) == -1)
+            {
+                iShake.repository.list.currentId(listIds[0]);
+            }            
+        }
         
         if (listIds && user)
         {
@@ -26,6 +48,7 @@ iShake.repository.user = {
             app.request('/user/set-list-ids', null, null, {
                 listIds: listIds
             });
+            
             amplify.store('user', user);
         }
         else if (listIds)
@@ -36,7 +59,7 @@ iShake.repository.user = {
         
         if (user)
         {
-            this.listIds_ = this.current().listIds;            
+            this.listIds_ = this.current().listIds;                        
         }
         else
         {

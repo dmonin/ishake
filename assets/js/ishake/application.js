@@ -11,11 +11,26 @@ iShake = {
             {
                 if (arr[i] == item)
                 {
-                    return; i;
+                    return;i;
                 }
             }
             
             return -1;
+        },
+        sortByAlphabet: function(data, propertyName)
+        {
+            return data.sort(function(a, b) {
+                if (a[propertyName] > b[propertyName])
+                {
+                    return 1;
+                }
+                else if (a[propertyName] < b[propertyName])
+                {
+                    return -1;
+                }
+                
+                return 0;
+            });
         }
     }
 };
@@ -76,10 +91,12 @@ iShake.App = function()
         }
         
         currentView = new iShake.view[viewName](viewName, nextView, id);
+        
+        app.updateOnlineStatus();
     }
     
     return {
-        server: 'http://lindalino.com/ishake',
+        server: 'http://ishake-app.com',
         lang: 'en',
         run: function() {
             console.log('run forest, run!');
@@ -142,8 +159,28 @@ iShake.App = function()
                            
                        }                       
                     });
-                }, 100);
+                }, 100);                
+            });
+            
+            $('#menu-li-logout').on(evt, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                menu.removeClass('visible menu-home menu-lists menu-online');
                 
+                // Logging out from facebook
+                FB.logout(function(response) {
+                    
+                });
+                
+                // Logging out locally
+                iShake.repository.user.current(null);
+                iShake.repository.user.listIds([]);
+                    
+                // Deleting session on server
+                app.request('/user/logout', function() {
+                    app.updateLoginStatus();
+                    iShake.ui.notify.alert('user.logoutsuccess');
+                });
             });
         },
         initRouting: function() {
@@ -226,20 +263,20 @@ iShake.App = function()
             });
             
             
-            tappable('.tableview .item-content', {
-                containerElement: document.body,
-                allowClick: true,
-		activeClassDelay: 80,
-		inactiveClassDelay: 1000,
-
-                onTap: function(e, target) {
-                    if (target.tagName.toLowerCase() == 'a' && target.hash)
-                    {
-                        location.hash = target.hash;
-                    }
-                    
-                }
-            });
+//            tappable('.tableview .item-content', {
+//                containerElement: document.body,
+//                allowClick: true,
+//		activeClassDelay: 80,
+//		inactiveClassDelay: 1000,
+//
+//                onTap: function(e, target) {
+//                    if (target.tagName.toLowerCase() == 'a' && target.hash)
+//                    {
+//                        location.hash = target.hash;
+//                    }
+//                    
+//                }
+//            });
             
             tappable('.disclosure', {
                 containerElement: document.body,
@@ -309,7 +346,7 @@ iShake.App = function()
         {
             onlineStatus = typeof onlineStatus != 'undefined' ? onlineStatus : navigator.onLine;
             $(document.body).toggleClass('offline', !onlineStatus);            
-            $('#no-connection-msg').css('display', 'none');            
+            $('#no-connection-msg').css('display', 'none');                        
         },
         user: function(userData) {
             return iShake.repository.user.current();
@@ -319,10 +356,10 @@ iShake.App = function()
 }
 
 
-window.onerror = function()
-{
-    for (var i = 0; i < arguments.length; i++)
-    {
-        alert(arguments[i]);
-    }
-}
+//window.onerror = function()
+//{
+//    for (var i = 0; i < arguments.length; i++)
+//    {
+//        alert(arguments[i]);
+//    }
+//}

@@ -56,11 +56,21 @@ iShake.view.home.prototype = {
         
         // Setting name of list              
         $('#phone').addClass('animate');
-        $('#phone-text').html(app.getMsg('shake'));
+        var msg = $.os.android ? app.getMsg('common.start') : app.getMsg('common.shake');
+        $('#phone-text').html(msg);
+        
+        // this is needed for android
+        setTimeout(function() {
+            me.el[0].style.webkitTransform = 'translate(0, 0)';
+//            var phone = $('#phone');
+//            phone.css('top', '200px');
+        }, 1000);
+        
         
         // Disabling shaking after 8 seconds
         setTimeout(function() {
             $('#phone').removeClass('animate');
+            
         }, 16000);
         
         // Tap = Shake
@@ -90,8 +100,8 @@ iShake.view.home.prototype = {
         }            
         
         
-        var vector = this.vector;
-        var isShaking = (vector.isShaking(acceleration));
+        var vector = this.vector,
+            isShaking = (vector.isShaking(acceleration));
         
         if (isShaking == true)
         {
@@ -117,6 +127,9 @@ iShake.view.home.prototype = {
     startShake: function()
     {
         var me = this;
+        
+        $('section', me.el).removeClass('has-backside');
+        
         this.resultNode.addClass('shaking');
         this.el.toggleClass('ready', false);
 
@@ -137,8 +150,8 @@ iShake.view.home.prototype = {
             
             me.isShaking = false;
             
-            $('section', me.el).toggleClass('has-backside', me.currentItem.hasBackside);            
-        }, 2000);
+            $('section', me.el).toggleClass('has-backside', me.currentItem.hasBackside);                                    
+        }, 3000);
 
         this.isShaking = true;   
         

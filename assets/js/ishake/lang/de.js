@@ -7,6 +7,7 @@ iShake.lang.de = {
     'common.delete': 'Delete',
     'common.save': 'Save',
     'common.shake': 'Shake!',
+    'common.start': 'Start!',
     'common.login': 'Login',
     'common.register': 'Register',
     'common.error': 'Error',
@@ -14,6 +15,7 @@ iShake.lang.de = {
     'menu.iShake': 'iShake',
     'menu.mylists': 'My lists',
     'menu.onlinelists': 'Online listen',
+    'menu.logout': 'Log out',
         
     'lists.hd': 'My lists',
     'lists.new-list': 'Add list...',
@@ -67,5 +69,6 @@ iShake.lang.de = {
     'user.password': 'Password',
     'user.password-repeat': 'Repeat password',
     'user.email': 'E-mail',
-    'user.signinwith': 'Sign in with'
+    'user.signinwith': 'Sign in with',
+    'user.logoutsuccess': 'You have been successfully logged out.'
 };

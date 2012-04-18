@@ -17,8 +17,8 @@ iShake.view.online = function(name, el)
 iShake.view.online.prototype = {
     onClick: function(e)
     {
-        e.preventDefault();
-        e.stopPropagation();
+//        e.preventDefault();
+//        e.stopPropagation();
         
         var target = $(e.target), 
             index,
@@ -31,6 +31,7 @@ iShake.view.online.prototype = {
             target.addClass('minus');
                         
             userListIds.push(target.data('id'));
+            
             iShake.repository.user.listIds(userListIds);            
         }
         else if (target.hasClass('minus'))
@@ -39,8 +40,7 @@ iShake.view.online.prototype = {
             target.removeClass('minus');
             
             var id = target.data('id');
-            
-            index = iShake.util.indexOf(userListIds, id);            
+            index = $.inArray(id, userListIds);            
             userListIds.splice(index, 1);
             
             iShake.repository.user.listIds(userListIds);              

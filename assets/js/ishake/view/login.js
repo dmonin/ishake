@@ -16,6 +16,24 @@ iShake.view.login = function(name, el)
             history.back();
         }, this);
     });
+    
+    function onFbLogin(response)
+    {
+        if (response.status == 'connected')
+        {
+            location.hash = '/lists';                
+            iShake.repository.user.setFacebook();
+        }
+        else if (response.status == 'unknown')
+        {
+            location.hash = '/lists';
+            iShake.repository.user.setFacebook();
+        }
+    }
+    
+    $('.facebook-login', this.el).on('click', function() {
+        FB.login(onFbLogin);
+    });
 }
 
 iShake.view.login.prototype = {

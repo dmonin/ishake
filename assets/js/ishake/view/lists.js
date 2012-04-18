@@ -89,12 +89,19 @@ iShake.view.lists.prototype = {
             $('section', this.el).html('<ul class="tableview"></ul>');
         }
         
+        iShake.util.sortByAlphabet(lists, 'name');
+        
+        var hasList = false;
+        
         for (var i = 0; i < lists.length; i++)
         {
+            hasList = !!iShake.repository.list.lists[lists[i].id].items;
+            
             html.push([
-                '<li ',
-                ((lists[i].id == selectedId) ? ' class="selected"' : '')
-                ,'>',
+                '<li class="',
+                ((lists[i].id == selectedId) ? ' selected' : ''),
+                (hasList ? '' : ' online')
+                ,'">',
                     '<span data-id="' + lists[i].id + '" class="item-content">' + lists[i].name + '</span>',
                     '<a href="#/list/' + lists[i].id + '" class="disclosure online"></a>',
                 '</li>'
@@ -131,6 +138,12 @@ iShake.view.lists.prototype = {
                 this
             );
         }        
+        
+        this.initScroll();
+    },
+    unload: function()
+    {
+        this.disposeScroll();
     }
 };
 

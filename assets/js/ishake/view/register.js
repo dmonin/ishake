@@ -23,7 +23,13 @@ iShake.view.register = function(name, el) {
     });
     
     $('.facebook-login', this.el).on('click', function() {
-        FB.login(function(response) {  });
+        FB.login(function(response) { 
+            if (response.status == 'connected')
+            {
+                location.hash = '/lists';                
+                iShake.repository.user.setFacebook();
+            }
+        });
     });
 }
 

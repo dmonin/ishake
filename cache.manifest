@@ -1,15 +1,34 @@
 CACHE MANIFEST
-# 2012-04-08:v1
+# 2012-04-17:v12
 
 # Index
 index.html
 
-# CSS
-assets/
-
 # JS
+assets/js/ishake-compiled/ishake.min.js
 
-# Images
+# CSS
+assets/css/application.css
+
+# FONTS
+assets/fonts/gooddog-new/gooddog_new-webfont.woff
+assets/fonts/gooddog-new/gooddog_new-webfont.eot
+
+# IMAGES
+assets/img/bg.png
+assets/img/dropdown-arrow.png
+assets/img/sprite-s71aefe151b.png
+assets/img/activity-indicator.png
+
+assets/img/shake-animation/phone.png
+assets/img/shake-animation/shake-lines.png
+
+assets/img/iphone/switch2.png
+assets/img/iphone/footer-toolbar.png
+assets/img/iphone/button-orange.png
+assets/img/iphone/button-back-orange.png
+
+assets/img/common/nav-toolbar.gif
 
 
 NETWORK:

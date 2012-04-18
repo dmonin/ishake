@@ -78,6 +78,7 @@ header {
     pointer-events: none;    
 }
 
+
 #no-connection-msg {
     background: rgba(0, 0, 0, .5);
     @include box-sizing(border-box);
@@ -94,4 +95,19 @@ header {
     text-align: center;
     width: 80%;
     z-index: 100;
+}
+
+// Login
+.logged .login-required
+{
+    display: none;
+}
+
+.only-logged
+{
+    display: none;
+    .logged &
+    {
+        display: block;
+    }
 }

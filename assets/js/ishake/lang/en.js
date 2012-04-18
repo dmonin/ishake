@@ -7,6 +7,7 @@ iShake.lang.en = {
     'common.delete': 'Delete',
     'common.save': 'Save',
     'common.shake': 'Shake!',
+    'common.start': 'Start!',
     'common.login': 'Login',
     'common.register': 'Register',
     'common.error': 'Error',
@@ -14,12 +15,13 @@ iShake.lang.en = {
     'menu.iShake': 'iShake',
     'menu.mylists': 'My lists',
     'menu.onlinelists': 'Online listen',
+    'menu.logout': 'Log out',
         
     'lists.hd': 'My lists',
     'lists.new-list': 'Add list...',
     'lists.list-deleted': 'Sorry, this list was deleted by user.',
     
-    'online-lists.hd': 'Online lists',
+    'online.hd': 'Online lists',
     
     'listedit.public': 'This list is public',
     'listedit.name': 'Name',
@@ -66,5 +68,7 @@ iShake.lang.en = {
     'user.username': 'Username',
     'user.password': 'Password',
     'user.password-repeat': 'Repeat password',
-    'user.email': 'E-mail'
+    'user.email': 'E-mail',
+    'user.signinwith': 'Sign in with',
+    'user.logoutsuccess': 'You have been successfully logged out.'
 };

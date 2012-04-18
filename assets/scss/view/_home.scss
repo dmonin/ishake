@@ -25,9 +25,9 @@
     text-align: center; 
     width: 100%;
     
+    -webkit-transform: rotate(0deg);
     -webkit-transition: all .5s;    
-    -webkit-transform: rotate3d(0, 0, 0, 0deg);
-    -webkit-transform-style: preserve-3d;
+/*    -webkit-transform-style: preserve-3d;*/
     
     .ready & {
         display: none;
@@ -37,7 +37,13 @@
     &.shaking {
         color: transparent;
         text-shadow: 0 0 8px #000;
-        -webkit-animation: shake .2s infinite linear;
+/*        color: #f2f2f2;*/
+/*        -webkit-animation: shake .2s infinite linear;*/
+        -webkit-animation-name: shake;
+        -webkit-animation-duration: .2s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        
         -moz-animation:    shake .2s infinite linear;
         -ms-animation:     shake .2s infinite linear;
     }
@@ -148,7 +154,7 @@
     background-position: sprite-position($sprite, rotate);
     bottom: 20px;
     left: 20px;
-    opacity: 0;
+/*    opacity: 0;*/
     
     visibility: hidden;
     
@@ -156,7 +162,7 @@
     
     .has-backside &,
     #view-homeback & {
-        opacity: 1;
+/*        opacity: 1;*/
         visibility: visible;
     }
     
