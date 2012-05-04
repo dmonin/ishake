@@ -1,3 +1,10 @@
+/**
+ * Input box for new list item
+ * 
+ * @param {string} defaultText Default empty text
+ * @param {Function} callback Callback method
+ * @param {Object} scope Callback's scope object
+ */
 iShake.ui.NewItemInput = function(defaultText, callback, scope)
 {
     this.defaultText = defaultText;
@@ -6,6 +13,11 @@ iShake.ui.NewItemInput = function(defaultText, callback, scope)
     
 }
 
+/**
+ * Renders component to specified parent element
+ * 
+ * @param {Element} parent Container element where input should be rendered
+ */
 iShake.ui.NewItemInput.prototype.render = function(parent)
 {
     var html = [
@@ -49,6 +61,9 @@ iShake.ui.NewItemInput.prototype.render = function(parent)
     
 }
 
+/**
+ * Resets form
+ */
 iShake.ui.NewItemInput.prototype.reset = function()
 {
     this.input.val('');

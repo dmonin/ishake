@@ -1,9 +1,14 @@
+/**
+ * Item view
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ * @param {string} id Item's id
+ */
 iShake.view.item = function(name, el, id)
 {
     this.init(name, el);
     
-    this.form = new iShake.ui.Form($('form', el));        
-    
+    this.form = new iShake.ui.Form($('form', el));            
     this.enableBackText(false);
     
     this.listRepo = iShake.repository.list;
@@ -11,14 +16,27 @@ iShake.view.item = function(name, el, id)
 }
 
 iShake.view.item.prototype = {
+    /**
+     * Controls visibility of backtext
+     *
+     * @param {boolean} isEnabled Defines whether backside text form should be 
+     *      visible
+     */
     enableBackText: function(isEnabled)
     {
         $('[name=backside_text]').parent().toggleClass('hidden', !isEnabled);
     },
+    
+    /**
+     * Initializes editor form
+     *
+     * @param {Object} item Initializes
+     */
     initForm: function(item)
     {
         this.item = item;
         
+        // Setting form data
         this.form.setData({
             'text': item.text,
             'has_backside': item.hasBackside,
@@ -53,6 +71,10 @@ iShake.view.item.prototype = {
             }, 'item.confirm-delete-item-bd');
         });
     },
+    
+    /**
+     * Disposes view
+     */
     unload: function()
     {
         $('.red-button', this.el).off('click');

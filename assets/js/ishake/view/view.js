@@ -4,6 +4,10 @@ iShake.view = {
         this.name = name;
         this.el = el;                        
     },
+    
+    /**
+     * Initializes scrolling on android, iOS uses native scrolling via CSS
+     */
     initScroll: function()
     {
         if ($.os.android)
@@ -13,6 +17,9 @@ iShake.view = {
             this.scroller.refresh();
         }
     },
+    /**
+     * Disposes scrolling
+     */
     disposeScroll: function()
     {
         if ($.os.android)

@@ -1,3 +1,6 @@
+/**
+ * Home view
+ */
 iShake.view.home = function(name, el)
 {
     this.init(name, el);
@@ -12,32 +15,43 @@ iShake.view.home = function(name, el)
     
     this.watchId = 0;
     
-    $('#phone').removeClass('animate');    
+    $('#phone').removeClass('animate');        
     this.resultNode = $('#result');        
     
-    app.setLoading(true);
-    
+    // Showing loading status
+    app.setLoading(true);    
     $('section', el).removeClass('has-backside');
     
+    // Display no connection warning after 5 seconds timeout
     this.timerId = setTimeout(function() {
         app.setLoading(false);        
-        app.showNoConnection();        
+        app.showNoConnection(true);        
     }, 5000);
     
-    // Getting list data
+    // Getting current list data (from local storage if possible)
     iShake.repository.list.get(currentId, this.initMotion, this);
 }
 
 iShake.view.home.prototype = {
+    /**
+     * Defines whether device is shaking
+     * @type {boolean}
+     */
     isShaking: false,
+    
+    /**
+     * Initializes motion events
+     */
     initMotion: function(list)
     {
         clearTimeout(this.timerId);
         
+        // Displays ready to shake animation
         this.el.toggleClass('ready', true);
         
         app.setLoading(false);
         
+        // Refreshing current list from server
         if (navigator.onLine)
         {
             iShake.repository.list.get(list.id, function(list) {
@@ -45,15 +59,18 @@ iShake.view.home.prototype = {
             }, this, {remote: true, silent: true});
         }
 
+        // Assigning current list
         this.currentList = list;
         this.currentItem = amplify.store('currentitem') || null;
         
         var me = this;
         
+        // Adding Motion listeners
         $(window).on('devicemotion', function(e) {            
             me.onDeviceMotion(e.accelerationIncludingGravity);
         });
         
+        // If user comes from homeback view, display current item
         if (this.currentItem)
         {
             this.el.toggleClass('ready', false);
@@ -63,7 +80,7 @@ iShake.view.home.prototype = {
         }
         else
         {
-            // Setting name of list       
+            // Displaying shaking phone    
             $('#phone').addClass('animate');
             var msg = $.os.android ? app.getMsg('common.start') : app.getMsg('common.shake');
             $('#phone-text').html(msg);
@@ -73,8 +90,7 @@ iShake.view.home.prototype = {
                 $('#phone').removeClass('animate');            
             }, 16000);
         }
-        
-        
+                
         // Adding listeners
         var evt = $.os.version ? 'tap' : 'click';
         $('section', this.el).on(evt, function(e) {
@@ -84,10 +100,12 @@ iShake.view.home.prototype = {
             }            
         });
         
+        // Disables vertical move of page while swipeLeft / swipeRight
         this.el.on('touchmove', function(e) {
             e.preventDefault();
         });
         
+        // Attaching swipe event listeners
         this.el.on('swipeLeft swipeRight', function(e) {
             e.preventDefault();
             this.unload();
@@ -100,19 +118,24 @@ iShake.view.home.prototype = {
         });
         
         // Android Webkit: Refresh layout
-        me.el[0].style.webkitTransform = 'translate(0, 1)';
+        me.el[0].style.webkitTransform = 'translate(0, 1)';        
         setTimeout(function() {
             me.el[0].style.webkitTransform = 'translate(0, 0)';
         }, 300);
     },
+    
+    /**
+     * Device motion listener, verifies whether Device is shaking and starts
+     * shaking animation
+     */
     onDeviceMotion: function(acceleration)
     {
         if (!this.vector)
         {
+            // Saving move vector
             this.vector = new iShake.model.Vector(acceleration);
             return;
-        }            
-        
+        }
         
         var vector = this.vector,
             isShaking = (vector.isShaking(acceleration));
@@ -124,11 +147,19 @@ iShake.view.home.prototype = {
 
         vector.update(acceleration);       
     },
+    
+    /**
+     * Returns random item from current list
+     */
     random: function()
     {
         var index = Math.floor(Math.random() * this.currentList.items.length);
         return this.currentList.items[index];
     },
+    
+    /**
+     * Displays text of specified item and centers it's position on the screen
+     */
     setResult: function(item)
     {        
         this.resultNode.html(item.text);
@@ -138,6 +169,10 @@ iShake.view.home.prototype = {
             top: top + 'px'
         });
     },
+    
+    /**
+     * Starts shaking animation, makes drawing of random item
+     */
     startShake: function()
     {
         var me = this;
@@ -152,6 +187,7 @@ iShake.view.home.prototype = {
             clearTimeout(this.timeout);
         }
 
+        // Stopping animation after specified amount of time
         this.timeout = setTimeout(function() {
             clearInterval(me.interval);
             me.interval = 0;
@@ -172,12 +208,13 @@ iShake.view.home.prototype = {
 
         this.isShaking = true;   
         
+        // Animating manually, in case device doesn't support css3 animations.
         if (!Modernizr.cssanimations)
         {
             me.resultNode.toggleClass('rotate-left', true);
         }
         
-        
+        // Displays random result
         if (!this.interval)
         {
             var intervalTime = Modernizr.cssanimations ? 300 : 80;
@@ -193,6 +230,10 @@ iShake.view.home.prototype = {
         }
         
     },
+    
+    /**
+     * Disposes view
+     */
     unload: function()
     {
         $('#phone').removeClass('animate');    

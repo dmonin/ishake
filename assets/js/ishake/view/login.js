@@ -1,7 +1,14 @@
+/**
+ * Login view
+ *
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ */
 iShake.view.login = function(name, el)
 {
     this.init(name, el);
     
+    // Initializing login form
     this.form = new iShake.ui.Form(
         $('form', el), 
         '/user/login/', 
@@ -15,11 +22,13 @@ iShake.view.login = function(name, el)
     
     var me = this;
     
+    // Save button
     $('.header-button-right', el).on('click', function() {
         // Sending data to server
         me.form.submit();
     });
     
+    // Facebook login event
     function onFbLogin(response)
     {
         if (response.status == 'connected')
@@ -34,12 +43,16 @@ iShake.view.login = function(name, el)
         }
     }
     
+    // Facebook login button
     $('.facebook-login', this.el).on('click', function() {
         FB.login(onFbLogin);
     });
 }
 
 iShake.view.login.prototype = {
+    /**
+     * Disposes view
+     */
     unload: function()
     {
         $('.header-button-right', this.el).off('click');

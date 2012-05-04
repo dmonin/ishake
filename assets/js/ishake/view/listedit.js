@@ -1,9 +1,17 @@
+/**
+ * List edit view
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ * @param {integer} id List's id
+ * 
+ */
 iShake.view.listedit = function(name, el, id)
 {
     this.init(name, el);    
     
     this.form = new iShake.ui.Form($('form', el));
     
+    // Initializing dropdown with languages
     if (!iShake.view.listedit.langsInitialized)
     {
         var options = $('select[name=language]')[0].options,
@@ -33,6 +41,11 @@ iShake.view.listedit = function(name, el, id)
 }
 
 iShake.view.listedit.prototype = {
+    
+    /**
+     * Initializes form
+     * @param {Object} item Object with list data
+     */
     initForm: function(item)
     {
         this.item = item;
@@ -46,6 +59,7 @@ iShake.view.listedit.prototype = {
             'is_public': item.isPublic
         });
         
+        // Save button
         $('.header-button-right', this.el).on('click', function() {
             
             me.item.name = me.form.val('name');            
@@ -58,6 +72,7 @@ iShake.view.listedit.prototype = {
             }, me);
         });
                 
+        // Delete button
         $('.red-button', this.el).on('click', function(e) {
             iShake.ui.notify.confirm('listedit.confirm-delete-list-hd', function() {
                 iShake.repository.list.remove(me.item, function() {
@@ -67,6 +82,10 @@ iShake.view.listedit.prototype = {
             }, 'listedit.confirm-delete-list-bd');
         });
     },
+    
+    /**
+     * Disposes view
+     */
     unload: function()
     {
         this.form.dispose();

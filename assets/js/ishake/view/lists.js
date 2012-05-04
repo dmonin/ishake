@@ -1,32 +1,42 @@
+/**
+ * Lists view
+ * 
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ * @param {integer} id optionally id of list to be added to users lists
+ * 
+ */
 iShake.view.lists = function(name, el, id)
 {
     this.init(name, el);
     
+    // If id provided, adding list with specified ID to user's lists
     if (id)
     {
         var listIds = iShake.repository.user.listIds();
         
-        if ($.inArray(id, listIds) == -1)
+        if (iShake.util.indexOf(listIds, id) == -1)
         {
             listIds.push(id);
             iShake.repository.user.listIds(listIds);            
-        }
-        
+        }        
     }
     
     this.listRepo = iShake.repository.list;
     
     $('section', el).html('');    
     
+    // Back button
     $('.header-button-left', this.el).toggleClass('hidden', !iShake.repository.list.currentId());
     
-    app.updateLoginStatus();
+    // Showing loading animation
     app.setLoading(true);
     
+    // Displaying no connection warning after specified timeout
     this.timerId = setTimeout(function() {
         app.setLoading(false);
-        $('#no-connection').css('display', 'block');
-    }, 3000);
+        app.showNoConnection(true);
+    }, 5000);
     
     // Getting user lists
     iShake.repository.user.lists(this.initLists, this);
@@ -35,6 +45,11 @@ iShake.view.lists = function(name, el, id)
 }
 
 iShake.view.lists.prototype = {
+    /**
+     * Initializes currently selected list and renders listview with lists
+     * 
+     * @param {Array.<Object>} lists Array of lists to be rendered
+     */
     initLists: function(lists)
     {
         app.setLoading(false);
@@ -48,6 +63,10 @@ iShake.view.lists.prototype = {
         this.renderLists(lists);        
     },
     
+    /**
+     * Processes click event, when user selects one of the lists
+     * @param {Event} e
+     */
     onClick: function(e)
     {
         var target = $(e.target);
@@ -60,34 +79,51 @@ iShake.view.lists.prototype = {
         
         e.preventDefault();
         
+        // Storing selected list id in localStorage
         this.listRepo.currentId(id);
         
         amplify.store('currentitem', '');
         
+        // Adding selected class
         $('#view-lists .selected').removeClass('selected');
         target.parent().addClass('selected');
         
+        // Redirecting to homepage
         setTimeout(function() {
             location.hash = '/';
         }, 500);
     },
     
+    /**
+     * Processes an event when user created a new list
+     * 
+     * @param {string} name
+     */
     onNewList: function(name)
     {
         this.listRepo.create(name, function(newListData) {
+            
+            // Creating new list item
             var li = document.createElement('li');
             li.innerHTML = '<span data-id="' + newListData.id + '" class="item-content">' + newListData.name + '</span>' +
                 '<a href="#/list/' + newListData.id + '" class="disclosure"></a>';
 
+            // Inserting list item
             var editorLi = $('li.new-item', this.el);
             editorLi.before(li);
             
+            
             this.editor.reset();
             
+            // Redirecting to list editor
             location.hash = '#/list/' + newListData.id;
         }, this);
     },
     
+    /**
+     * Renders list items
+     * @param {Array.<Object>} lists An array with list objects
+     */
     renderLists: function(lists)
     {
         var html = [],
@@ -107,8 +143,13 @@ iShake.view.lists.prototype = {
         
         iShake.util.sortByAlphabet(lists, 'name');
         
+        /**
+         * Defines whether list is prefetched in localStorage
+         * @type {boolean}
+         */
         var hasList = false;
         
+        // Rendering items
         for (var i = 0; i < lists.length; i++)
         {
             hasList = !!iShake.repository.list.lists[lists[i].id].items;
@@ -124,10 +165,9 @@ iShake.view.lists.prototype = {
             ].join(''));
         }
         
-       
-        
         $('section ul', this.el).html(html.join(''));
         
+        // Adding event listeners
         $('.item-content', this.el).on('click', function(e) {
             me.onClick(e);
         });
@@ -138,7 +178,7 @@ iShake.view.lists.prototype = {
             location.hash = e.target.hash;
         });
         
-        
+        // If user is registered, rendering inline editor
         var user = app.user();
         if (user && user.registered)
         {

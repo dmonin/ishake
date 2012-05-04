@@ -1,3 +1,11 @@
+/**
+ * Form component
+ * 
+ * @param {Element} el Form element
+ * @param {string} url Post-Back URL
+ * @param {Function} callback Callback function
+ * @param {Object} scope Callback scope
+ */
 iShake.ui.Form = function(el, url, callback, scope)
 {
     this.el = el;
@@ -18,11 +26,20 @@ iShake.ui.Form = function(el, url, callback, scope)
 }
 
 iShake.ui.Form.prototype = {
+    /**
+     * Disposes form
+     */
     dispose: function()
     {
         this.el.off('keydown keyup submit');
         this.el[0].reset();
     },
+    
+    /**
+     * Sets form data
+     * @param {Object} data Object with form data, where key stands for name of
+     *      field.
+     */
     setData: function(data)
     {
         var formEl = this.el, el;
@@ -43,6 +60,10 @@ iShake.ui.Form.prototype = {
             }
         }
     },
+    
+    /**
+     * Submits form
+     */
     submit: function()
     {
         app.setLoading(true);
@@ -61,6 +82,13 @@ iShake.ui.Form.prototype = {
         }, this, data);        
         
     },
+    
+    /**
+     * Returns value of speicified field element
+     * 
+     * @param {string} name
+     * @return {string}
+     */
     val: function(name)
     {
         var el = this.el.find('[name=' + name + ']');

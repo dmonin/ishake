@@ -1,27 +1,39 @@
+/**
+ * Registration view
+ * 
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ */
 iShake.view.register = function(name, el) {
     this.init(name, el);
     
-    this.form = new iShake.ui.Form($('form', el));
-    
-    var me = this;
-    
-    setTimeout(function() {
-        FB.getLoginStatus(function(response) {
-            location.hash = '/';
-        });
-    }, 3000);
-    
-    
-    $('.header-button-right', el).on('click', function() {
-        // Sending data to server
-        me.form.submit('/user/register/', function(data) {
+    // Initializing form
+    this.form = new iShake.ui.Form($('form', el), 
+        '/user/register/', 
+        function(data) {
             iShake.repository.user.current(data.user);            
             iShake.repository.list.add(data.lists);
             app.updateLoginStatus();
             history.back();
         }, this);
+    
+    var me = this;
+    
+    // In case user already logged in with facebook, redirecting back to home
+    setTimeout(function() {
+        FB.getLoginStatus(function(response) {
+            location.hash = '/';
+        });
+    }, 3000);
+        
+    // Registers save button
+    $('.header-button-right', el).on('click', function() {
+        
+        // Sending data to server
+        me.form.submit();
     });
     
+    // Initializing facebook login button
     $('.facebook-login', this.el).on('click', function() {
         FB.login(function(response) { 
             if (response.status == 'connected')
@@ -34,6 +46,9 @@ iShake.view.register = function(name, el) {
 }
 
 iShake.view.register.prototype = {
+    /**
+     * Disposes view
+     */
     unload: function() {
         $('.header-button-right', this.el).off('click');
         this.form.dispose();

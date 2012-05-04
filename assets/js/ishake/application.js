@@ -4,19 +4,35 @@ iShake = {
     view: {},
     model: {},
     repository: {},
-    util: {
+    
+    util: {        
+        /**
+         * Returns the index of the first element of an array with a specified
+         * value, or -1 if the element is not present in the array. This method
+         * doesn't type conversion.
+         * 
+         * @param {Array} arr The array to be searched.
+         * @param {Object} item Object we are searching
+         */
         indexOf : function(arr, item)
         {
             for (var i = 0; i < arr.length; i++)
             {
                 if (arr[i] == item)
                 {
-                    return;i;
+                    return i;
                 }
             }
             
             return -1;
         },
+        
+        /**
+         * Sorts array of objects by alphabet
+         * @param {Array} data Array with objects to be sorted
+         * @param {string} propertyName Name of property by which object must be
+         *      sorted
+         */
         sortByAlphabet: function(data, propertyName)
         {
             return data.sort(function(a, b) {
@@ -39,11 +55,15 @@ iShake.App = function()
 {
     var currentView,
         pageTransition = null;
-        
+    
+    /**
+     * Switches the view
+     * @param {string} viewName name of destination view
+     * @param {string} id optionaly id of selected item
+     */
     function switchPage(viewName, id) {
         var nextView = $('#view-' + viewName);
 //        nextView.css('height', window.innerHeight + 'px');
-//        nextView.css('background', '#f00');
 
         if (!currentView || !Modernizr.cssanimations)
         {
@@ -99,12 +119,15 @@ iShake.App = function()
     return {
         server: 'http://ishake-app.com',
         lang: 'en',
+        
+        /**
+         * Initializes the application
+         */
         run: function() {
-            console.log('run forest, run!');
-            
             pageTransition = new iShake.ui.PageTransition($(document.body));
             
-            // window.innerHeight returns 0 on mobile safari
+            // this pre-saves heigh of viewPort, due to unknow reason it returns
+            // 0 later in mobile opera
             this.winHeight = $(window).height();
             
             this.initLanguage();
@@ -112,6 +135,12 @@ iShake.App = function()
             this.initRouting();
             this.initTouches();
         },
+        
+        /**
+         * Returns localized string for specified label key
+         * @param {string} label
+         * @return {string}
+         */
         getMsg: function(label)
         {
             if (!label)
@@ -121,6 +150,11 @@ iShake.App = function()
             
             return iShake.lang[this.lang][label] || label;
         },
+        
+        /**
+         * Initializes navigator language replaces with data-label attribute
+         * 
+         */
         initLanguage: function()
         {
             var languages = ['en', 'de'],
@@ -134,6 +168,10 @@ iShake.App = function()
                 el.html(me.getMsg(el.data('label')));
             });            
         },
+        
+        /**
+         * Initializes drop down navigation
+         */
         initMenu: function()
         {
             var isTouch = "ontouchstart" in window,
@@ -203,6 +241,10 @@ iShake.App = function()
                 });
             });
         },
+        
+        /**
+         * Initializes hash history routing
+         */
         initRouting: function() {
             var routes = {
                 '/': function() {        
@@ -265,6 +307,10 @@ iShake.App = function()
                 }
             }).init(initialRoute);   
         },
+        
+        /**
+         * Initializes touch effects
+         */
         initTouches: function()
         {
             tappable('.header-button, .button, .icon-button', {
@@ -317,6 +363,17 @@ iShake.App = function()
                 containerElement: document.body
             });
         },
+        
+        /**
+         * A wrapper method to access external api
+         * @param {string} path API url
+         * @param {Function} callback Callback method
+         * @param {Object} scope Scope in which callback method will be called
+         * @param {Object} data Additional data to be sent
+         * @param {boolean} silent defines whether to show loader, default is
+         *      false
+         *      
+         */
         request: function(path, callback, scope, data, silent) {
             if (!navigator.onLine)
             {
@@ -353,37 +410,56 @@ iShake.App = function()
                 }
             });
         },
+        
+        /**
+         * Controls visibility of loader
+         * @param {boolean} isLoading true if loader should be visible
+         */
         setLoading: function(isLoading)
         {
             $('#loader').toggleClass('visible', isLoading);
         },
-        showNoConnection: function()
+        
+        /**
+         * Displays no connection warning.
+         * 
+         * @param {boolean} isVisible true if no connection warning should be
+         *      visible
+         */
+        showNoConnection: function(isVisible)
         {
-            $('#no-connection-msg').css('display', 'block');
+            var display = isVisible ? 'block' : 'none';
+            $('#no-connection-msg').css('display', display);
         },
+        
+        /**
+         * Updates UI according user login status
+         */
         updateLoginStatus: function()
         {
             var isLogged = iShake.repository.user.current();
             $(document.body).toggleClass('logged', !!isLogged);
         },
+        
+        /**
+         * Updates UI according online connection status
+         * @param {boolean} onlineStatus defines whether device has internet
+         *      connection
+         */
         updateOnlineStatus : function(onlineStatus)
         {
             onlineStatus = typeof onlineStatus != 'undefined' ? onlineStatus : navigator.onLine;
             $(document.body).toggleClass('offline', !onlineStatus);            
-            $('#no-connection-msg').css('display', 'none');                        
+            this.showNoConnection(false);              
         },
-        user: function(userData) {
+        
+        /**
+         * Returns current logged user
+         * @return {Object}
+         */
+        user: function() {
             return iShake.repository.user.current();
         }
         
     };
 }
-
-
-//window.onerror = function()
-//{
-//    for (var i = 0; i < arguments.length; i++)
-//    {
-//        alert(arguments[i]);
-//    }
-//}

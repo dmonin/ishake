@@ -1,6 +1,16 @@
+/**
+ * List Repository
+ *
+ */
 iShake.repository.list = {
     lists: amplify.store('lists') || {},
     currentId_: amplify.store('currentListId') || 0,
+    
+    /**
+     * Returns currently selected list id
+     * @param {integer} id Optional ID, if specified, stores new id value
+     * @return {integer}
+     */
     currentId: function(id)
     {
         if (id)
@@ -12,6 +22,12 @@ iShake.repository.list = {
         return this.currentId_ || 0;
         
     },
+    
+    /**
+     * Stores locally specified lists
+     *
+     * @param {Array} lists An array with list objects
+     */
     add: function(lists)
     {
         for (var i = 0; i < lists.length; i++)
@@ -22,6 +38,14 @@ iShake.repository.list = {
 
         amplify.store('lists', this.lists);
     },
+    
+    /**
+     * Creates a new list with specified name
+     * 
+     * @param {string} name Name of the list
+     * @param {Function} callback Callback funtion
+     * @param {Object} scope Callback scope
+     */
     create: function(name, callback, scope)
     {
         app.request('/list/add', function(data) {
@@ -39,6 +63,15 @@ iShake.repository.list = {
             language: navigator.language
         });
     },
+    
+    /**
+     * Adds a new item to the list
+     *
+     * @param {string} listId Id of list, where the item should be added
+     * @param {string} name Name of item
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
     addItem: function(listId, name, callback, scope)
     {
         app.request('/list-item/add', function(data) {
@@ -59,6 +92,14 @@ iShake.repository.list = {
             text: name
         });
     },
+    
+    /**
+     * Loads lists from server. Lists can be filterd with options object.
+     * 
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     * @param {Object} options Configuration filter
+     */
     all: function(callback, scope, options)
     {
         /*
@@ -73,6 +114,14 @@ iShake.repository.list = {
             
         }, this, options);
     },
+    
+    /**
+     * Gets single list from server
+     * @param {integer} id Id of list
+     * @param {Function} callback Callback object
+     * @param {Object} scope Callback scope object
+     * @param {Object} options Object with fetch parameters
+     */
     get: function(id, callback, scope, options)
     {
         options = options || {};
@@ -90,6 +139,14 @@ iShake.repository.list = {
             }, this, null, options.silent);
         }
     },
+    
+    /**
+     * Returns list item with specified id
+     * 
+     * @param {integer} id Item's id
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
     item: function(id, callback, scope)
     {
         app.request('/list-item/get', function(data) {
@@ -101,6 +158,14 @@ iShake.repository.list = {
             id: id
         });
     },
+    
+    /**
+     * Updates list
+     * 
+     * @param {Object} list List data
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
     update: function(list, callback, scope)
     {
         app.request('/list/update', function(data) {
@@ -120,6 +185,14 @@ iShake.repository.list = {
             language: list.language
         });
     },
+    
+    /**
+     * Updates list item
+     * 
+     * @param {Object} item List item
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
     updateItem: function(item, callback, scope)
     {
         app.request('/list-item/update', function(data) {
@@ -137,6 +210,14 @@ iShake.repository.list = {
             backsideText: item.backsideText
         });
     },
+    
+    /**
+     * Deletes list
+     * 
+     * @param {Object} list List data
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
     remove: function(list, callback, scope)
     {
         delete this.lists[list.id];
@@ -163,6 +244,14 @@ iShake.repository.list = {
             }
         );
     },
+    
+    /**
+     * Removes an item from specified list
+     * 
+     * @param {Object} item Item to be deleted
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
     removeItem: function(item, callback, scope)
     {
         app.request('/list-item/delete', function(data) {

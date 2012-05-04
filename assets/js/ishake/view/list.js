@@ -1,3 +1,10 @@
+/**
+ * View with list items
+ * 
+ * @param {string} name
+ * @param {Element} el
+ * @param {string} id
+ */
 iShake.view.list = function(name, el, id)
 {
     this.init(name, el);
@@ -9,19 +16,10 @@ iShake.view.list = function(name, el, id)
 }
 
 iShake.view.list.prototype = {
-    getItem: function(itemId)
-    {
-        var items = this.listData.items;
-        for (var i = 0; i < items.length; i++)
-        {
-            if (items[i].id == itemId)
-            {
-                return items[i];
-            }
-        }
-        
-        return null;
-    },
+    /**
+     * Initializes lists data
+     * @param {integer} id
+     */
     initData: function(id)
     {                
         this.listRepo.get(id, function(data) {

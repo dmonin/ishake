@@ -1,3 +1,8 @@
+/**
+ * Online view
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ */
 iShake.view.online = function(name, el)
 {
     this.init(name, el);
@@ -15,6 +20,10 @@ iShake.view.online = function(name, el)
 }
 
 iShake.view.online.prototype = {
+    /**
+     * Processes click event
+     * @param {Event} e Browser click event
+     */
     onClick: function(e)
     {
 //        e.preventDefault();
@@ -46,6 +55,9 @@ iShake.view.online.prototype = {
             iShake.repository.user.listIds(userListIds);              
         }
     },
+    /**
+     * Renders list items
+     */
     renderItems: function()
     {
         var html = [],
@@ -70,10 +82,12 @@ iShake.view.online.prototype = {
         $('section li', this.el).on('click', function(e) {
             me.onClick(e);
         });
+        
+        this.initScroll();
     },
     unload: function()
     {
-        
+        this.disposeScroll();
     }
 };
 
