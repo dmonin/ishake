@@ -58,12 +58,11 @@ iShake.view.list.prototype = {
             this.editor.reset();
             
             var li = document.createElement('li');
-            li.innerHTML = '<a class="item-content" href="#/item/' + newItemData.id + '">' + newItemData.text + '</a>';
+            li.innerHTML = '<a class="item-content" href="#/item/' + newItemData.id + '">' + newItemData.text + '</a><span class="disclosure-wrap"></span>';
             $(li).data('id', newItemData.id);
 
-            var editorLi = $('li.new-item', this.el);
+            var editorLi = $('li.new-item-li', this.el);
             editorLi.before(li);
-
         }, this);
         
     },
@@ -85,7 +84,10 @@ iShake.view.list.prototype = {
         
         for (var i = 0; i < items.length; i++)
         {
-            listName = canEdit ? '<a class="item-content" href="#/item/' + items[i].id + '">' + items[i].text + '</a>' :
+            listName = canEdit ? '<a class="item-content" href="#/item/' + 
+                                    items[i].id + '">' + items[i].text + 
+                                    '</a><span class="disclosure-wrap"></span>' :
+                                    
                                  '<span class="item-content">' + items[i].text + '</span>';
             
             html.push([
@@ -95,34 +97,21 @@ iShake.view.list.prototype = {
             ].join(''));
         }
         
-        if (canEdit)
-        {
-            html.push([
-                '<li class="new-item empty">',
-                    '<span class="item-loader"><span class="spinner"></span></span>',
-                    '<input type="text" class="list-edit" name="new" value="" />',
-                    '<span class="new-item-empty">' + app.getMsg('list.new-item') + '</span>',
-                '</li>'].join('')        
-            );
-        }
-        
         $('section ul', this.el).html(html.join(''));                
         
         if (canEdit)
         {
-            var newInput = $('#view-list .new-item input');
             this.editor = new iShake.ui.NewItemInput(
-                newInput, 
+                app.getMsg('list.new-item'), 
                 this.onNewItem,
                 this
             );
+            this.editor.render($('section ul', this.el));
         }
-        
-        this.initScroll();
     },
     unload: function()
     {
-         this.disposeScroll();
+         
     }
 };
 

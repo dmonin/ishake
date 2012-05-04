@@ -1,6 +1,18 @@
-iShake.view.lists = function(name, el)
+iShake.view.lists = function(name, el, id)
 {
     this.init(name, el);
+    
+    if (id)
+    {
+        var listIds = iShake.repository.user.listIds();
+        
+        if ($.inArray(id, listIds) == -1)
+        {
+            listIds.push(id);
+            iShake.repository.user.listIds(listIds);            
+        }
+        
+    }
     
     this.listRepo = iShake.repository.list;
     
@@ -17,7 +29,9 @@ iShake.view.lists = function(name, el)
     }, 3000);
     
     // Getting user lists
-    iShake.repository.user.lists(this.initLists, this);   
+    iShake.repository.user.lists(this.initLists, this);
+    
+//    iShake.repository.user.repair();
 }
 
 iShake.view.lists.prototype = {
@@ -31,7 +45,7 @@ iShake.view.lists.prototype = {
             this.listRepo.currentId(lists[0].id);
         }
         
-        this.renderLists(lists);
+        this.renderLists(lists);        
     },
     
     onClick: function(e)
@@ -47,6 +61,8 @@ iShake.view.lists.prototype = {
         e.preventDefault();
         
         this.listRepo.currentId(id);
+        
+        amplify.store('currentitem', '');
         
         $('#view-lists .selected').removeClass('selected');
         target.parent().addClass('selected');
@@ -103,40 +119,36 @@ iShake.view.lists.prototype = {
                 (hasList ? '' : ' online')
                 ,'">',
                     '<span data-id="' + lists[i].id + '" class="item-content">' + lists[i].name + '</span>',
-                    '<a href="#/list/' + lists[i].id + '" class="disclosure online"></a>',
+                    '<span class="disclosure-wrap"><a href="#/list/' + lists[i].id + '" class="disclosure online"></a></span>',
                 '</li>'
             ].join(''));
         }
         
-        var user = app.user();
-        
-        if (user && user.registered)
-        {
-            html.push([
-                '<li class="new-item empty">',
-                    '<span class="item-loader"><span class="spinner"></span></span>',
-                    '<input type="text" class="list-edit" name="new" value="" />',
-                    '<span class="new-item-empty">' + app.getMsg('lists.new-list') + '</span>',
-                '</li>'].join('')        
-            );
-        }
+       
         
         $('section ul', this.el).html(html.join(''));
         
-        $('section li', this.el).on('click', function(e) {
+        $('.item-content', this.el).on('click', function(e) {
             me.onClick(e);
         });
         
+        $('a', this.el).on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            location.hash = e.target.hash;
+        });
         
         
+        var user = app.user();
         if (user && user.registered)
         {
-            var newInput = $('#view-lists .new-item input');
             this.editor = new iShake.ui.NewItemInput(
-                newInput, 
+                app.getMsg('lists.new-list'),
                 this.onNewList,
                 this
             );
+                
+            this.editor.render($('section ul', this.el));                                
         }        
         
         this.initScroll();

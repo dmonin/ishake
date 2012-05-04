@@ -21,7 +21,21 @@
         visibility: visible;
     }
 }
+/*.no-cssanimations #loader
+{
+    background: rgba(255, 255, 255, .5);
+}*/
 
+/*.no-cssanimations .spinner {
+    display: block;
+    
+    background: transparent url(../img/common/preloader.gif) no-repeat center center;    
+    height: 37px;
+    margin-left: -17px;
+    margin-top: -17px;
+    width: 37px;
+    pointer-events: none;
+}*/
 
 .spinner {
     display: block;
@@ -38,6 +52,8 @@
     width: 20px;
     pointer-events: none;
 }
+
+
 
 @-webkit-keyframes loading-sprite {
 	0% { background-position: 0 0; }

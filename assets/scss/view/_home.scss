@@ -23,18 +23,31 @@
     position: absolute;
     top: 118px;
     text-align: center; 
-    width: 100%;
+    width: 90%;
     
-    -webkit-transform: rotate(0deg);
-    -webkit-transition: all .5s;    
-/*    -webkit-transform-style: preserve-3d;*/
+    @include transform(rotate(0deg));
+    -webkit-transition: all .5s;
     
     .ready & {
         display: none;
     }
     
+    &.rotate-left
+    {
+        @include transform(rotate(8deg));
+    }
     
-    &.shaking {
+    &.rotate-right
+    {
+        @include transform(rotate(-8deg));
+    }
+    
+    .no-cssanimations &.shaking {
+        color: rgba(0, 0, 0, .1);
+        text-shadow: 0 0 8px #000;
+    }
+    
+    .cssanimations &.shaking {
         color: transparent;
         text-shadow: 0 0 8px #000;
 /*        color: #f2f2f2;*/
@@ -99,7 +112,7 @@
 
 #phone-left {
     left: 40px;    
-    -webkit-transform: rotate(-180deg);
+    @include transform(rotate(-180deg));
     
     .animate & {
         -webkit-animation-name: spaceboots-rotated;
@@ -189,4 +202,5 @@
     background-position: sprite-position($sprite, menu-hover, 4px, 5px);
     top: 5px;
     right: 5px;    
+    z-index: 1000;
 }

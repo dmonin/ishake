@@ -35,7 +35,8 @@ iShake.repository.list = {
                 callback.call(scope, data.list);
             }
         }, this, {
-            name: name
+            name: name,
+            language: navigator.language
         });
     },
     addItem: function(listId, name, callback, scope)
@@ -114,7 +115,9 @@ iShake.repository.list = {
         }, this, {
             id: list.id,
             name: list.name, 
-            isPublic: list.isPublic
+            isPublic: list.isPublic,
+            category: list.category,
+            language: list.language
         });
     },
     updateItem: function(item, callback, scope)

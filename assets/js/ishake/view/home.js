@@ -7,7 +7,7 @@ iShake.view.home = function(name, el)
     if (!currentId)
     {
         location.hash = '/lists';
-        return;    
+        return;
     }
     
     this.watchId = 0;
@@ -44,9 +44,9 @@ iShake.view.home.prototype = {
                 this.currentList = list;                
             }, this, {remote: true, silent: true});
         }
-        
+
         this.currentList = list;
-        this.currentItem = null;
+        this.currentItem = amplify.store('currentitem') || null;
         
         var me = this;
         
@@ -54,26 +54,28 @@ iShake.view.home.prototype = {
             me.onDeviceMotion(e.accelerationIncludingGravity);
         });
         
-        // Setting name of list              
-        $('#phone').addClass('animate');
-        var msg = $.os.android ? app.getMsg('common.start') : app.getMsg('common.shake');
-        $('#phone-text').html(msg);
-        
-        // this is needed for android
-        setTimeout(function() {
-            me.el[0].style.webkitTransform = 'translate(0, 0)';
-//            var phone = $('#phone');
-//            phone.css('top', '200px');
-        }, 1000);
-        
-        
-        // Disabling shaking after 8 seconds
-        setTimeout(function() {
-            $('#phone').removeClass('animate');
+        if (this.currentItem)
+        {
+            this.el.toggleClass('ready', false);
+            this.setResult(this.currentItem);
+            $('section', this.el).toggleClass('has-backside', 
+                this.currentItem.hasBackside);    
+        }
+        else
+        {
+            // Setting name of list       
+            $('#phone').addClass('animate');
+            var msg = $.os.android ? app.getMsg('common.start') : app.getMsg('common.shake');
+            $('#phone-text').html(msg);
             
-        }, 16000);
+            // Disabling shaking after 8 seconds
+            setTimeout(function() {
+                $('#phone').removeClass('animate');            
+            }, 16000);
+        }
         
-        // Tap = Shake
+        
+        // Adding listeners
         var evt = $.os.version ? 'tap' : 'click';
         $('section', this.el).on(evt, function(e) {
             if (!e.target.href && !$(e.target).hasClass('menu-button'))
@@ -81,8 +83,14 @@ iShake.view.home.prototype = {
                 me.startShake();
             }            
         });
+        
+        this.el.on('touchmove', function(e) {
+            e.preventDefault();
+        });
+        
         this.el.on('swipeLeft swipeRight', function(e) {
             e.preventDefault();
+            this.unload();
             
             if (me.currentItem && me.currentItem.hasBackside)
             {
@@ -90,6 +98,12 @@ iShake.view.home.prototype = {
             }
             
         });
+        
+        // Android Webkit: Refresh layout
+        me.el[0].style.webkitTransform = 'translate(0, 1)';
+        setTimeout(function() {
+            me.el[0].style.webkitTransform = 'translate(0, 0)';
+        }, 300);
     },
     onDeviceMotion: function(acceleration)
     {
@@ -148,18 +162,34 @@ iShake.view.home.prototype = {
             
             amplify.store('currentitem', me.currentItem);
             
+            me.resultNode.toggleClass('rotate-left', false);
+            me.resultNode.toggleClass('rotate-right', false);   
+            
             me.isShaking = false;
             
             $('section', me.el).toggleClass('has-backside', me.currentItem.hasBackside);                                    
-        }, 3000);
+        }, 2000);
 
         this.isShaking = true;   
         
+        if (!Modernizr.cssanimations)
+        {
+            me.resultNode.toggleClass('rotate-left', true);
+        }
+        
+        
         if (!this.interval)
         {
+            var intervalTime = Modernizr.cssanimations ? 300 : 80;
             this.interval = setInterval(function() {
                 me.setResult(me.random());
-            }, 300); 
+                if (!Modernizr.cssanimations)
+                {
+                    me.resultNode.toggleClass('rotate-left');
+                    me.resultNode.toggleClass('rotate-right');                    
+                }
+                
+            }, intervalTime); 
         }
         
     },
@@ -168,7 +198,7 @@ iShake.view.home.prototype = {
         $('#phone').removeClass('animate');    
         $('section', this.el).off('tap');
         $('section', this.el).off('click');
-        this.el.off('swipeLeft swipeRight');
+        this.el.off('swipeLeft swipeRight touchmove');
         $(window).off('devicemotion');
         
     }

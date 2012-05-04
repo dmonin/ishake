@@ -34,6 +34,13 @@
     
     -webkit-border-image: url(../img/iphone/button-orange.png) 4 10 4 10;
     -webkit-background-size: 0 0;
+    
+    -o-border-image: url(../img/iphone/button-orange.png) 4 10 4 10;
+    -o-background-size: 0 0;
+    
+    -moz-border-image: url(../img/iphone/button-orange.png) 4 10 4 10;
+    -moz-background-size: 0 0;
+    
     border-width: 2px 5px;
     
     &.tappable-active {
@@ -44,9 +51,13 @@
 .header-button.button-back {
     border-width: 2px 4px 2px 13px;
     -webkit-border-image: url(../img/iphone/button-back-orange.png) 4 8 4 26;
+    -o-border-image: url(../img/iphone/button-back-orange.png) 4 8 4 26;
+    -moz-border-image: url(../img/iphone/button-back-orange.png) 4 8 4 26;
     
     &.tappable-active {
         -webkit-border-image: url(../img/iphone/button-back-orange-active.png) 4 8 4 26;        
+        -o-border-image: url(../img/iphone/button-back-orange-active.png) 4 8 4 26;        
+        -moz-border-image: url(../img/iphone/button-back-orange-active.png) 4 8 4 26;        
     }
 }
 

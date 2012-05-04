@@ -1,4 +1,4 @@
-.form-item-checkbox
+.flexbox .form-item-checkbox
 {
     background: transparent;
     border: 1px solid #ccc;
@@ -22,11 +22,13 @@
     
     -webkit-box-orient: horizontal;
     -moz-box-orient: horizontal;
+    -o-box-orient: horizontal;
     box-orient: horizontal;
     
     .form-item-label
     {
         -webkit-box-flex: 1;
+        -o-box-flex: 1;
         box-flex: 1;
         color: #999;
         padding-top: 9px;
@@ -64,7 +66,20 @@
     {
         opacity:0.5;
     }
+}
 
+.no-flexbox {
+    .form-item-label {
+        float: left;
+    }
+    
+    .form-item-checkbox {
+        overflow: hidden;
+    }
+        
+    input[type=checkbox]  {
+        float: right;
+    }
 }
 
 @-webkit-keyframes checkbox-switch-on 

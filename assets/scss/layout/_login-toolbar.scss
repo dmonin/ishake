@@ -1,11 +1,15 @@
 .login-toolbar {
     background: transparent url(../img/iphone/footer-toolbar.png) repeat-x;
-    display: -moz-box;
+/*    display: -moz-box;
     display: -webkit-box;
-    display: box;
+    display: box;*/
     height: 44px;
     overflow: hidden;
     text-align: center;
+    
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     
     -webkit-box-align: center;
     box-align: center;

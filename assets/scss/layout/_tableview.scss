@@ -1,54 +1,44 @@
-ul.tableview
-{
+ul.tableview {
     margin: 0;
     padding: 0;
+    width: 100%;
+    display: table;
     
-    li
-    {
-        border-bottom: 1px solid #dad6d6;
+    li {        
         list-style: none;
-        display: -webkit-box;
-        display: -moz-box;
-        display: box;
+        display: table-row;
         padding-right: 9px;
         -webkit-user-select: none;
         -webkit-tap-highlight-color: rgba(0,0,0,0); 
         
         .item-content,
-        .list-edit
-        {
+        .new-item-input {
+            box-sizing: border-box;
             color: #000;
-            display: block;
             font-size: 20px;
             height: 44px;
             line-height: 44px;                
             padding: 0 0 0 45px;
-/*            -webkit-touch-callout: none;*/
-            -webkit-box-flex: 1;
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
             -webkit-tap-highlight-color: rgba(0,0,0,0);            
         }
         
-        .list-edit
-        {
+        .new-item-input {
             background: none;
             border: 0;
             line-height: 30px;
-            padding-left: 0px;            
+            padding-left: 0px;
         }
         
-        &.new-item
-        {
+        .new-item {
+            display: table;
             position: relative;
-            .list-edit
-            {
+            
+            .new-item-input {
                 position: relative;
                 z-index: 2;
             }
             
-            .new-item-empty
-            {
+            .new-item-empty {
                 color: #999;
                 font-size: 20px;
                 display: none;
@@ -61,183 +51,88 @@ ul.tableview
                 pointer-events: none;
                 z-index: 1;
             }
-            
-            &.empty .new-item-empty
-            {
-                display: block;
-            }
+        }
+        &.new-item-li.empty .new-item-empty {
+            display: block;
+        }
+
+        &.new-item-li.empty .plus {
+            visibility: hidden;
         }
         
-        
-        
-        .item-content
-        {
+        .item-content {
+            border-bottom: 1px solid #dad6d6;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             text-decoration: none;
-            
-            
-        }
+            display: table-cell;
+            width: 100%;
+        }        
         
-        
-        a.item-content.tappable-active
-        {
+        a.item-content.tappable-active {
             background-image: -webkit-gradient(linear, left top, left bottom, from( #FFAC2A /*{global-active-background-start}*/), to( #E58D23 /*{global-active-background-end}*/));
         }
         
         
-        &.selected
-        {
+        &.selected .item-content {
             background: transparent sprite($sprite, selected, 9px, 10px) no-repeat;
         }
         
-        &.inactive
-        {
-            color: #999;
+        .disclosure-wrap {
+            border-bottom: 1px solid #dad6d6;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: right;
+            width: 40px;                        
         }
         
-        .disclosure
-        {
+        &:last-child .disclosure-wrap {
+            border-bottom: 0px none;
+        }
+        
+        .disclosure {
             background: #ea841f sprite($sprite, btn-next) no-repeat;
-            &.tappable-active
-            {
+            border-radius: 5px;
+            display: inline-block;
+            height: 30px;
+            margin-right: 10px;      
+            width: 30px;
+            -webkit-touch-callout: none;
+
+            &.tappable-active {
                 background-color: #000;
             }
             
-            border-radius: 5px;
-            display: -webkit-box;
-            display: -moz-box;
-            display: box;
-            
-            height: 30px;
-            margin-top: 7px;
-            
-            width: 30px;
-            top: 8px;
-            -webkit-touch-callout: none;
-            -webkit-box-align: center;
-            box-align: center;
-            -webkit-box-pack: center;
-            -moz-box-pack: center;
-            box-pack: center;
-            -webkit-box-flex: 0;
-            -moz-box-flex: 0;
-            box-flex: 0;
-            
-            &.plus
-            {
+            &.plus {
                 background-position: sprite-position($sprite, btn-plus);
             }
             
-            &.minus
-            {
+            &.minus {
                 background-position: sprite-position($sprite, btn-minus);
             }
         }
         
-        /*.delete-icon,
-        .delete-confirm,*/
-        .item-loader
-        {
-            display: -webkit-box;
-            display: -moz-box;
-            display: box;
-            -webkit-box-align: center;
-            box-align: center;
-            -webkit-box-pack: center;
-            -moz-box-pack: center;
-            box-pack: center;
-            -webkit-box-flex: 0;
-            -moz-box-flex: 0;
-            box-flex: 0;
+        .new-item-wrap {
+            display: table-cell;            
         }
         
-        .item-loader
-        {
+        .item-loader {
+            display: table-cell;
             height: 29px;
             margin-top: 9px;
+            text-align: center;
+            vertical-align: middle;
             width: 45px;
             
-            .spinner
-            {
+            .spinner {
                 display: none;                
                 margin-left: 2px;
             }
         }
         
-        &.loading .item-loader .spinner
-        {
+        &.loading .item-loader .spinner {
             display: inline-block;
         }
-        
-        .delete-icon
-        {
-            background: transparent url(../img/iphone/delete.png) no-repeat center;
-            background-size: 29px 29px;
-            cursor: pointer;
-            height: 29px;
-            margin-top: 7px;
-            width: 44px;    
-            text-align: center;
-            
-            .minus
-            {
-                background: transparent url(../img/iphone/delete-minus.png) no-repeat center;
-                background-size: 29px 29px;
-                height: 29px;
-                display: inline-block;
-                margin-left: 2px;
-                width: 29px;
-                -webkit-transition: -webkit-transform .218s;
-                -webkit-transform: rotate3d(0, 0, 1, 0deg);
-            }
-        }
-        
-        
-        /*.delete-confirm
-        {
-            overflow: hidden;
-            width: 0;
-            @include transition(width .218s);            
-        }
-        
-        &.deletable
-        {
-            .delete-confirm
-            {
-                width: 80px;
-            }
-            
-            .delete-icon .minus
-            {
-                -webkit-transform: rotate3d(0, 0, 1, -90deg) translateY(1px) translateX(1px);
-            }
-        }
-        
-        .red-button
-        {
-            background:transparent !important;
-            cursor: pointer;
-            text-shadow: #7a0001 0 -1px 0;
-            display: block;
-            border-width: 0 12px;
-            padding: 5px 0 0 0;
-            height: 29px;
-            text-align: center;
-            margin-top: 7px;
-            
-            color:#fff;
-            font-size: 15px;
-            font-weight: bold;
-            
-            -webkit-border-image: url(../img/iphone/red-button.png) 0 12 0 12;
-            -moz-border-image: url(../img/iphone/red-button.png) 0 12 0 12;
-            
-            -webkit-box-sizing: border-box;
-            box-sizing: border-box;
-            
-            background-size: 59px 29px;            
-        }*/
     }        
 }

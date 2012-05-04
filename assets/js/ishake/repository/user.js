@@ -26,15 +26,6 @@ iShake.repository.user = {
         
         if (listIds)
         {
-//            removes doubles (there should be no doubles in the list)
-//            for (var i = listIds.length - 1; i >= 0; i--)
-//            {
-//                if ($.inArray(listIds[i], listIds, i + 1) != -1)
-//                {
-//                    listIds.splice(i, 1);
-//                }
-//            }
-            
             var currentId = iShake.repository.list.currentId();
             if (listIds.length && $.inArray(currentId, listIds) == -1)
             {
@@ -98,27 +89,43 @@ iShake.repository.user = {
                 // one of the lists is not in cache
                 if (!list)
                 {
-                    this.refresh(function() {
-                        this.lists(callback, scope);
+                    listRepo.get(listIds[i], function() {
+                        this.lists(callback, scope);                        
                     }, this);
                     return;
-                }               
+                }
                 
                 lists.push(list);
             }
             callback.call(scope, lists);
         }
-    }, 
+    },
+    repair: function()
+    {
+        var listIds = this.listIds();
+        
+        //removes doubles (there should be no doubles in the list)
+        for (var i = listIds.length - 1; i >= 0; i--)
+        {
+            if ($.inArray(Number(listIds[i]), listIds, i + 1) != -1 ||
+                $.inArray(String(listIds[i]), listIds, i + 1) != -1)
+            {
+                listIds.splice(i, 1);
+            }
+        }
+        
+        this.listIds(listIds);
+    },
     refresh: function(callback, scope) {
         app.request('/user/get', function(data) {
             this.current(data.user);
             iShake.repository.list.add(data.lists);
-            
+
             if (callback)
             {
                 callback.call(scope);
             }
-        }, this);
+        }, this);        
     },
     setFacebook: function()
     {

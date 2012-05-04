@@ -7,24 +7,28 @@ iShake.view.homeback = function(name, el)
     var backsideText = $('#backside-text');
     backsideText.html(currentItem.backsideText.replace(/[\n]/g, '<br />'));
     
-    var top = (window.innerHeight - backsideText[0].offsetHeight) / 2 - 40;
+    var winHeight = $(window).height() || app.winHeight;
+    var top = (winHeight - backsideText[0].offsetHeight) / 2 - 40;
     backsideText.css({
         top: top + 'px'
     });
-    
+        
     var me = this;
     
-    $(me.el).on('swipeRight swipeLeft', function(e) {
-        location.hash = '/home';
+    this.el.on('touchmove', function(e) {
+        e.preventDefault();
     });
     
+    $('.scroll', this.el).on('click swipeRight swipeLeft', function(e) {
+        me.unload();
+        location.hash = '/home';
+    });
     
 }
 
 iShake.view.homeback.prototype = {
     unload: function() {
-//        $(this.el).off('swipeRight');
-//        $(this.el).off('swipeLeft');
+        $('section', this.el).off('touchmove swipeRight swipeLeft click');        
     }
 };
 

@@ -1,6 +1,16 @@
-iShake.ui.Form = function(el)
+iShake.ui.Form = function(el, url, callback, scope)
 {
     this.el = el;
+    this.url = url;
+    this.callback = callback;
+    this.scope = scope;
+    
+    var me = this;
+    el.on('submit', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        me.submit();
+    });
     el.on('keydown keyup', function(e) {
         var target = $(e.target);
         target.parent().toggleClass('empty', !target.val());
@@ -10,12 +20,13 @@ iShake.ui.Form = function(el)
 iShake.ui.Form.prototype = {
     dispose: function()
     {
-        this.el.off('keydown keyup');
+        this.el.off('keydown keyup submit');
         this.el[0].reset();
     },
     setData: function(data)
     {
         var formEl = this.el, el;
+        
         for (var key in data)
         {
             el = formEl.find('[name=' + key + ']');
@@ -24,7 +35,7 @@ iShake.ui.Form.prototype = {
             {
                 case 'checkbox':
                     el[0].checked = !!data[key];
-                    break;
+                    break;                    
                 default:
                     el.val(data[key]);
                     el.parent().toggleClass('empty', !data[key]);
@@ -32,11 +43,11 @@ iShake.ui.Form.prototype = {
             }
         }
     },
-    submit: function(url, callback, scope)
+    submit: function()
     {
         app.setLoading(true);
         var data = this.el.serialize();
-        app.request(url, function(data) {
+        app.request(this.url, function(data) {
             app.setLoading(false);
             
             if (!data.success)
@@ -45,7 +56,7 @@ iShake.ui.Form.prototype = {
             }
             else
             {
-                callback.call(scope, data);
+                this.callback.call(this.scope, data);
             }  
         }, this, data);        
         

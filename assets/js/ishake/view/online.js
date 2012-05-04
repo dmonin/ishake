@@ -61,7 +61,7 @@ iShake.view.online.prototype = {
             html.push([
                 '<li>',
                     '<a href="#/list/' + items[i].id + '" data-id="' + items[i].id + '" class="item-content">' + items[i].name + '</a>',
-                    '<span class="disclosure ' + cls + '" data-id="' + items[i].id + '"></span>',
+                    '<span class="disclosure-wrap"><span class="disclosure ' + cls + '" data-id="' + items[i].id + '"></span></span>',
                 '</li>'
             ].join(''));
         }

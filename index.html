@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html manifest="cache.manifest">
+<html>
     <head>
         <title>iShake</title>
         <meta charset="utf-8" />
@@ -36,7 +36,7 @@
         <div id="fake-header"></div>
 
         <div class="view" id="view-home">
-           <div class="scroll">
+        <div class="scroll">
                 <section>
                     <div id="phone">
                         <div id="phone-left" class="shake-lines"></div>
@@ -133,9 +133,11 @@
                     </div>
 
                     <div class="form-item empty">
-                        <select>
+                        <select name="category">
                             <option value="">Kategorie...</option>
-                            <option value="fun">Games / Fun</option>
+                            <option value="cooking">Cooking</option>
+                            <option value="fun">Fun</option>
+                            <option value="languages">Languages</option>
                             <option value="lifestyle">Lifestyle</option>
                             <option value="learning">Learning</option>
                             <option value="other">Other</option>
@@ -143,7 +145,7 @@
                     </div>
 
                     <div class="form-item empty">
-                        <select>
+                        <select name="language">
                             <option value="">Language...</option>
 
                         </select>
@@ -262,9 +264,11 @@
                 </a>
             </section>
         </div>
+        
         <div id="fb-root"></div>
 
-<!--        <script src="assets/js/third-party/zepto.min.js"></script>
+        <script src="assets/js/third-party/zepto.min.js"></script>
+        <script src="assets/js/third-party/modernizr.js"></script>
         <script src="assets/js/third-party/director.js"></script>
         <script src="assets/js/third-party/amplify.store.js"></script>
         <script src="assets/js/third-party/tappable.js"></script>
@@ -273,6 +277,7 @@
         <script src="assets/js/ishake/application.js"></script>
 
         <script src="assets/js/ishake/lang/de.js"></script>
+        <script src="assets/js/ishake/lang/de.languages.js"></script>
         <script src="assets/js/ishake/lang/en.js"></script>
 
         <script src="assets/js/ishake/ui/page-transition.js"></script>
@@ -296,16 +301,16 @@
         <script src="assets/js/ishake/view/online.js"></script>
 
         <script src="assets/js/ishake/view/register.js"></script>
-        <script src="assets/js/ishake/view/login.js"></script>-->
-        <script src="assets/js/ishake-compiled/ishake.min.js"></script>
+        <script src="assets/js/ishake/view/login.js"></script>
+<!--        <script src="assets/js/ishake-compiled/ishake.min.js"></script>-->
         <script>
-
-
             var app = new iShake.App();
-            app.run();
-            setTimeout(function() {
-                window.scrollTo(0, 1);
-            }, 1000);
+            window.onload = function() {
+                app.run();
+                setTimeout(function() {
+                    window.scrollTo(0, 1);
+                }, 100);
+            }                        
         </script>
 
         <script>

@@ -44,7 +44,8 @@ iShake.App = function()
         var nextView = $('#view-' + viewName);
 //        nextView.css('height', window.innerHeight + 'px');
 //        nextView.css('background', '#f00');
-        if (!currentView)
+
+        if (!currentView || !Modernizr.cssanimations)
         {
             $('.view').addClass('hidden');
             nextView.removeClass('hidden');
@@ -58,9 +59,9 @@ iShake.App = function()
             var isFlip = viewName == 'home' || currentView.name == 'home' || 
                          viewName == 'homeback' || currentView.name == 'homeback';                
                 
-            if ($.os.android)
+            if (!Modernizr.csstransforms3d)
             {
-                isFlip = false;
+                isFlip = false;                
             }
             
             if (isFlip)
@@ -103,6 +104,9 @@ iShake.App = function()
             
             pageTransition = new iShake.ui.PageTransition($(document.body));
             
+            // window.innerHeight returns 0 on mobile safari
+            this.winHeight = $(window).height();
+            
             this.initLanguage();
             this.initMenu();
             this.initRouting();
@@ -135,11 +139,21 @@ iShake.App = function()
             var isTouch = "ontouchstart" in window,
                 evt = isTouch ? 'touchstart' : 'mousedown';
             
+            if (navigator.userAgent.match(/opera/i))
+            {
+                evt = 'click';
+            }
+            
+            
             var me = this,
                 menu = $('#menu');
             
             $('.menu-button').on(evt, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 menu.addClass('visible');
+                
                 var page = location.hash.replace('#/', '');
                 page = page || 'home';
                 menu.addClass('menu-' + page);
@@ -153,6 +167,12 @@ iShake.App = function()
                     $(document.body).one(evt, function(e) {
                        e.preventDefault();
                        e.stopPropagation();
+                       
+                       if (e.target.hash)
+                       {
+                            location.hash = e.target.hash;
+                       }
+                       
                        if (!$(e.target).hasClass('menu-button'))
                        {
                            menu.removeClass('visible menu-home menu-lists menu-online');
@@ -193,6 +213,10 @@ iShake.App = function()
                     switchPage('lists');
                 },
                 
+                '/lists/(\\d+)': function(id) {
+                    switchPage('lists', id);
+                },
+                
                 '/homeback': {
                     on: function(){
                         switchPage('homeback');
@@ -230,11 +254,11 @@ iShake.App = function()
                 }
             };
             
-            var initialRoute = '/';
+            var initialRoute = iShake.repository.list.currentId() ? '/' : '/lists';
             
             Router(routes).configure({
-                on: function(){
-//                    app.updateOnlineStatus();
+                on: function(){                    
+                    app.updateOnlineStatus();
                 },
                 notfound: function() {
                     location.hash = '/';
