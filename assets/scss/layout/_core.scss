@@ -55,21 +55,33 @@ header {
 }
 
 .icon-button {
-    background: #ea841f sprite($sprite, menu-hover) no-repeat;
+    background: #ea841f sprite($sprite, btn-next) no-repeat;
     border-radius: 5px;
     
-    display: block;
-    position: absolute;
     height: 30px;
     width: 30px;
-    z-index: 10;
     
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     
-    &.tappable-active
-    {
+    &.tappable-active {
         background-color: #000;
+    }
+            
+    &.plus {
+        background-position: sprite-position($sprite, btn-plus);
+    }
+
+    &.minus {
+        background-position: sprite-position($sprite, btn-minus);
+    }
+    
+    &.rotate {
+        background-position: sprite-position($sprite, btn-rotate);
+    }
+    
+    &.complete {
+        background-position: sprite-position($sprite, btn-complete);
     }
 }
 

@@ -92,7 +92,6 @@ ul.tableview {
         }
         
         .disclosure {
-            background: #ea841f sprite($sprite, btn-next) no-repeat;
             border-radius: 5px;
             display: inline-block;
             height: 30px;
@@ -102,14 +101,6 @@ ul.tableview {
 
             &.tappable-active {
                 background-color: #000;
-            }
-            
-            &.plus {
-                background-position: sprite-position($sprite, btn-plus);
-            }
-            
-            &.minus {
-                background-position: sprite-position($sprite, btn-minus);
             }
         }
         
@@ -134,5 +125,5 @@ ul.tableview {
         &.loading .item-loader .spinner {
             display: inline-block;
         }
-    }        
+    }
 }

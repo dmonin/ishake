@@ -14,9 +14,11 @@ iShake.lang.en = {
     
     'menu.iShake': 'iShake',
     'menu.mylists': 'My lists',
-    'menu.onlinelists': 'Online listen',
+    'menu.onlinelists': 'Online lists',
     'menu.logout': 'Log out',
-        
+    
+    'home.list-finished': 'Congratulations! You have completed all cards.',
+
     'lists.hd': 'My lists',
     'lists.new-list': 'Add list...',
     'lists.list-deleted': 'Sorry, this list was deleted by user.',

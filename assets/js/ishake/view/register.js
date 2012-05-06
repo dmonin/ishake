@@ -14,7 +14,7 @@ iShake.view.register = function(name, el) {
             iShake.repository.user.current(data.user);            
             iShake.repository.list.add(data.lists);
             app.updateLoginStatus();
-            history.back();
+            location.hash = '/';
         }, this);
     
     var me = this;

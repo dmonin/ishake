@@ -64,29 +64,42 @@ header h1, #fake-header h1 {
 
 /* line 57, ../scss/layout/_core.scss */
 .icon-button {
-  background: #ea841f url('../img/sprite-s71aefe151b.png') 0 -329px no-repeat;
+  background: #ea841f url('../img/sprite-s33794b6d03.png') 0 -160px no-repeat;
   border-radius: 5px;
-  display: block;
-  position: absolute;
   height: 30px;
   width: 30px;
-  z-index: 10;
   -webkit-touch-callout: none;
   -webkit-user-select: none;
 }
-/* line 71, ../scss/layout/_core.scss */
+/* line 67, ../scss/layout/_core.scss */
 .icon-button.tappable-active {
   background-color: #000;
 }
+/* line 71, ../scss/layout/_core.scss */
+.icon-button.plus {
+  background-position: 0 -240px;
+}
+/* line 75, ../scss/layout/_core.scss */
+.icon-button.minus {
+  background-position: 0 -80px;
+}
+/* line 79, ../scss/layout/_core.scss */
+.icon-button.rotate {
+  background-position: 0 -320px;
+}
+/* line 83, ../scss/layout/_core.scss */
+.icon-button.complete {
+  background-position: 0 0;
+}
 
-/* line 77, ../scss/layout/_core.scss */
+/* line 89, ../scss/layout/_core.scss */
 .offline .online {
   cursor: default;
   opacity: .2;
   pointer-events: none;
 }
 
-/* line 84, ../scss/layout/_core.scss */
+/* line 96, ../scss/layout/_core.scss */
 #no-connection-msg {
   background: rgba(0, 0, 0, 0.5);
   -moz-box-sizing: border-box;
@@ -108,16 +121,16 @@ header h1, #fake-header h1 {
   z-index: 100;
 }
 
-/* line 104, ../scss/layout/_core.scss */
+/* line 116, ../scss/layout/_core.scss */
 .logged .login-required {
   display: none;
 }
 
-/* line 109, ../scss/layout/_core.scss */
+/* line 121, ../scss/layout/_core.scss */
 .only-logged {
   display: none;
 }
-/* line 112, ../scss/layout/_core.scss */
+/* line 124, ../scss/layout/_core.scss */
 .logged .only-logged {
   display: block;
 }
@@ -200,7 +213,7 @@ header h1, #fake-header h1 {
 
 /* line 75, ../scss/layout/_header-nav.scss */
 .header-button-menu {
-  background: transparent url('../img/sprite-s71aefe151b.png') 10px -386px no-repeat;
+  background: transparent url('../img/sprite-s33794b6d03.png') 10px -546px no-repeat;
   height: 44px;
   right: 5px;
   top: 0px;
@@ -208,7 +221,7 @@ header h1, #fake-header h1 {
 }
 /* line 83, ../scss/layout/_header-nav.scss */
 .header-button-menu.tappable-active {
-  background-position: 10px -317px;
+  background-position: 10px -477px;
 }
 
 /* line 1, ../scss/layout/_view.scss */
@@ -1096,7 +1109,7 @@ ul.tableview li a.item-content.tappable-active {
 }
 /* line 78, ../scss/layout/_tableview.scss */
 ul.tableview li.selected .item-content {
-  background: transparent url('../img/sprite-s71aefe151b.png') 9px -537px no-repeat;
+  background: transparent url('../img/sprite-s33794b6d03.png') 9px -617px no-repeat;
 }
 /* line 82, ../scss/layout/_tableview.scss */
 ul.tableview li .disclosure-wrap {
@@ -1112,7 +1125,6 @@ ul.tableview li:last-child .disclosure-wrap {
 }
 /* line 94, ../scss/layout/_tableview.scss */
 ul.tableview li .disclosure {
-  background: #ea841f url('../img/sprite-s71aefe151b.png') 0 -80px no-repeat;
   border-radius: 5px;
   display: inline-block;
   height: 30px;
@@ -1120,23 +1132,15 @@ ul.tableview li .disclosure {
   width: 30px;
   -webkit-touch-callout: none;
 }
-/* line 103, ../scss/layout/_tableview.scss */
+/* line 102, ../scss/layout/_tableview.scss */
 ul.tableview li .disclosure.tappable-active {
   background-color: #000;
 }
 /* line 107, ../scss/layout/_tableview.scss */
-ul.tableview li .disclosure.plus {
-  background-position: 0 -160px;
-}
-/* line 111, ../scss/layout/_tableview.scss */
-ul.tableview li .disclosure.minus {
-  background-position: 0 0;
-}
-/* line 116, ../scss/layout/_tableview.scss */
 ul.tableview li .new-item-wrap {
   display: table-cell;
 }
-/* line 120, ../scss/layout/_tableview.scss */
+/* line 111, ../scss/layout/_tableview.scss */
 ul.tableview li .item-loader {
   display: table-cell;
   height: 29px;
@@ -1145,12 +1149,12 @@ ul.tableview li .item-loader {
   vertical-align: middle;
   width: 45px;
 }
-/* line 128, ../scss/layout/_tableview.scss */
+/* line 119, ../scss/layout/_tableview.scss */
 ul.tableview li .item-loader .spinner {
   display: none;
   margin-left: 2px;
 }
-/* line 134, ../scss/layout/_tableview.scss */
+/* line 125, ../scss/layout/_tableview.scss */
 ul.tableview li.loading .item-loader .spinner {
   display: inline-block;
 }
@@ -1466,28 +1470,28 @@ select {
 
 /*@import "layout/scrollable";*/
 @-webkit-keyframes shake {
-  /* line 2, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 2, ../scss/view/_home.scss */
   0% {
     -webkit-transform: rotate(0deg);
   }
 
-  /* line 5, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 5, ../scss/view/_home.scss */
   33% {
     -webkit-transform: rotate(15deg);
   }
 
-  /* line 8, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 8, ../scss/view/_home.scss */
   66% {
     -webkit-transform: rotate(-15deg);
   }
 
-  /* line 11, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 11, ../scss/view/_home.scss */
   100% {
     -webkit-transform: rotate(0deg);
   }
 }
 
-/* line 16, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 16, ../scss/view/_home.scss */
 #result {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -1506,11 +1510,11 @@ select {
   transform: rotate(0deg);
   -webkit-transition: all .5s;
 }
-/* line 31, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 31, ../scss/view/_home.scss */
 .ready #result {
   display: none;
 }
-/* line 36, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 36, ../scss/view/_home.scss */
 #result.rotate-left {
   -moz-transform: rotate(8deg);
   -webkit-transform: rotate(8deg);
@@ -1518,7 +1522,7 @@ select {
   -ms-transform: rotate(8deg);
   transform: rotate(8deg);
 }
-/* line 41, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 41, ../scss/view/_home.scss */
 #result.rotate-right {
   -moz-transform: rotate(-8deg);
   -webkit-transform: rotate(-8deg);
@@ -1526,12 +1530,12 @@ select {
   -ms-transform: rotate(-8deg);
   transform: rotate(-8deg);
 }
-/* line 45, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 45, ../scss/view/_home.scss */
 .no-cssanimations #result.shaking {
   color: rgba(0, 0, 0, 0.1);
   text-shadow: 0 0 8px #000;
 }
-/* line 50, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 50, ../scss/view/_home.scss */
 .cssanimations #result.shaking {
   color: transparent;
   text-shadow: 0 0 8px #000;
@@ -1545,7 +1549,7 @@ select {
   -ms-animation: shake .2s infinite linear;
 }
 
-/* line 66, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 66, ../scss/view/_home.scss */
 .animate, .animate .shake-lines {
   -webkit-animation-name: spaceboots;
   -webkit-animation-duration: 0.8s;
@@ -1555,7 +1559,7 @@ select {
   -webkit-animation-timing-function: linear;
 }
 
-/* line 75, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 75, ../scss/view/_home.scss */
 #phone {
   background: transparent url(../img/shake-animation/phone.png) no-repeat center top;
   font-family: "gooddognew";
@@ -1572,12 +1576,12 @@ select {
   text-overflow: ellipsis;
   text-align: center;
 }
-/* line 91, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 91, ../scss/view/_home.scss */
 .ready #phone {
   display: block;
 }
 
-/* line 96, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 96, ../scss/view/_home.scss */
 .shake-lines {
   background: transparent url(../img/shake-animation/shake-lines.png) no-repeat;
   height: 48px;
@@ -1590,12 +1594,12 @@ select {
   -o-transition: opacity 0.5s 0.3s;
   transition: opacity 0.5s 0.3s;
 }
-/* line 106, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 106, ../scss/view/_home.scss */
 .animate .shake-lines, .animate .shake-lines .shake-lines {
   opacity: 1;
 }
 
-/* line 113, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 113, ../scss/view/_home.scss */
 #phone-left {
   left: 40px;
   -moz-transform: rotate(-180deg);
@@ -1604,12 +1608,12 @@ select {
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
-/* line 117, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 117, ../scss/view/_home.scss */
 .animate #phone-left, .animate .shake-lines #phone-left {
   -webkit-animation-name: spaceboots-rotated;
 }
 
-/* line 122, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 122, ../scss/view/_home.scss */
 #phone-right {
   right: 40px;
 }
@@ -1624,142 +1628,153 @@ select {
     }
 }*/
 @-webkit-keyframes spaceboots {
-  /* line 139, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 139, ../scss/view/_home.scss */
   0% {
     -webkit-transform: translate(2px, 1px) rotate(0deg);
   }
 
-  /* line 140, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 140, ../scss/view/_home.scss */
   10% {
     -webkit-transform: translate(-1px, -2px) rotate(-1deg);
   }
 
-  /* line 141, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 141, ../scss/view/_home.scss */
   20% {
     -webkit-transform: translate(-3px, 0px) rotate(1deg);
   }
 
-  /* line 142, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 142, ../scss/view/_home.scss */
   30% {
     -webkit-transform: translate(0px, 2px) rotate(0deg);
   }
 
-  /* line 143, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 143, ../scss/view/_home.scss */
   40% {
     -webkit-transform: translate(1px, -1px) rotate(1deg);
   }
 
-  /* line 144, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 144, ../scss/view/_home.scss */
   50% {
     -webkit-transform: translate(-1px, 2px) rotate(-1deg);
   }
 
-  /* line 145, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 145, ../scss/view/_home.scss */
   60% {
     -webkit-transform: translate(-3px, 1px) rotate(0deg);
   }
 
-  /* line 146, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 146, ../scss/view/_home.scss */
   70% {
     -webkit-transform: translate(2px, 1px) rotate(-1deg);
   }
 
-  /* line 147, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 147, ../scss/view/_home.scss */
   80% {
     -webkit-transform: translate(-1px, -1px) rotate(1deg);
   }
 
-  /* line 148, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 148, ../scss/view/_home.scss */
   90% {
     -webkit-transform: translate(2px, 2px) rotate(0deg);
   }
 
-  /* line 149, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 149, ../scss/view/_home.scss */
   100% {
     -webkit-transform: translate(1px, -2px) rotate(-1deg);
   }
 }
 
 @-webkit-keyframes spaceboots-rotated {
-  /* line 153, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 153, ../scss/view/_home.scss */
   0% {
     -webkit-transform: translate(2px, 1px) rotate(-180deg);
   }
 
-  /* line 154, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 154, ../scss/view/_home.scss */
   10% {
     -webkit-transform: translate(-1px, -2px) rotate(-179deg);
   }
 
-  /* line 155, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 155, ../scss/view/_home.scss */
   20% {
     -webkit-transform: translate(-3px, 0px) rotate(-181deg);
   }
 
-  /* line 156, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 156, ../scss/view/_home.scss */
   30% {
     -webkit-transform: translate(0px, 2px) rotate(-180deg);
   }
 
-  /* line 157, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 157, ../scss/view/_home.scss */
   40% {
     -webkit-transform: translate(1px, -1px) rotate(-181deg);
   }
 
-  /* line 158, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 158, ../scss/view/_home.scss */
   50% {
     -webkit-transform: translate(-1px, 2px) rotate(-179deg);
   }
 
-  /* line 159, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 159, ../scss/view/_home.scss */
   60% {
     -webkit-transform: translate(-3px, 1px) rotate(-180deg);
   }
 
-  /* line 160, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 160, ../scss/view/_home.scss */
   70% {
     -webkit-transform: translate(2px, 1px) rotate(-179deg);
   }
 
-  /* line 161, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 161, ../scss/view/_home.scss */
   80% {
     -webkit-transform: translate(-1px, -1px) rotate(-181deg);
   }
 
-  /* line 162, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 162, ../scss/view/_home.scss */
   90% {
     -webkit-transform: translate(2px, 2px) rotate(-180deg);
   }
 
-  /* line 163, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+  /* line 163, ../scss/view/_home.scss */
   100% {
     -webkit-transform: translate(1px, -2px) rotate(-179deg);
   }
 }
 
-/* line 166, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
-.backside-button {
-  background-position: 0 -467px;
-  bottom: 20px;
-  left: 20px;
-  /*    opacity: 0;*/
-  visibility: hidden;
-  -moz-transition: opacity 0.5s;
-  -webkit-transition: opacity 0.5s;
-  -o-transition: opacity 0.5s;
-  transition: opacity 0.5s;
-}
-/* line 177, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
-.has-backside .backside-button, #view-homeback .backside-button {
-  /*        opacity: 1;*/
-  visibility: visible;
-}
-/* line 182, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
-.backside-button.tappable-active {
-  background-color: #000;
+/* line 166, ../scss/view/_home.scss */
+.home-button {
+  display: block;
+  position: absolute;
+  z-index: 10;
 }
 
-/* line 188, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 172, ../scss/view/_home.scss */
+.backside-button {
+  bottom: 20px;
+  left: 20px;
+  visibility: hidden;
+}
+/* line 178, ../scss/view/_home.scss */
+.has-backside .backside-button, #view-homeback .backside-button {
+  visibility: visible;
+}
+
+/* line 183, ../scss/view/_home.scss */
+.complete {
+  bottom: 20px;
+  right: 20px;
+  visibility: hidden;
+}
+/* line 189, ../scss/view/_home.scss */
+.has-backside .complete, #view-homeback .complete {
+  visibility: visible;
+}
+/* line 193, ../scss/view/_home.scss */
+.complete.completed {
+  background-color: #448532;
+}
+
+/* line 199, ../scss/view/_home.scss */
 #backside-text {
   -webkit-box-sizing: border-box;
   -webkit-user-select: none;
@@ -1773,15 +1788,15 @@ select {
   width: 100%;
 }
 
-/* line 201, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_home.scss */
+/* line 212, ../scss/view/_home.scss */
 .home-menu-button {
-  background-position: 4px -324px;
+  background-position: 4px -484px;
   top: 5px;
   right: 5px;
   z-index: 1000;
 }
 
-/* line 2, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_item.scss */
+/* line 2, ../scss/view/_item.scss */
 #item-backside-text {
   height: 160px;
   opacity: 1;
@@ -1791,15 +1806,15 @@ select {
   -o-transition: opacity 0.5s, height 0.5s;
   transition: opacity 0.5s, height 0.5s;
 }
-/* line 9, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_item.scss */
+/* line 9, ../scss/view/_item.scss */
 #item-backside-text.hidden {
   height: 0;
   opacity: 0;
 }
 
-/* line 2, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_user.scss */
+/* line 2, ../scss/view/_user.scss */
 .facebook-login {
-  background: #637bad url('../img/sprite-s71aefe151b.png') -1px -241px no-repeat;
+  background: #637bad url('../img/sprite-s33794b6d03.png') -1px -401px no-repeat;
   border: 1px solid #29447e;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -1812,12 +1827,12 @@ select {
   position: relative;
   text-decoration: none;
 }
-/* line 14, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_user.scss */
+/* line 14, ../scss/view/_user.scss */
 .facebook-login.tappable-active {
   background-color: #1a356e;
 }
 
-/* line 20, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_user.scss */
+/* line 20, ../scss/view/_user.scss */
 .separator {
   border-top: 1px solid #ccc;
   margin-top: 15px;
@@ -1825,7 +1840,7 @@ select {
   text-align: center;
   -webkit-user-select: none;
 }
-/* line 29, e:/Development/Sites/ishake-app.local/htdocs/m/assets/scss/view/_user.scss */
+/* line 29, ../scss/view/_user.scss */
 .separator strong {
   background: #fff;
   color: #999;

@@ -11,32 +11,36 @@ iShake.repository.list = {
      * @param {integer} id Optional ID, if specified, stores new id value
      * @return {integer}
      */
-    currentId: function(id)
-    {
+    currentId: function(id) {
         if (id)
         {
             this.currentId_ = id;
             amplify.store('currentListId', id);
         }
         
-        return this.currentId_ || 0;
-        
+        return this.currentId_ || 0;        
     },
     
     /**
      * Stores locally specified lists
      *
-     * @param {Array} lists An array with list objects
+     * @param {Array} listData An array with list objects
+     * @return {Array.<iShake.ui.model.List>}
      */
-    add: function(lists)
-    {
-        for (var i = 0; i < lists.length; i++)
+    add: function(listData) {
+        var lists = [], list;
+        for (var i = 0; i < listData.length; i++)
         {
             // storing lists
-            this.lists[lists[i].id] = lists[i];
+            list = listData[i];
+            this.lists[listData[i].id] = list;
+            
+            lists.push(list);
         }
 
         amplify.store('lists', this.lists);
+        
+        return lists;
     },
     
     /**
@@ -46,17 +50,16 @@ iShake.repository.list = {
      * @param {Function} callback Callback funtion
      * @param {Object} scope Callback scope
      */
-    create: function(name, callback, scope)
-    {
+    create: function(name, callback, scope) {
         app.request('/list/add', function(data) {
             var listIds = iShake.repository.user.listIds();
             listIds.push(data.list.id);
             iShake.repository.user.listIds(listIds);
-            this.add([data.list]);            
+            var list = this.add([data.list])[0];            
             
             if (callback)
             {
-                callback.call(scope, data.list);
+                callback.call(scope, list);
             }
         }, this, {
             name: name,
@@ -72,8 +75,7 @@ iShake.repository.list = {
      * @param {Function} callback Callback function
      * @param {Object} scope Callback scope
      */
-    addItem: function(listId, name, callback, scope)
-    {
+    addItem: function(listId, name, callback, scope) {
         app.request('/list-item/add', function(data) {
             var list = this.lists[listId];
             if (list && list.items)
@@ -100,15 +102,14 @@ iShake.repository.list = {
      * @param {Object} scope Callback scope
      * @param {Object} options Configuration filter
      */
-    all: function(callback, scope, options)
-    {
+    all: function(callback, scope, options) {
         /*
          * startLists
          */
         app.request('/list/all', function(data) {
             var lists = data.lists;
             
-            this.add(lists);
+            lists = this.add(lists);
             
             callback.call(scope, lists);
             
@@ -122,8 +123,12 @@ iShake.repository.list = {
      * @param {Object} scope Callback scope object
      * @param {Object} options Object with fetch parameters
      */
-    get: function(id, callback, scope, options)
-    {
+    get: function(id, callback, scope, options) {
+        if (!id)
+        {
+            throw new Error('id is undefined');
+        }
+        
         options = options || {};
         
         if (this.lists[id] && this.lists[id].items && !options.remote)
@@ -135,7 +140,7 @@ iShake.repository.list = {
             app.request('/list/get/id/' + id, function(data) {
                 this.lists[id] = data.list;
                 amplify.store('lists', this.lists);
-                callback.call(scope, data.list);
+                callback.call(scope, this.lists[id]);
             }, this, null, options.silent);
         }
     },
@@ -147,8 +152,7 @@ iShake.repository.list = {
      * @param {Function} callback Callback function
      * @param {Object} scope Callback scope
      */
-    item: function(id, callback, scope)
-    {
+    item: function(id, callback, scope) {
         app.request('/list-item/get', function(data) {
             if (callback)
             {
@@ -166,8 +170,7 @@ iShake.repository.list = {
      * @param {Function} callback Callback function
      * @param {Object} scope Callback scope
      */
-    update: function(list, callback, scope)
-    {
+    update: function(list, callback, scope) {
         app.request('/list/update', function(data) {
             
             this.lists[data.id] = data;
@@ -175,7 +178,7 @@ iShake.repository.list = {
             
             if (typeof callback == 'function')
             {
-                callback.call(scope, data.list);
+                callback.call(scope, this.lists[data.id]);
             }
         }, this, {
             id: list.id,
@@ -193,8 +196,7 @@ iShake.repository.list = {
      * @param {Function} callback Callback function
      * @param {Object} scope Callback scope
      */
-    updateItem: function(item, callback, scope)
-    {
+    updateItem: function(item, callback, scope) {
         app.request('/list-item/update', function(data) {
             this.lists[data.list.id]  = data.list;
             amplify.store('lists', this.lists);
@@ -218,8 +220,7 @@ iShake.repository.list = {
      * @param {Function} callback Callback function
      * @param {Object} scope Callback scope
      */
-    remove: function(list, callback, scope)
-    {
+    remove: function(list, callback, scope) {
         delete this.lists[list.id];
         amplify.store('lists', this.lists);
         
@@ -252,8 +253,7 @@ iShake.repository.list = {
      * @param {Function} callback Callback function
      * @param {Object} scope Callback scope
      */
-    removeItem: function(item, callback, scope)
-    {
+    removeItem: function(item, callback, scope) {
         app.request('/list-item/delete', function(data) {
             this.lists[data.list.id]  = data.list;
             amplify.store('lists', this.lists);

@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html>
+<html manifest="cache.manifest">
     <head>
         <title>iShake</title>
         <meta charset="utf-8" />
@@ -36,7 +36,7 @@
         <div id="fake-header"></div>
 
         <div class="view" id="view-home">
-        <div class="scroll">
+            <div class="scroll">
                 <section>
                     <div id="phone">
                         <div id="phone-left" class="shake-lines"></div>
@@ -44,15 +44,14 @@
                         <span id="phone-text">Shake!</span>
                     </div>
 
-                    <span class="icon-button menu-button home-menu-button"></span>
-                    <a href="#/homeback" class="icon-button backside-button"></a>
+                    <span class="icon-button menu-button home-button home-menu-button"></span>
+
+                    <a href="#/homeback" class="icon-button home-button rotate backside-button"></a>
+                    <span class="icon-button home-button complete"></span>
 
                     <div id="result"></div>
-
                 </section>
             </div>
-
-
         </div>
 
         <div class="view hidden" id="view-homeback">
@@ -60,8 +59,8 @@
                 <section>
                     <div id="backside-text"></div>
 
-                    <span class="icon-button menu-button home-menu-button"></span>
-                    <a href="#/home" class="icon-button backside-button" ></a>
+                    <span class="icon-button menu-button home-button home-menu-button"></span>
+                    <a href="#/home" class="icon-button home-button rotate backside-button" ></a>
                 </section>
             </div>
         </div>
@@ -264,10 +263,10 @@
                 </a>
             </section>
         </div>
-        
+
         <div id="fb-root"></div>
 
-        <script src="assets/js/third-party/zepto.min.js"></script>
+<!--        <script src="assets/js/third-party/zepto.min.js"></script>
         <script src="assets/js/third-party/modernizr.js"></script>
         <script src="assets/js/third-party/director.js"></script>
         <script src="assets/js/third-party/amplify.store.js"></script>
@@ -287,7 +286,6 @@
 
         <script src="assets/js/ishake/model/vector.js"></script>
 
-
         <script src="assets/js/ishake/repository/list.js"></script>
         <script src="assets/js/ishake/repository/user.js"></script>
 
@@ -301,8 +299,8 @@
         <script src="assets/js/ishake/view/online.js"></script>
 
         <script src="assets/js/ishake/view/register.js"></script>
-        <script src="assets/js/ishake/view/login.js"></script>
-<!--        <script src="assets/js/ishake-compiled/ishake.min.js"></script>-->
+        <script src="assets/js/ishake/view/login.js"></script>-->
+        <script src="assets/js/ishake-compiled/ishake.min.js"></script>
         <script>
             var app = new iShake.App();
             window.onload = function() {
@@ -310,7 +308,7 @@
                 setTimeout(function() {
                     window.scrollTo(0, 1);
                 }, 100);
-            }                        
+            }
         </script>
 
         <script>
@@ -339,8 +337,26 @@
                 js.src = "//connect.facebook.net/en_US/all.js";
                 ref.parentNode.insertBefore(js, ref);
              }
-             
+
            }(document));
+        </script>
+
+        <script type="text/javascript">
+
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-31479645-1']);
+        _gaq.push(['_trackPageview']);
+
+        if (navigator.onLine)
+        {
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+        }
+
+
         </script>
 
     </body>

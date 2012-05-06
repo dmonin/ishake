@@ -1,74 +1,76 @@
 iShake.lang.de = {
     
-    'common.no-connection': 'No connection!',
-    'common.back': 'Back',
-    'common.edit': 'Edit',
-    'common.finish': 'Finish',
-    'common.delete': 'Delete',
-    'common.save': 'Save',
-    'common.shake': 'Shake!',
-    'common.start': 'Start!',
+    'common.no-connection': 'Keine Verbindung!',
+    'common.back': 'Zurück',
+    'common.edit': 'Bearbeiten',
+    'common.finish': 'Fertig',
+    'common.delete': 'Löschen',
+    'common.save': 'Speichern',
+    'common.shake': 'Schütteln!',
+    'common.start': 'Starten!',
     'common.login': 'Login',
-    'common.register': 'Register',
-    'common.error': 'Error',
+    'common.register': 'Registrieren',
+    'common.error': 'Fehler',
     
     'menu.iShake': 'iShake',
-    'menu.mylists': 'My lists',
+    'menu.mylists': 'Meine Listen',
     'menu.onlinelists': 'Online listen',
-    'menu.logout': 'Log out',
-        
-    'lists.hd': 'My lists',
-    'lists.new-list': 'Add list...',
-    'lists.list-deleted': 'Sorry, this list was deleted by user.',
+    'menu.logout': 'Abmelden',
     
-    'online.hd': 'Online lists',
+    'home.list-finished': 'Glückwunsch! Sie haben alle Karten gemacht.',
+
+    'lists.hd': 'Meine Listen',
+    'lists.new-list': 'Liste hinzufügen...',
+    'lists.list-deleted': 'Diese Liste wurde vom Besitzer gelöscht.',
     
-    'listedit.public': 'This list is public',
+    'online.hd': 'Online Listen',
+    
+    'listedit.public': 'Diese Liste ist öffentlich',
     'listedit.name': 'Name',
     
-    'list.new-item': 'Add item...',
+    'list.new-item': 'Eintrag hinzufügen...',
     
     'item.text': 'Text',
-    'item.backside': 'Backside',
-    'item.backside-text': 'Text on backside',
+    'item.backside': 'Rückseite',
+    'item.backside-text': 'Text auf der Rückseite',
     
-    'listedit.confirm-delete-list-hd': 'Are you sure?',
-    'listedit.confirm-delete-list-bd': 'Are you sure that you want to delete this list?',
+    'listedit.confirm-delete-list-hd': 'Bist Du sicher?',
+    'listedit.confirm-delete-list-bd': 'Bist Du sicher, dass Du diese Liste löschen möchtest?',
     
-    'item.confirm-delete-item-hd': 'Are you sure?',
-    'item.confirm-delete-item-bd': 'Are you sure that you want to delete this item?',
+    'item.confirm-delete-item-hd': 'Bist Du sicher?',
+    'item.confirm-delete-item-bd': 'Bist Du sicher, dass Du diesen Eintrtag löschen möchtest?',
     
     
     // List edit form
-    'listedit.list-saved-hd': 'Saved',
-    'listedit.list-saved-bd': 'Your list has been saved.',
+    'listedit.list-saved-hd': 'Gespeichert',
+    'listedit.list-saved-bd': 'Deine Liste wurde gespeichert.',
     
     // Item edit form
-    'item.item-saved-hd': 'Saved',
-    'item.item-saved-bd': 'Item has been saved.',
+    'item.item-saved-hd': 'Gespeichert',
+    'item.item-saved-bd': 'Eintrag wurde gespeichert.',
     
     // Registration-form
-    'registration.username-empty': 'Please enter your username.',
-    'registration.username-exists': 'This username is already taken.',
-    'registration.username-alphanum' : 'Your username may contain only alpha numeric characters (a-z, 0-9).',
-    'registration.username-length': 'Your username must contain 4-12 characters.',
-    'registration.email-empty': 'Please enter your e-mail.',
-    'registration.email-email': 'Not a valid e-mail address.',
-    'registration.email-exists': 'Username with this e-mail address already exists.',
-    'registration.password-empty': 'Please enter your password',
-    'registration.password-length': 'Your password must be at least 6 characters long.',
-    'registration.password-repeat': 'Passwords do not match.',
+    'registration.username-empty': 'Bitte gib Deinen Benutzernamen.',
+    'registration.username-exists': 'Dieser Benutzername ist bereit besetzt.',
+    'registration.username-alphanum' : 'Dein Benutzername darf nur alphanumerische Zeichen enthalten (a-z, 0-9).',
+    'registration.username-length': 'Dein Benutzername muss 4-12 Zeichen lang sein.',
+    'registration.email-empty': 'Bitte gib Deine E-Mail Adresse an.',
+    'registration.email-email': 'E-Mail Adresse ist ungültig.',
+    'registration.email-exists': 'Benutzer mit dieser E-Mail Adresse existiert bereits.',
+    'registration.password-empty': 'Bitte gib Dein Passwort ein.',
+    'registration.password-length': 'Passwort muss mindestens 6 Zeichen enthalten.',
+    'registration.password-repeat': 'Die Passwörter stimmen nicht überein.',
     
     // Login form
-    'login.username-empty': 'Please enter your username.',
-    'login.password-empty': 'Please enter your password.',
-    'login.username-wrong': 'Username or password is incorrect.',
+    'login.username-empty': 'Bitte gib Deinen Benutzernamen ein.',
+    'login.password-empty': 'Bitte gib Dein Passwort ein.',
+    'login.username-wrong': 'Benutzernamen oder Passwort ist inkorrekt.',
     
     
-    'user.username': 'Username',
-    'user.password': 'Password',
-    'user.password-repeat': 'Repeat password',
-    'user.email': 'E-mail',
-    'user.signinwith': 'Sign in with',
-    'user.logoutsuccess': 'You have been successfully logged out.'
+    'user.username': 'Benutzername',
+    'user.password': 'Passwort',
+    'user.password-repeat': 'Passwort wiederholen',
+    'user.email': 'E-Mail',
+    'user.signinwith': 'Anmelden mit',
+    'user.logoutsuccess': 'Du bist erfolgreich abgemeldet.'
 };

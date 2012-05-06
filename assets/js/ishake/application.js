@@ -62,6 +62,11 @@ iShake.App = function()
      * @param {string} id optionaly id of selected item
      */
     function switchPage(viewName, id) {
+        if (navigator.onLine)
+        {
+            _gaq.push(['_trackPageview', viewName]);
+        }
+        
         var nextView = $('#view-' + viewName);
 //        nextView.css('height', window.innerHeight + 'px');
 

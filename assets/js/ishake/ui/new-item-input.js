@@ -27,7 +27,7 @@ iShake.ui.NewItemInput.prototype.render = function(parent)
                 '<span class="new-item-wrap"><input type="text" class="new-item-input" name="new" value="" /></span>',
                 '<span class="new-item-empty">' + this.defaultText + '</span>',
             '</span>',
-            '<span class="disclosure-wrap"><span class="disclosure plus"></span></span>',
+            '<span class="disclosure-wrap"><span class="disclosure icon-button plus"></span></span>',
         '</li>'].join('');
     
     

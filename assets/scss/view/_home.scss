@@ -163,24 +163,35 @@
     100% { -webkit-transform: translate(1px, -2px) rotate(-179deg); }
 }
 
+.home-button {
+    display: block;
+    position: absolute;
+    z-index: 10;
+}
+
 .backside-button {
-    background-position: sprite-position($sprite, rotate);
     bottom: 20px;
     left: 20px;
-/*    opacity: 0;*/
-    
     visibility: hidden;
-    
-    @include transition(opacity .5s);
     
     .has-backside &,
     #view-homeback & {
-/*        opacity: 1;*/
+        visibility: visible;
+    }
+}
+
+.complete {
+    bottom: 20px;
+    right: 20px;
+    visibility: hidden;
+    
+    .has-backside &,
+    #view-homeback & {
         visibility: visible;
     }
     
-    &.tappable-active {
-        background-color: #000;
+    &.completed {
+        background-color: #448532;
     }
 }
 

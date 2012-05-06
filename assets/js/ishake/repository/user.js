@@ -1,6 +1,13 @@
 iShake.repository.user = {
     user_: null,
     listIds_: null,
+    completedItemIds_: amplify.store('completedids') || [],
+    
+    /**
+     * Returns currently loaded user
+     * 
+     * @param {Object} userData if provided stores currently loaded user
+     */
     current: function(userData) {
         if (userData)
         {
@@ -21,6 +28,27 @@ iShake.repository.user = {
 
         return this.user_;
     },
+    
+    /**
+     * Stores that user has answered the question
+     * 
+     * @param {Array.<integer>} ids Array with list items
+     */
+    completedItemIds: function(ids) {
+        if (ids)
+        {
+            this.completedItemIds_ = ids;        
+            amplify.store('completedids', this.completedItemIds_);        
+        }
+            
+        return this.completedItemIds_;
+    },
+    
+    /**
+     * Stores selected by user list ids
+     * 
+     * @param {Array} listIds Array of list ids
+     */
     listIds: function(listIds) {
         var user = this.current();
         
@@ -59,6 +87,13 @@ iShake.repository.user = {
         
         return this.listIds_;
     },
+    
+    /**
+     * Loads user lists
+     * 
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback object
+     */
     lists: function(callback, scope) {
         var listIds = this.listIds(),
             listRepo = iShake.repository.list;
@@ -72,11 +107,12 @@ iShake.repository.user = {
                 {
                     listIds.push(lists[i].id);
                 }
+                
                 this.listIds(listIds);
                 
                 callback.call(scope, lists);
                 
-                }, this, {startLists: true}
+                }, this, {ids: [52, 13]}
             );
         }
         else
@@ -100,15 +136,18 @@ iShake.repository.user = {
             callback.call(scope, lists);
         }
     },
-    repair: function()
-    {
+    
+    /**
+     * Removes doubly stored items
+     */
+    repair: function() {
         var listIds = this.listIds();
         
         //removes doubles (there should be no doubles in the list)
-        for (var i = listIds.length - 1; i >= 0; i--)
+        for (var i = listIds.length - 1; i >= 0; i--) 
         {
             if ($.inArray(Number(listIds[i]), listIds, i + 1) != -1 ||
-                $.inArray(String(listIds[i]), listIds, i + 1) != -1)
+                $.inArray(String(listIds[i]), listIds, i + 1) != -1) 
             {
                 listIds.splice(i, 1);
             }
@@ -116,19 +155,28 @@ iShake.repository.user = {
         
         this.listIds(listIds);
     },
+    
+    /**
+     * Refreshes user data and lists
+     *
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
     refresh: function(callback, scope) {
         app.request('/user/get', function(data) {
             this.current(data.user);
             iShake.repository.list.add(data.lists);
 
-            if (callback)
-            {
+            if (callback) {
                 callback.call(scope);
             }
         }, this);        
     },
-    setFacebook: function()
-    {
+    
+    /**
+     * Sets facebook
+     */
+    setFacebook: function() {
         app.request('/user/facebook-login', function(data) {
             iShake.repository.user.current(data.user);            
             iShake.repository.list.add(data.lists);

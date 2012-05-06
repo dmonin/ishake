@@ -84,7 +84,11 @@ iShake.view.list.prototype = {
         {
             listName = canEdit ? '<a class="item-content" href="#/item/' + 
                                     items[i].id + '">' + items[i].text + 
-                                    '</a><span class="disclosure-wrap"></span>' :
+                                    '</a>' + 
+                                  '<span class="disclosure-wrap">' + 
+                                  '<a href="#/item/' + 
+                                    items[i].id + '" class="disclosure icon-button"></a>' + 
+                                  '</span>' :
                                     
                                  '<span class="item-content">' + items[i].text + '</span>';
             

@@ -10,6 +10,8 @@ iShake.view.lists = function(name, el, id)
 {
     this.init(name, el);
     
+    app.updateLoginStatus();
+    
     // If id provided, adding list with specified ID to user's lists
     if (id)
     {
@@ -106,7 +108,7 @@ iShake.view.lists.prototype = {
             // Creating new list item
             var li = document.createElement('li');
             li.innerHTML = '<span data-id="' + newListData.id + '" class="item-content">' + newListData.name + '</span>' +
-                '<a href="#/list/' + newListData.id + '" class="disclosure"></a>';
+                '<a href="#/list/' + newListData.id + '" class="disclosure icon-button"></a>';
 
             // Inserting list item
             var editorLi = $('li.new-item', this.el);
@@ -160,7 +162,7 @@ iShake.view.lists.prototype = {
                 (hasList ? '' : ' online')
                 ,'">',
                     '<span data-id="' + lists[i].id + '" class="item-content">' + lists[i].name + '</span>',
-                    '<span class="disclosure-wrap"><a href="#/list/' + lists[i].id + '" class="disclosure online"></a></span>',
+                    '<span class="disclosure-wrap"><a href="#/list/' + lists[i].id + '" class="disclosure icon-button online"></a></span>',
                 '</li>'
             ].join(''));
         }

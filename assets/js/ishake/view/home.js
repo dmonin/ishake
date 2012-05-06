@@ -24,8 +24,8 @@ iShake.view.home = function(name, el)
     
     // Display no connection warning after 5 seconds timeout
     this.timerId = setTimeout(function() {
-        app.setLoading(false);        
-        app.showNoConnection(true);        
+        app.setLoading(false);
+        app.showNoConnection(true);
     }, 5000);
     
     // Getting current list data (from local storage if possible)
@@ -40,10 +40,52 @@ iShake.view.home.prototype = {
     isShaking: false,
     
     /**
+     * Current list
+     */
+    currentList_: null,
+    
+    /**
+     * Sets current list
+     */
+    currentList: function(list)
+    {
+        if (list)
+        {
+            var completedIds = iShake.repository.user.completedItemIds(),
+                items = list.items;
+
+            // Removing completed items
+            for (var i = items.length - 1; i >= 0; i--)
+            {
+                if (iShake.util.indexOf(completedIds, items[i].id) != -1)
+                {
+                    items.splice(i, 1);
+                }
+            }
+            
+            if (list.items.length == 0)                
+            {
+                iShake.ui.notify.alert('home.list-finished');
+                iShake.repository.list.get(list.id, this.resetList, this, {
+                    remote: true
+                });
+            }
+
+            this.currentList_ = list;
+        }
+        
+        
+        return this.currentList_;
+    },
+    
+    /**
      * Initializes motion events
      */
     initMotion: function(list)
     {
+        // Setting current list and filtering completed items
+        this.currentList(list);
+        
         clearTimeout(this.timerId);
         
         // Displays ready to shake animation
@@ -55,12 +97,10 @@ iShake.view.home.prototype = {
         if (navigator.onLine)
         {
             iShake.repository.list.get(list.id, function(list) {
-                this.currentList = list;                
+                this.currentList(list);                
             }, this, {remote: true, silent: true});
         }
-
-        // Assigning current list
-        this.currentList = list;
+        
         this.currentItem = amplify.store('currentitem') || null;
         
         var me = this;
@@ -77,6 +117,11 @@ iShake.view.home.prototype = {
             this.setResult(this.currentItem);
             $('section', this.el).toggleClass('has-backside', 
                 this.currentItem.hasBackside);    
+            
+            
+            var completedIds = iShake.repository.user.completedItemIds(),
+                alreadyAnswered = iShake.util.indexOf(completedIds, this.currentItem.id) != -1;
+            $('.complete', this.el).toggleClass('completed', alreadyAnswered);
         }
         else
         {
@@ -105,9 +150,37 @@ iShake.view.home.prototype = {
             e.preventDefault();
         });
         
+        $('.complete', this.el).on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var ids = iShake.repository.user.completedItemIds(),
+                target = $(e.target);
+            
+            if (target.hasClass('completed'))
+            {
+                var index = iShake.util.indexOf(ids, me.currentItem.id);
+                
+                if (index != -1)
+                {
+                    ids.splice(index, 1);
+                }
+            }
+            else
+            {
+                ids.push(me.currentItem.id);                
+            }
+            
+            iShake.repository.user.completedItemIds(ids);            
+            
+            var list = me.currentList();
+            me.currentList(list);
+            target.toggleClass('completed');
+        });
+        
         // Attaching swipe event listeners
         this.el.on('swipeLeft swipeRight', function(e) {
-            e.preventDefault();
+            e.preventDefault();            
             this.unload();
             
             if (me.currentItem && me.currentItem.hasBackside)
@@ -153,8 +226,22 @@ iShake.view.home.prototype = {
      */
     random: function()
     {
-        var index = Math.floor(Math.random() * this.currentList.items.length);
-        return this.currentList.items[index];
+        var index = Math.floor(Math.random() * this.currentList().items.length);
+        return this.currentList().items[index];
+    },
+    
+    resetList: function(list)
+    {
+        var completedIds = iShake.repository.user.completedItemIds();
+        for (var i = 0; i < list.items.length; i++)
+        {
+            var index = iShake.util.indexOf(completedIds, list.items[i].id);
+            completedIds.splice(index, 1);
+        }
+        
+        iShake.repository.user.completedItemIds(completedIds);
+        
+        this.currentList(list);
     },
     
     /**
@@ -164,20 +251,21 @@ iShake.view.home.prototype = {
     {        
         this.resultNode.html(item.text);
         
-        var top = (window.innerHeight - this.resultNode[0].offsetHeight) / 2 - 40;
+        var top = (app.winHeight - this.resultNode[0].offsetHeight) / 2 - 40;
         this.resultNode.css({
             top: top + 'px'
         });
     },
     
     /**
-     * Starts shaking animation, makes drawing of random item
+     * Starts shaking animation and draws a random item
      */
     startShake: function()
     {
         var me = this;
         
         $('section', me.el).removeClass('has-backside');
+        $('.complete', me.el).removeClass('completed');
         
         this.resultNode.addClass('shaking');
         this.el.toggleClass('ready', false);
@@ -227,8 +315,7 @@ iShake.view.home.prototype = {
                 }
                 
             }, intervalTime); 
-        }
-        
+        }        
     },
     
     /**
@@ -239,6 +326,7 @@ iShake.view.home.prototype = {
         $('#phone').removeClass('animate');    
         $('section', this.el).off('tap');
         $('section', this.el).off('click');
+        $('.complete', this.el).off('click');
         this.el.off('swipeLeft swipeRight touchmove');
         $(window).off('devicemotion');
         

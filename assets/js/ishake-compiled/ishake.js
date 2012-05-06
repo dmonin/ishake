@@ -1098,6 +1098,10 @@ if ( !store.types.localStorage && window.globalStorage ) {
 	};
 	
 })(window, document);
+/* Modernizr 2.5.3 (Custom Build) | MIT & BSD
+ * Build: http://www.modernizr.com/download/#-borderimage-flexbox-cssanimations-csstransforms3d-shiv-cssclasses-teststyles-testprop-testallprops-prefixes-domprefixes-load
+ */
+;window.Modernizr=function(a,b,c){function z(a){j.cssText=a}function A(a,b){return z(m.join(a+";")+(b||""))}function B(a,b){return typeof a===b}function C(a,b){return!!~(""+a).indexOf(b)}function D(a,b){for(var d in a)if(j[a[d]]!==c)return b=="pfx"?a[d]:!0;return!1}function E(a,b,d){for(var e in a){var f=b[a[e]];if(f!==c)return d===!1?a[e]:B(f,"function")?f.bind(d||b):f}return!1}function F(a,b,c){var d=a.charAt(0).toUpperCase()+a.substr(1),e=(a+" "+o.join(d+" ")+d).split(" ");return B(b,"string")||B(b,"undefined")?D(e,b):(e=(a+" "+p.join(d+" ")+d).split(" "),E(e,b,c))}var d="2.5.3",e={},f=!0,g=b.documentElement,h="modernizr",i=b.createElement(h),j=i.style,k,l={}.toString,m=" -webkit- -moz- -o- -ms- ".split(" "),n="Webkit Moz O ms",o=n.split(" "),p=n.toLowerCase().split(" "),q={},r={},s={},t=[],u=t.slice,v,w=function(a,c,d,e){var f,i,j,k=b.createElement("div"),l=b.body,m=l?l:b.createElement("body");if(parseInt(d,10))while(d--)j=b.createElement("div"),j.id=e?e[d]:h+(d+1),k.appendChild(j);return f=["&#173;","<style>",a,"</style>"].join(""),k.id=h,(l?k:m).innerHTML+=f,m.appendChild(k),l||(m.style.background="",g.appendChild(m)),i=c(k,a),l?k.parentNode.removeChild(k):m.parentNode.removeChild(m),!!i},x={}.hasOwnProperty,y;!B(x,"undefined")&&!B(x.call,"undefined")?y=function(a,b){return x.call(a,b)}:y=function(a,b){return b in a&&B(a.constructor.prototype[b],"undefined")},Function.prototype.bind||(Function.prototype.bind=function(b){var c=this;if(typeof c!="function")throw new TypeError;var d=u.call(arguments,1),e=function(){if(this instanceof e){var a=function(){};a.prototype=c.prototype;var f=new a,g=c.apply(f,d.concat(u.call(arguments)));return Object(g)===g?g:f}return c.apply(b,d.concat(u.call(arguments)))};return e});var G=function(a,c){var d=a.join(""),f=c.length;w(d,function(a,c){var d=b.styleSheets[b.styleSheets.length-1],g=d?d.cssRules&&d.cssRules[0]?d.cssRules[0].cssText:d.cssText||"":"",h=a.childNodes,i={};while(f--)i[h[f].id]=h[f];e.csstransforms3d=(i.csstransforms3d&&i.csstransforms3d.offsetLeft)===9&&i.csstransforms3d.offsetHeight===3},f,c)}([,["@media (",m.join("transform-3d),("),h,")","{#csstransforms3d{left:9px;position:absolute;height:3px;}}"].join("")],[,"csstransforms3d"]);q.flexbox=function(){return F("flexOrder")},q.borderimage=function(){return F("borderImage")},q.cssanimations=function(){return F("animationName")},q.csstransforms3d=function(){var a=!!F("perspective");return a&&"webkitPerspective"in g.style&&(a=e.csstransforms3d),a};for(var H in q)y(q,H)&&(v=H.toLowerCase(),e[v]=q[H](),t.push((e[v]?"":"no-")+v));return z(""),i=k=null,function(a,b){function g(a,b){var c=a.createElement("p"),d=a.getElementsByTagName("head")[0]||a.documentElement;return c.innerHTML="x<style>"+b+"</style>",d.insertBefore(c.lastChild,d.firstChild)}function h(){var a=k.elements;return typeof a=="string"?a.split(" "):a}function i(a){var b={},c=a.createElement,e=a.createDocumentFragment,f=e();a.createElement=function(a){var e=(b[a]||(b[a]=c(a))).cloneNode();return k.shivMethods&&e.canHaveChildren&&!d.test(a)?f.appendChild(e):e},a.createDocumentFragment=Function("h,f","return function(){var n=f.cloneNode(),c=n.createElement;h.shivMethods&&("+h().join().replace(/\w+/g,function(a){return b[a]=c(a),f.createElement(a),'c("'+a+'")'})+");return n}")(k,f)}function j(a){var b;return a.documentShived?a:(k.shivCSS&&!e&&(b=!!g(a,"article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}audio{display:none}canvas,video{display:inline-block;*display:inline;*zoom:1}[hidden]{display:none}audio[controls]{display:inline-block;*display:inline;*zoom:1}mark{background:#FF0;color:#000}")),f||(b=!i(a)),b&&(a.documentShived=b),a)}var c=a.html5||{},d=/^<|^(?:button|form|map|select|textarea)$/i,e,f;(function(){var a=b.createElement("a");a.innerHTML="<xyz></xyz>",e="hidden"in a,f=a.childNodes.length==1||function(){try{b.createElement("a")}catch(a){return!0}var c=b.createDocumentFragment();return typeof c.cloneNode=="undefined"||typeof c.createDocumentFragment=="undefined"||typeof c.createElement=="undefined"}()})();var k={elements:c.elements||"abbr article aside audio bdi canvas data datalist details figcaption figure footer header hgroup mark meter nav output progress section summary time video",shivCSS:c.shivCSS!==!1,shivMethods:c.shivMethods!==!1,type:"default",shivDocument:j};a.html5=k,j(b)}(this,b),e._version=d,e._prefixes=m,e._domPrefixes=p,e._cssomPrefixes=o,e.testProp=function(a){return D([a])},e.testAllProps=F,e.testStyles=w,g.className=g.className.replace(/(^|\s)no-js(\s|$)/,"$1$2")+(f?" js "+t.join(" "):""),e}(this,this.document),function(a,b,c){function d(a){return o.call(a)=="[object Function]"}function e(a){return typeof a=="string"}function f(){}function g(a){return!a||a=="loaded"||a=="complete"||a=="uninitialized"}function h(){var a=p.shift();q=1,a?a.t?m(function(){(a.t=="c"?B.injectCss:B.injectJs)(a.s,0,a.a,a.x,a.e,1)},0):(a(),h()):q=0}function i(a,c,d,e,f,i,j){function k(b){if(!o&&g(l.readyState)&&(u.r=o=1,!q&&h(),l.onload=l.onreadystatechange=null,b)){a!="img"&&m(function(){t.removeChild(l)},50);for(var d in y[c])y[c].hasOwnProperty(d)&&y[c][d].onload()}}var j=j||B.errorTimeout,l={},o=0,r=0,u={t:d,s:c,e:f,a:i,x:j};y[c]===1&&(r=1,y[c]=[],l=b.createElement(a)),a=="object"?l.data=c:(l.src=c,l.type=a),l.width=l.height="0",l.onerror=l.onload=l.onreadystatechange=function(){k.call(this,r)},p.splice(e,0,u),a!="img"&&(r||y[c]===2?(t.insertBefore(l,s?null:n),m(k,j)):y[c].push(l))}function j(a,b,c,d,f){return q=0,b=b||"j",e(a)?i(b=="c"?v:u,a,b,this.i++,c,d,f):(p.splice(this.i++,0,a),p.length==1&&h()),this}function k(){var a=B;return a.loader={load:j,i:0},a}var l=b.documentElement,m=a.setTimeout,n=b.getElementsByTagName("script")[0],o={}.toString,p=[],q=0,r="MozAppearance"in l.style,s=r&&!!b.createRange().compareNode,t=s?l:n.parentNode,l=a.opera&&o.call(a.opera)=="[object Opera]",l=!!b.attachEvent&&!l,u=r?"object":l?"script":"img",v=l?"script":u,w=Array.isArray||function(a){return o.call(a)=="[object Array]"},x=[],y={},z={timeout:function(a,b){return b.length&&(a.timeout=b[0]),a}},A,B;B=function(a){function b(a){var a=a.split("!"),b=x.length,c=a.pop(),d=a.length,c={url:c,origUrl:c,prefixes:a},e,f,g;for(f=0;f<d;f++)g=a[f].split("="),(e=z[g.shift()])&&(c=e(c,g));for(f=0;f<b;f++)c=x[f](c);return c}function g(a,e,f,g,i){var j=b(a),l=j.autoCallback;j.url.split(".").pop().split("?").shift(),j.bypass||(e&&(e=d(e)?e:e[a]||e[g]||e[a.split("/").pop().split("?")[0]]||h),j.instead?j.instead(a,e,f,g,i):(y[j.url]?j.noexec=!0:y[j.url]=1,f.load(j.url,j.forceCSS||!j.forceJS&&"css"==j.url.split(".").pop().split("?").shift()?"c":c,j.noexec,j.attrs,j.timeout),(d(e)||d(l))&&f.load(function(){k(),e&&e(j.origUrl,i,g),l&&l(j.origUrl,i,g),y[j.url]=2})))}function i(a,b){function c(a,c){if(a){if(e(a))c||(j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}),g(a,j,b,0,h);else if(Object(a)===a)for(n in m=function(){var b=0,c;for(c in a)a.hasOwnProperty(c)&&b++;return b}(),a)a.hasOwnProperty(n)&&(!c&&!--m&&(d(j)?j=function(){var a=[].slice.call(arguments);k.apply(this,a),l()}:j[n]=function(a){return function(){var b=[].slice.call(arguments);a&&a.apply(this,b),l()}}(k[n])),g(a[n],j,b,n,h))}else!c&&l()}var h=!!a.test,i=a.load||a.both,j=a.callback||f,k=j,l=a.complete||f,m,n;c(h?a.yep:a.nope,!!i),i&&c(i)}var j,l,m=this.yepnope.loader;if(e(a))g(a,0,m,0);else if(w(a))for(j=0;j<a.length;j++)l=a[j],e(l)?g(l,0,m,0):w(l)?B(l):Object(l)===l&&i(l,m);else Object(a)===a&&i(a,m)},B.addPrefix=function(a,b){z[a]=b},B.addFilter=function(a){x.push(a)},B.errorTimeout=1e4,b.readyState==null&&b.addEventListener&&(b.readyState="loading",b.addEventListener("DOMContentLoaded",A=function(){b.removeEventListener("DOMContentLoaded",A,0),b.readyState="complete"},0)),a.yepnope=k(),a.yepnope.executeStack=h,a.yepnope.injectJs=function(a,c,d,e,i,j){var k=b.createElement("script"),l,o,e=e||B.errorTimeout;k.src=a;for(o in d)k.setAttribute(o,d[o]);c=j?h:c||f,k.onreadystatechange=k.onload=function(){!l&&g(k.readyState)&&(l=1,c(),k.onload=k.onreadystatechange=null)},m(function(){l||(l=1,c(1))},e),i?k.onload():n.parentNode.insertBefore(k,n)},a.yepnope.injectCss=function(a,c,d,e,g,i){var e=b.createElement("link"),j,c=i?h:c||f;e.href=a,e.rel="stylesheet",e.type="text/css";for(j in d)e.setAttribute(j,d[j]);g||(n.parentNode.insertBefore(e,n),m(c,0))}}(this,document),Modernizr.load=function(){yepnope.apply(window,[].slice.call(arguments,0))};
 /*!
  * iScroll Lite base on iScroll v4.1.6 ~ Copyright (c) 2011 Matteo Spinelli, http://cubiq.org
  * Released under MIT license, http://cubiq.org/license
@@ -1698,19 +1702,35 @@ iShake = {
     view: {},
     model: {},
     repository: {},
-    util: {
+    
+    util: {        
+        /**
+         * Returns the index of the first element of an array with a specified
+         * value, or -1 if the element is not present in the array. This method
+         * doesn't type conversion.
+         * 
+         * @param {Array} arr The array to be searched.
+         * @param {Object} item Object we are searching
+         */
         indexOf : function(arr, item)
         {
             for (var i = 0; i < arr.length; i++)
             {
                 if (arr[i] == item)
                 {
-                    return;i;
+                    return i;
                 }
             }
             
             return -1;
         },
+        
+        /**
+         * Sorts array of objects by alphabet
+         * @param {Array} data Array with objects to be sorted
+         * @param {string} propertyName Name of property by which object must be
+         *      sorted
+         */
         sortByAlphabet: function(data, propertyName)
         {
             return data.sort(function(a, b) {
@@ -1733,12 +1753,22 @@ iShake.App = function()
 {
     var currentView,
         pageTransition = null;
-        
+    
+    /**
+     * Switches the view
+     * @param {string} viewName name of destination view
+     * @param {string} id optionaly id of selected item
+     */
     function switchPage(viewName, id) {
+        if (navigator.onLine)
+        {
+            _gaq.push(['_trackPageview', viewName]);
+        }
+        
         var nextView = $('#view-' + viewName);
 //        nextView.css('height', window.innerHeight + 'px');
-//        nextView.css('background', '#f00');
-        if (!currentView)
+
+        if (!currentView || !Modernizr.cssanimations)
         {
             $('.view').addClass('hidden');
             nextView.removeClass('hidden');
@@ -1752,9 +1782,9 @@ iShake.App = function()
             var isFlip = viewName == 'home' || currentView.name == 'home' || 
                          viewName == 'homeback' || currentView.name == 'homeback';                
                 
-            if ($.os.android)
+            if (!Modernizr.csstransforms3d)
             {
-                isFlip = false;
+                isFlip = false;                
             }
             
             if (isFlip)
@@ -1792,16 +1822,28 @@ iShake.App = function()
     return {
         server: 'http://ishake-app.com',
         lang: 'en',
+        
+        /**
+         * Initializes the application
+         */
         run: function() {
-            console.log('run forest, run!');
-            
             pageTransition = new iShake.ui.PageTransition($(document.body));
+            
+            // this pre-saves heigh of viewPort, due to unknow reason it returns
+            // 0 later in mobile opera
+            this.winHeight = $(window).height();
             
             this.initLanguage();
             this.initMenu();
             this.initRouting();
             this.initTouches();
         },
+        
+        /**
+         * Returns localized string for specified label key
+         * @param {string} label
+         * @return {string}
+         */
         getMsg: function(label)
         {
             if (!label)
@@ -1811,6 +1853,11 @@ iShake.App = function()
             
             return iShake.lang[this.lang][label] || label;
         },
+        
+        /**
+         * Initializes navigator language replaces with data-label attribute
+         * 
+         */
         initLanguage: function()
         {
             var languages = ['en', 'de'],
@@ -1824,16 +1871,30 @@ iShake.App = function()
                 el.html(me.getMsg(el.data('label')));
             });            
         },
+        
+        /**
+         * Initializes drop down navigation
+         */
         initMenu: function()
         {
             var isTouch = "ontouchstart" in window,
                 evt = isTouch ? 'touchstart' : 'mousedown';
             
+            if (navigator.userAgent.match(/opera/i))
+            {
+                evt = 'click';
+            }
+            
+            
             var me = this,
                 menu = $('#menu');
             
             $('.menu-button').on(evt, function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
                 menu.addClass('visible');
+                
                 var page = location.hash.replace('#/', '');
                 page = page || 'home';
                 menu.addClass('menu-' + page);
@@ -1847,6 +1908,12 @@ iShake.App = function()
                     $(document.body).one(evt, function(e) {
                        e.preventDefault();
                        e.stopPropagation();
+                       
+                       if (e.target.hash)
+                       {
+                            location.hash = e.target.hash;
+                       }
+                       
                        if (!$(e.target).hasClass('menu-button'))
                        {
                            menu.removeClass('visible menu-home menu-lists menu-online');
@@ -1877,6 +1944,10 @@ iShake.App = function()
                 });
             });
         },
+        
+        /**
+         * Initializes hash history routing
+         */
         initRouting: function() {
             var routes = {
                 '/': function() {        
@@ -1885,6 +1956,10 @@ iShake.App = function()
                 
                 '/lists': function() {
                     switchPage('lists');
+                },
+                
+                '/lists/(\\d+)': function(id) {
+                    switchPage('lists', id);
                 },
                 
                 '/homeback': {
@@ -1924,17 +1999,21 @@ iShake.App = function()
                 }
             };
             
-            var initialRoute = '/';
+            var initialRoute = iShake.repository.list.currentId() ? '/' : '/lists';
             
             Router(routes).configure({
-                on: function(){
-//                    app.updateOnlineStatus();
+                on: function(){                    
+                    app.updateOnlineStatus();
                 },
                 notfound: function() {
                     location.hash = '/';
                 }
             }).init(initialRoute);   
         },
+        
+        /**
+         * Initializes touch effects
+         */
         initTouches: function()
         {
             tappable('.header-button, .button, .icon-button', {
@@ -1987,6 +2066,17 @@ iShake.App = function()
                 containerElement: document.body
             });
         },
+        
+        /**
+         * A wrapper method to access external api
+         * @param {string} path API url
+         * @param {Function} callback Callback method
+         * @param {Object} scope Scope in which callback method will be called
+         * @param {Object} data Additional data to be sent
+         * @param {boolean} silent defines whether to show loader, default is
+         *      false
+         *      
+         */
         request: function(path, callback, scope, data, silent) {
             if (!navigator.onLine)
             {
@@ -2023,113 +2113,868 @@ iShake.App = function()
                 }
             });
         },
+        
+        /**
+         * Controls visibility of loader
+         * @param {boolean} isLoading true if loader should be visible
+         */
         setLoading: function(isLoading)
         {
             $('#loader').toggleClass('visible', isLoading);
         },
-        showNoConnection: function()
+        
+        /**
+         * Displays no connection warning.
+         * 
+         * @param {boolean} isVisible true if no connection warning should be
+         *      visible
+         */
+        showNoConnection: function(isVisible)
         {
-            $('#no-connection-msg').css('display', 'block');
+            var display = isVisible ? 'block' : 'none';
+            $('#no-connection-msg').css('display', display);
         },
+        
+        /**
+         * Updates UI according user login status
+         */
         updateLoginStatus: function()
         {
             var isLogged = iShake.repository.user.current();
             $(document.body).toggleClass('logged', !!isLogged);
         },
+        
+        /**
+         * Updates UI according online connection status
+         * @param {boolean} onlineStatus defines whether device has internet
+         *      connection
+         */
         updateOnlineStatus : function(onlineStatus)
         {
             onlineStatus = typeof onlineStatus != 'undefined' ? onlineStatus : navigator.onLine;
             $(document.body).toggleClass('offline', !onlineStatus);            
-            $('#no-connection-msg').css('display', 'none');                        
+            this.showNoConnection(false);              
         },
-        user: function(userData) {
+        
+        /**
+         * Returns current logged user
+         * @return {Object}
+         */
+        user: function() {
             return iShake.repository.user.current();
         }
         
     };
 }
-
-
-//window.onerror = function()
-//{
-//    for (var i = 0; i < arguments.length; i++)
-//    {
-//        alert(arguments[i]);
-//    }
-//}
 iShake.lang.de = {
     
-    'common.no-connection': 'No connection!',
-    'common.back': 'Back',
-    'common.edit': 'Edit',
-    'common.finish': 'Finish',
-    'common.delete': 'Delete',
-    'common.save': 'Save',
-    'common.shake': 'Shake!',
-    'common.start': 'Start!',
+    'common.no-connection': 'Keine Verbindung!',
+    'common.back': 'Zurück',
+    'common.edit': 'Bearbeiten',
+    'common.finish': 'Fertig',
+    'common.delete': 'Löschen',
+    'common.save': 'Speichern',
+    'common.shake': 'Schütteln!',
+    'common.start': 'Starten!',
     'common.login': 'Login',
-    'common.register': 'Register',
-    'common.error': 'Error',
+    'common.register': 'Registrieren',
+    'common.error': 'Fehler',
     
     'menu.iShake': 'iShake',
-    'menu.mylists': 'My lists',
+    'menu.mylists': 'Meine Listen',
     'menu.onlinelists': 'Online listen',
-    'menu.logout': 'Log out',
-        
-    'lists.hd': 'My lists',
-    'lists.new-list': 'Add list...',
-    'lists.list-deleted': 'Sorry, this list was deleted by user.',
+    'menu.logout': 'Abmelden',
     
-    'online.hd': 'Online lists',
+    'home.list-finished': 'Glückwunsch! Sie haben alle Karten gemacht.',
+
+    'lists.hd': 'Meine Listen',
+    'lists.new-list': 'Liste hinzufügen...',
+    'lists.list-deleted': 'Diese Liste wurde vom Besitzer gelöscht.',
     
-    'listedit.public': 'This list is public',
+    'online.hd': 'Online Listen',
+    
+    'listedit.public': 'Diese Liste ist öffentlich',
     'listedit.name': 'Name',
     
-    'list.new-item': 'Add item...',
+    'list.new-item': 'Eintrag hinzufügen...',
     
     'item.text': 'Text',
-    'item.backside': 'Backside',
-    'item.backside-text': 'Text on backside',
+    'item.backside': 'Rückseite',
+    'item.backside-text': 'Text auf der Rückseite',
     
-    'listedit.confirm-delete-list-hd': 'Are you sure?',
-    'listedit.confirm-delete-list-bd': 'Are you sure that you want to delete this list?',
+    'listedit.confirm-delete-list-hd': 'Bist Du sicher?',
+    'listedit.confirm-delete-list-bd': 'Bist Du sicher, dass Du diese Liste löschen möchtest?',
     
-    'item.confirm-delete-item-hd': 'Are you sure?',
-    'item.confirm-delete-item-bd': 'Are you sure that you want to delete this item?',
+    'item.confirm-delete-item-hd': 'Bist Du sicher?',
+    'item.confirm-delete-item-bd': 'Bist Du sicher, dass Du diesen Eintrtag löschen möchtest?',
     
     
     // List edit form
-    'listedit.list-saved-hd': 'Saved',
-    'listedit.list-saved-bd': 'Your list has been saved.',
+    'listedit.list-saved-hd': 'Gespeichert',
+    'listedit.list-saved-bd': 'Deine Liste wurde gespeichert.',
     
     // Item edit form
-    'item.item-saved-hd': 'Saved',
-    'item.item-saved-bd': 'Item has been saved.',
+    'item.item-saved-hd': 'Gespeichert',
+    'item.item-saved-bd': 'Eintrag wurde gespeichert.',
     
     // Registration-form
-    'registration.username-empty': 'Please enter your username.',
-    'registration.username-exists': 'This username is already taken.',
-    'registration.username-alphanum' : 'Your username may contain only alpha numeric characters (a-z, 0-9).',
-    'registration.username-length': 'Your username must contain 4-12 characters.',
-    'registration.email-empty': 'Please enter your e-mail.',
-    'registration.email-email': 'Not a valid e-mail address.',
-    'registration.email-exists': 'Username with this e-mail address already exists.',
-    'registration.password-empty': 'Please enter your password',
-    'registration.password-length': 'Your password must be at least 6 characters long.',
-    'registration.password-repeat': 'Passwords do not match.',
+    'registration.username-empty': 'Bitte gib Deinen Benutzernamen.',
+    'registration.username-exists': 'Dieser Benutzername ist bereit besetzt.',
+    'registration.username-alphanum' : 'Dein Benutzername darf nur alphanumerische Zeichen enthalten (a-z, 0-9).',
+    'registration.username-length': 'Dein Benutzername muss 4-12 Zeichen lang sein.',
+    'registration.email-empty': 'Bitte gib Deine E-Mail Adresse an.',
+    'registration.email-email': 'E-Mail Adresse ist ungültig.',
+    'registration.email-exists': 'Benutzer mit dieser E-Mail Adresse existiert bereits.',
+    'registration.password-empty': 'Bitte gib Dein Passwort ein.',
+    'registration.password-length': 'Passwort muss mindestens 6 Zeichen enthalten.',
+    'registration.password-repeat': 'Die Passwörter stimmen nicht überein.',
     
     // Login form
-    'login.username-empty': 'Please enter your username.',
-    'login.password-empty': 'Please enter your password.',
-    'login.username-wrong': 'Username or password is incorrect.',
+    'login.username-empty': 'Bitte gib Deinen Benutzernamen ein.',
+    'login.password-empty': 'Bitte gib Dein Passwort ein.',
+    'login.username-wrong': 'Benutzernamen oder Passwort ist inkorrekt.',
     
     
-    'user.username': 'Username',
-    'user.password': 'Password',
-    'user.password-repeat': 'Repeat password',
-    'user.email': 'E-mail',
-    'user.signinwith': 'Sign in with',
-    'user.logoutsuccess': 'You have been successfully logged out.'
+    'user.username': 'Benutzername',
+    'user.password': 'Passwort',
+    'user.password-repeat': 'Passwort wiederholen',
+    'user.email': 'E-Mail',
+    'user.signinwith': 'Anmelden mit',
+    'user.logoutsuccess': 'Du bist erfolgreich abgemeldet.'
+};
+/**
+ * @author Phil Teare
+ * using wikipedia data
+ */
+iShake.lang.de.isoLangs = {
+    "ab":{
+        "name":"Abkhaz",
+        "nativeName":"аҧсуа"
+    },
+    "aa":{
+        "name":"Afar",
+        "nativeName":"Afaraf"
+    },
+    "af":{
+        "name":"Afrikaans",
+        "nativeName":"Afrikaans"
+    },
+    "ak":{
+        "name":"Akan",
+        "nativeName":"Akan"
+    },
+    "sq":{
+        "name":"Albanian",
+        "nativeName":"Shqip"
+    },
+    "am":{
+        "name":"Amharic",
+        "nativeName":"አማርኛ"
+    },
+    "ar":{
+        "name":"Arabic",
+        "nativeName":"العربية"
+    },
+    "an":{
+        "name":"Aragonese",
+        "nativeName":"Aragonés"
+    },
+    "hy":{
+        "name":"Armenian",
+        "nativeName":"Հայերեն"
+    },
+    "as":{
+        "name":"Assamese",
+        "nativeName":"অসমীয়া"
+    },
+    "av":{
+        "name":"Avaric",
+        "nativeName":"авар мацӀ, магӀарул мацӀ"
+    },
+    "ae":{
+        "name":"Avestan",
+        "nativeName":"avesta"
+    },
+    "ay":{
+        "name":"Aymara",
+        "nativeName":"aymar aru"
+    },
+    "az":{
+        "name":"Azerbaijani",
+        "nativeName":"azərbaycan dili"
+    },
+    "bm":{
+        "name":"Bambara",
+        "nativeName":"bamanankan"
+    },
+    "ba":{
+        "name":"Bashkir",
+        "nativeName":"башҡорт теле"
+    },
+    "eu":{
+        "name":"Basque",
+        "nativeName":"euskara, euskera"
+    },
+    "be":{
+        "name":"Belarusian",
+        "nativeName":"Беларуская"
+    },
+    "bn":{
+        "name":"Bengali",
+        "nativeName":"বাংলা"
+    },
+    "bh":{
+        "name":"Bihari",
+        "nativeName":"भोजपुरी"
+    },
+    "bi":{
+        "name":"Bislama",
+        "nativeName":"Bislama"
+    },
+    "bs":{
+        "name":"Bosnian",
+        "nativeName":"bosanski jezik"
+    },
+    "br":{
+        "name":"Breton",
+        "nativeName":"brezhoneg"
+    },
+    "bg":{
+        "name":"Bulgarian",
+        "nativeName":"български език"
+    },
+    "my":{
+        "name":"Burmese",
+        "nativeName":"ဗမာစာ"
+    },
+    "ca":{
+        "name":"Catalan; Valencian",
+        "nativeName":"Català"
+    },
+    "ch":{
+        "name":"Chamorro",
+        "nativeName":"Chamoru"
+    },
+    "ce":{
+        "name":"Chechen",
+        "nativeName":"нохчийн мотт"
+    },
+    "ny":{
+        "name":"Chichewa; Chewa; Nyanja",
+        "nativeName":"chiCheŵa, chinyanja"
+    },
+    "zh":{
+        "name":"Chinese",
+        "nativeName":"中文 (Zhōngwén), 汉语, 漢語"
+    },
+    "cv":{
+        "name":"Chuvash",
+        "nativeName":"чӑваш чӗлхи"
+    },
+    "kw":{
+        "name":"Cornish",
+        "nativeName":"Kernewek"
+    },
+    "co":{
+        "name":"Corsican",
+        "nativeName":"corsu, lingua corsa"
+    },
+    "cr":{
+        "name":"Cree",
+        "nativeName":"ᓀᐦᐃᔭᐍᐏᐣ"
+    },
+    "hr":{
+        "name":"Croatian",
+        "nativeName":"hrvatski"
+    },
+    "cs":{
+        "name":"Czech",
+        "nativeName":"česky, čeština"
+    },
+    "da":{
+        "name":"Danish",
+        "nativeName":"dansk"
+    },
+    "dv":{
+        "name":"Divehi; Dhivehi; Maldivian;",
+        "nativeName":"ދިވެހި"
+    },
+    "nl":{
+        "name":"Dutch",
+        "nativeName":"Nederlands, Vlaams"
+    },
+    "en":{
+        "name":"English",
+        "nativeName":"English"
+    },
+    "eo":{
+        "name":"Esperanto",
+        "nativeName":"Esperanto"
+    },
+    "et":{
+        "name":"Estonian",
+        "nativeName":"eesti, eesti keel"
+    },
+    "ee":{
+        "name":"Ewe",
+        "nativeName":"Eʋegbe"
+    },
+    "fo":{
+        "name":"Faroese",
+        "nativeName":"føroyskt"
+    },
+    "fj":{
+        "name":"Fijian",
+        "nativeName":"vosa Vakaviti"
+    },
+    "fi":{
+        "name":"Finnish",
+        "nativeName":"suomi, suomen kieli"
+    },
+    "fr":{
+        "name":"French",
+        "nativeName":"français, langue française"
+    },
+    "ff":{
+        "name":"Fula; Fulah; Pulaar; Pular",
+        "nativeName":"Fulfulde, Pulaar, Pular"
+    },
+    "gl":{
+        "name":"Galician",
+        "nativeName":"Galego"
+    },
+    "ka":{
+        "name":"Georgian",
+        "nativeName":"ქართული"
+    },
+    "de":{
+        "name":"German",
+        "nativeName":"Deutsch"
+    },
+    "el":{
+        "name":"Greek, Modern",
+        "nativeName":"Ελληνικά"
+    },
+    "gn":{
+        "name":"Guaraní",
+        "nativeName":"Avañeẽ"
+    },
+    "gu":{
+        "name":"Gujarati",
+        "nativeName":"ગુજરાતી"
+    },
+    "ht":{
+        "name":"Haitian; Haitian Creole",
+        "nativeName":"Kreyòl ayisyen"
+    },
+    "ha":{
+        "name":"Hausa",
+        "nativeName":"Hausa, هَوُسَ"
+    },
+    "he":{
+        "name":"Hebrew (modern)",
+        "nativeName":"עברית"
+    },
+    "hz":{
+        "name":"Herero",
+        "nativeName":"Otjiherero"
+    },
+    "hi":{
+        "name":"Hindi",
+        "nativeName":"हिन्दी, हिंदी"
+    },
+    "ho":{
+        "name":"Hiri Motu",
+        "nativeName":"Hiri Motu"
+    },
+    "hu":{
+        "name":"Hungarian",
+        "nativeName":"Magyar"
+    },
+    "ia":{
+        "name":"Interlingua",
+        "nativeName":"Interlingua"
+    },
+    "id":{
+        "name":"Indonesian",
+        "nativeName":"Bahasa Indonesia"
+    },
+    "ie":{
+        "name":"Interlingue",
+        "nativeName":"Originally called Occidental; then Interlingue after WWII"
+    },
+    "ga":{
+        "name":"Irish",
+        "nativeName":"Gaeilge"
+    },
+    "ig":{
+        "name":"Igbo",
+        "nativeName":"Asụsụ Igbo"
+    },
+    "ik":{
+        "name":"Inupiaq",
+        "nativeName":"Iñupiaq, Iñupiatun"
+    },
+    "io":{
+        "name":"Ido",
+        "nativeName":"Ido"
+    },
+    "is":{
+        "name":"Icelandic",
+        "nativeName":"Íslenska"
+    },
+    "it":{
+        "name":"Italian",
+        "nativeName":"Italiano"
+    },
+    "iu":{
+        "name":"Inuktitut",
+        "nativeName":"ᐃᓄᒃᑎᑐᑦ"
+    },
+    "ja":{
+        "name":"Japanese",
+        "nativeName":"日本語 (にほんご／にっぽんご)"
+    },
+    "jv":{
+        "name":"Javanese",
+        "nativeName":"basa Jawa"
+    },
+    "kl":{
+        "name":"Kalaallisut, Greenlandic",
+        "nativeName":"kalaallisut, kalaallit oqaasii"
+    },
+    "kn":{
+        "name":"Kannada",
+        "nativeName":"ಕನ್ನಡ"
+    },
+    "kr":{
+        "name":"Kanuri",
+        "nativeName":"Kanuri"
+    },
+    "ks":{
+        "name":"Kashmiri",
+        "nativeName":"कश्मीरी, كشميري‎"
+    },
+    "kk":{
+        "name":"Kazakh",
+        "nativeName":"Қазақ тілі"
+    },
+    "km":{
+        "name":"Khmer",
+        "nativeName":"ភាសាខ្មែរ"
+    },
+    "ki":{
+        "name":"Kikuyu, Gikuyu",
+        "nativeName":"Gĩkũyũ"
+    },
+    "rw":{
+        "name":"Kinyarwanda",
+        "nativeName":"Ikinyarwanda"
+    },
+    "ky":{
+        "name":"Kirghiz, Kyrgyz",
+        "nativeName":"кыргыз тили"
+    },
+    "kv":{
+        "name":"Komi",
+        "nativeName":"коми кыв"
+    },
+    "kg":{
+        "name":"Kongo",
+        "nativeName":"KiKongo"
+    },
+    "ko":{
+        "name":"Korean",
+        "nativeName":"한국어 (韓國語), 조선말 (朝鮮語)"
+    },
+    "ku":{
+        "name":"Kurdish",
+        "nativeName":"Kurdî, كوردی‎"
+    },
+    "kj":{
+        "name":"Kwanyama, Kuanyama",
+        "nativeName":"Kuanyama"
+    },
+    "la":{
+        "name":"Latin",
+        "nativeName":"latine, lingua latina"
+    },
+    "lb":{
+        "name":"Luxembourgish, Letzeburgesch",
+        "nativeName":"Lëtzebuergesch"
+    },
+    "lg":{
+        "name":"Luganda",
+        "nativeName":"Luganda"
+    },
+    "li":{
+        "name":"Limburgish, Limburgan, Limburger",
+        "nativeName":"Limburgs"
+    },
+    "ln":{
+        "name":"Lingala",
+        "nativeName":"Lingála"
+    },
+    "lo":{
+        "name":"Lao",
+        "nativeName":"ພາສາລາວ"
+    },
+    "lt":{
+        "name":"Lithuanian",
+        "nativeName":"lietuvių kalba"
+    },
+    "lu":{
+        "name":"Luba-Katanga",
+        "nativeName":""
+    },
+    "lv":{
+        "name":"Latvian",
+        "nativeName":"latviešu valoda"
+    },
+    "gv":{
+        "name":"Manx",
+        "nativeName":"Gaelg, Gailck"
+    },
+    "mk":{
+        "name":"Macedonian",
+        "nativeName":"македонски јазик"
+    },
+    "mg":{
+        "name":"Malagasy",
+        "nativeName":"Malagasy fiteny"
+    },
+    "ms":{
+        "name":"Malay",
+        "nativeName":"bahasa Melayu, بهاس ملايو‎"
+    },
+    "ml":{
+        "name":"Malayalam",
+        "nativeName":"മലയാളം"
+    },
+    "mt":{
+        "name":"Maltese",
+        "nativeName":"Malti"
+    },
+    "mi":{
+        "name":"Māori",
+        "nativeName":"te reo Māori"
+    },
+    "mr":{
+        "name":"Marathi (Marāṭhī)",
+        "nativeName":"मराठी"
+    },
+    "mh":{
+        "name":"Marshallese",
+        "nativeName":"Kajin M̧ajeļ"
+    },
+    "mn":{
+        "name":"Mongolian",
+        "nativeName":"монгол"
+    },
+    "na":{
+        "name":"Nauru",
+        "nativeName":"Ekakairũ Naoero"
+    },
+    "nv":{
+        "name":"Navajo, Navaho",
+        "nativeName":"Diné bizaad, Dinékʼehǰí"
+    },
+    "nb":{
+        "name":"Norwegian Bokmål",
+        "nativeName":"Norsk bokmål"
+    },
+    "nd":{
+        "name":"North Ndebele",
+        "nativeName":"isiNdebele"
+    },
+    "ne":{
+        "name":"Nepali",
+        "nativeName":"नेपाली"
+    },
+    "ng":{
+        "name":"Ndonga",
+        "nativeName":"Owambo"
+    },
+    "nn":{
+        "name":"Norwegian Nynorsk",
+        "nativeName":"Norsk nynorsk"
+    },
+    "no":{
+        "name":"Norwegian",
+        "nativeName":"Norsk"
+    },
+    "ii":{
+        "name":"Nuosu",
+        "nativeName":"ꆈꌠ꒿ Nuosuhxop"
+    },
+    "nr":{
+        "name":"South Ndebele",
+        "nativeName":"isiNdebele"
+    },
+    "oc":{
+        "name":"Occitan",
+        "nativeName":"Occitan"
+    },
+    "oj":{
+        "name":"Ojibwe, Ojibwa",
+        "nativeName":"ᐊᓂᔑᓈᐯᒧᐎᓐ"
+    },
+    "cu":{
+        "name":"Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic",
+        "nativeName":"ѩзыкъ словѣньскъ"
+    },
+    "om":{
+        "name":"Oromo",
+        "nativeName":"Afaan Oromoo"
+    },
+    "or":{
+        "name":"Oriya",
+        "nativeName":"ଓଡ଼ିଆ"
+    },
+    "os":{
+        "name":"Ossetian, Ossetic",
+        "nativeName":"ирон æвзаг"
+    },
+    "pa":{
+        "name":"Panjabi, Punjabi",
+        "nativeName":"ਪੰਜਾਬੀ, پنجابی‎"
+    },
+    "pi":{
+        "name":"Pāli",
+        "nativeName":"पाऴि"
+    },
+    "fa":{
+        "name":"Persian",
+        "nativeName":"فارسی"
+    },
+    "pl":{
+        "name":"Polish",
+        "nativeName":"polski"
+    },
+    "ps":{
+        "name":"Pashto, Pushto",
+        "nativeName":"پښتو"
+    },
+    "pt":{
+        "name":"Portuguese",
+        "nativeName":"Português"
+    },
+    "qu":{
+        "name":"Quechua",
+        "nativeName":"Runa Simi, Kichwa"
+    },
+    "rm":{
+        "name":"Romansh",
+        "nativeName":"rumantsch grischun"
+    },
+    "rn":{
+        "name":"Kirundi",
+        "nativeName":"kiRundi"
+    },
+    "ro":{
+        "name":"Romanian, Moldavian, Moldovan",
+        "nativeName":"română"
+    },
+    "ru":{
+        "name":"Russian",
+        "nativeName":"русский язык"
+    },
+    "sa":{
+        "name":"Sanskrit (Saṁskṛta)",
+        "nativeName":"संस्कृतम्"
+    },
+    "sc":{
+        "name":"Sardinian",
+        "nativeName":"sardu"
+    },
+    "sd":{
+        "name":"Sindhi",
+        "nativeName":"सिन्धी, سنڌي، سندھی‎"
+    },
+    "se":{
+        "name":"Northern Sami",
+        "nativeName":"Davvisámegiella"
+    },
+    "sm":{
+        "name":"Samoan",
+        "nativeName":"gagana faa Samoa"
+    },
+    "sg":{
+        "name":"Sango",
+        "nativeName":"yângâ tî sängö"
+    },
+    "sr":{
+        "name":"Serbian",
+        "nativeName":"српски језик"
+    },
+    "gd":{
+        "name":"Scottish Gaelic; Gaelic",
+        "nativeName":"Gàidhlig"
+    },
+    "sn":{
+        "name":"Shona",
+        "nativeName":"chiShona"
+    },
+    "si":{
+        "name":"Sinhala, Sinhalese",
+        "nativeName":"සිංහල"
+    },
+    "sk":{
+        "name":"Slovak",
+        "nativeName":"slovenčina"
+    },
+    "sl":{
+        "name":"Slovene",
+        "nativeName":"slovenščina"
+    },
+    "so":{
+        "name":"Somali",
+        "nativeName":"Soomaaliga, af Soomaali"
+    },
+    "st":{
+        "name":"Southern Sotho",
+        "nativeName":"Sesotho"
+    },
+    "es":{
+        "name":"Spanish; Castilian",
+        "nativeName":"español, castellano"
+    },
+    "su":{
+        "name":"Sundanese",
+        "nativeName":"Basa Sunda"
+    },
+    "sw":{
+        "name":"Swahili",
+        "nativeName":"Kiswahili"
+    },
+    "ss":{
+        "name":"Swati",
+        "nativeName":"SiSwati"
+    },
+    "sv":{
+        "name":"Swedish",
+        "nativeName":"svenska"
+    },
+    "ta":{
+        "name":"Tamil",
+        "nativeName":"தமிழ்"
+    },
+    "te":{
+        "name":"Telugu",
+        "nativeName":"తెలుగు"
+    },
+    "tg":{
+        "name":"Tajik",
+        "nativeName":"тоҷикӣ, toğikī, تاجیکی‎"
+    },
+    "th":{
+        "name":"Thai",
+        "nativeName":"ไทย"
+    },
+    "ti":{
+        "name":"Tigrinya",
+        "nativeName":"ትግርኛ"
+    },
+    "bo":{
+        "name":"Tibetan Standard, Tibetan, Central",
+        "nativeName":"བོད་ཡིག"
+    },
+    "tk":{
+        "name":"Turkmen",
+        "nativeName":"Türkmen, Түркмен"
+    },
+    "tl":{
+        "name":"Tagalog",
+        "nativeName":"Wikang Tagalog, ᜏᜒᜃᜅ᜔ ᜆᜄᜎᜓᜄ᜔"
+    },
+    "tn":{
+        "name":"Tswana",
+        "nativeName":"Setswana"
+    },
+    "to":{
+        "name":"Tonga (Tonga Islands)",
+        "nativeName":"faka Tonga"
+    },
+    "tr":{
+        "name":"Turkish",
+        "nativeName":"Türkçe"
+    },
+    "ts":{
+        "name":"Tsonga",
+        "nativeName":"Xitsonga"
+    },
+    "tt":{
+        "name":"Tatar",
+        "nativeName":"татарча, tatarça, تاتارچا‎"
+    },
+    "tw":{
+        "name":"Twi",
+        "nativeName":"Twi"
+    },
+    "ty":{
+        "name":"Tahitian",
+        "nativeName":"Reo Tahiti"
+    },
+    "ug":{
+        "name":"Uighur, Uyghur",
+        "nativeName":"Uyƣurqə, ئۇيغۇرچە‎"
+    },
+    "uk":{
+        "name":"Ukrainian",
+        "nativeName":"українська"
+    },
+    "ur":{
+        "name":"Urdu",
+        "nativeName":"اردو"
+    },
+    "uz":{
+        "name":"Uzbek",
+        "nativeName":"zbek, Ўзбек, أۇزبېك‎"
+    },
+    "ve":{
+        "name":"Venda",
+        "nativeName":"Tshivenḓa"
+    },
+    "vi":{
+        "name":"Vietnamese",
+        "nativeName":"Tiếng Việt"
+    },
+    "vo":{
+        "name":"Volapük",
+        "nativeName":"Volapük"
+    },
+    "wa":{
+        "name":"Walloon",
+        "nativeName":"Walon"
+    },
+    "cy":{
+        "name":"Welsh",
+        "nativeName":"Cymraeg"
+    },
+    "wo":{
+        "name":"Wolof",
+        "nativeName":"Wollof"
+    },
+    "fy":{
+        "name":"Western Frisian",
+        "nativeName":"Frysk"
+    },
+    "xh":{
+        "name":"Xhosa",
+        "nativeName":"isiXhosa"
+    },
+    "yi":{
+        "name":"Yiddish",
+        "nativeName":"ייִדיש"
+    },
+    "yo":{
+        "name":"Yoruba",
+        "nativeName":"Yorùbá"
+    },
+    "za":{
+        "name":"Zhuang, Chuang",
+        "nativeName":"Saɯ cueŋƅ, Saw cuengh"
+    }
 };
 iShake.lang.en = {
     
@@ -2147,9 +2992,11 @@ iShake.lang.en = {
     
     'menu.iShake': 'iShake',
     'menu.mylists': 'My lists',
-    'menu.onlinelists': 'Online listen',
+    'menu.onlinelists': 'Online lists',
     'menu.logout': 'Log out',
-        
+    
+    'home.list-finished': 'Congratulations! You have completed all cards.',
+
     'lists.hd': 'My lists',
     'lists.new-list': 'Add list...',
     'lists.list-deleted': 'Sorry, this list was deleted by user.',
@@ -2205,11 +3052,758 @@ iShake.lang.en = {
     'user.signinwith': 'Sign in with',
     'user.logoutsuccess': 'You have been successfully logged out.'
 };
+/**
+ * @author Phil Teare
+ * using wikipedia data
+ */
+iShake.lang.en.isoLangs = {
+    "ab":{
+        "name":"Abkhaz",
+        "nativeName":"аҧсуа"
+    },
+    "aa":{
+        "name":"Afar",
+        "nativeName":"Afaraf"
+    },
+    "af":{
+        "name":"Afrikaans",
+        "nativeName":"Afrikaans"
+    },
+    "ak":{
+        "name":"Akan",
+        "nativeName":"Akan"
+    },
+    "sq":{
+        "name":"Albanian",
+        "nativeName":"Shqip"
+    },
+    "am":{
+        "name":"Amharic",
+        "nativeName":"አማርኛ"
+    },
+    "ar":{
+        "name":"Arabic",
+        "nativeName":"العربية"
+    },
+    "an":{
+        "name":"Aragonese",
+        "nativeName":"Aragonés"
+    },
+    "hy":{
+        "name":"Armenian",
+        "nativeName":"Հայերեն"
+    },
+    "as":{
+        "name":"Assamese",
+        "nativeName":"অসমীয়া"
+    },
+    "av":{
+        "name":"Avaric",
+        "nativeName":"авар мацӀ, магӀарул мацӀ"
+    },
+    "ae":{
+        "name":"Avestan",
+        "nativeName":"avesta"
+    },
+    "ay":{
+        "name":"Aymara",
+        "nativeName":"aymar aru"
+    },
+    "az":{
+        "name":"Azerbaijani",
+        "nativeName":"azərbaycan dili"
+    },
+    "bm":{
+        "name":"Bambara",
+        "nativeName":"bamanankan"
+    },
+    "ba":{
+        "name":"Bashkir",
+        "nativeName":"башҡорт теле"
+    },
+    "eu":{
+        "name":"Basque",
+        "nativeName":"euskara, euskera"
+    },
+    "be":{
+        "name":"Belarusian",
+        "nativeName":"Беларуская"
+    },
+    "bn":{
+        "name":"Bengali",
+        "nativeName":"বাংলা"
+    },
+    "bh":{
+        "name":"Bihari",
+        "nativeName":"भोजपुरी"
+    },
+    "bi":{
+        "name":"Bislama",
+        "nativeName":"Bislama"
+    },
+    "bs":{
+        "name":"Bosnian",
+        "nativeName":"bosanski jezik"
+    },
+    "br":{
+        "name":"Breton",
+        "nativeName":"brezhoneg"
+    },
+    "bg":{
+        "name":"Bulgarian",
+        "nativeName":"български език"
+    },
+    "my":{
+        "name":"Burmese",
+        "nativeName":"ဗမာစာ"
+    },
+    "ca":{
+        "name":"Catalan; Valencian",
+        "nativeName":"Català"
+    },
+    "ch":{
+        "name":"Chamorro",
+        "nativeName":"Chamoru"
+    },
+    "ce":{
+        "name":"Chechen",
+        "nativeName":"нохчийн мотт"
+    },
+    "ny":{
+        "name":"Chichewa; Chewa; Nyanja",
+        "nativeName":"chiCheŵa, chinyanja"
+    },
+    "zh":{
+        "name":"Chinese",
+        "nativeName":"中文 (Zhōngwén), 汉语, 漢語"
+    },
+    "cv":{
+        "name":"Chuvash",
+        "nativeName":"чӑваш чӗлхи"
+    },
+    "kw":{
+        "name":"Cornish",
+        "nativeName":"Kernewek"
+    },
+    "co":{
+        "name":"Corsican",
+        "nativeName":"corsu, lingua corsa"
+    },
+    "cr":{
+        "name":"Cree",
+        "nativeName":"ᓀᐦᐃᔭᐍᐏᐣ"
+    },
+    "hr":{
+        "name":"Croatian",
+        "nativeName":"hrvatski"
+    },
+    "cs":{
+        "name":"Czech",
+        "nativeName":"česky, čeština"
+    },
+    "da":{
+        "name":"Danish",
+        "nativeName":"dansk"
+    },
+    "dv":{
+        "name":"Divehi; Dhivehi; Maldivian;",
+        "nativeName":"ދިވެހި"
+    },
+    "nl":{
+        "name":"Dutch",
+        "nativeName":"Nederlands, Vlaams"
+    },
+    "en":{
+        "name":"English",
+        "nativeName":"English"
+    },
+    "eo":{
+        "name":"Esperanto",
+        "nativeName":"Esperanto"
+    },
+    "et":{
+        "name":"Estonian",
+        "nativeName":"eesti, eesti keel"
+    },
+    "ee":{
+        "name":"Ewe",
+        "nativeName":"Eʋegbe"
+    },
+    "fo":{
+        "name":"Faroese",
+        "nativeName":"føroyskt"
+    },
+    "fj":{
+        "name":"Fijian",
+        "nativeName":"vosa Vakaviti"
+    },
+    "fi":{
+        "name":"Finnish",
+        "nativeName":"suomi, suomen kieli"
+    },
+    "fr":{
+        "name":"French",
+        "nativeName":"français, langue française"
+    },
+    "ff":{
+        "name":"Fula; Fulah; Pulaar; Pular",
+        "nativeName":"Fulfulde, Pulaar, Pular"
+    },
+    "gl":{
+        "name":"Galician",
+        "nativeName":"Galego"
+    },
+    "ka":{
+        "name":"Georgian",
+        "nativeName":"ქართული"
+    },
+    "de":{
+        "name":"German",
+        "nativeName":"Deutsch"
+    },
+    "el":{
+        "name":"Greek, Modern",
+        "nativeName":"Ελληνικά"
+    },
+    "gn":{
+        "name":"Guaraní",
+        "nativeName":"Avañeẽ"
+    },
+    "gu":{
+        "name":"Gujarati",
+        "nativeName":"ગુજરાતી"
+    },
+    "ht":{
+        "name":"Haitian; Haitian Creole",
+        "nativeName":"Kreyòl ayisyen"
+    },
+    "ha":{
+        "name":"Hausa",
+        "nativeName":"Hausa, هَوُسَ"
+    },
+    "he":{
+        "name":"Hebrew (modern)",
+        "nativeName":"עברית"
+    },
+    "hz":{
+        "name":"Herero",
+        "nativeName":"Otjiherero"
+    },
+    "hi":{
+        "name":"Hindi",
+        "nativeName":"हिन्दी, हिंदी"
+    },
+    "ho":{
+        "name":"Hiri Motu",
+        "nativeName":"Hiri Motu"
+    },
+    "hu":{
+        "name":"Hungarian",
+        "nativeName":"Magyar"
+    },
+    "ia":{
+        "name":"Interlingua",
+        "nativeName":"Interlingua"
+    },
+    "id":{
+        "name":"Indonesian",
+        "nativeName":"Bahasa Indonesia"
+    },
+    "ie":{
+        "name":"Interlingue",
+        "nativeName":"Originally called Occidental; then Interlingue after WWII"
+    },
+    "ga":{
+        "name":"Irish",
+        "nativeName":"Gaeilge"
+    },
+    "ig":{
+        "name":"Igbo",
+        "nativeName":"Asụsụ Igbo"
+    },
+    "ik":{
+        "name":"Inupiaq",
+        "nativeName":"Iñupiaq, Iñupiatun"
+    },
+    "io":{
+        "name":"Ido",
+        "nativeName":"Ido"
+    },
+    "is":{
+        "name":"Icelandic",
+        "nativeName":"Íslenska"
+    },
+    "it":{
+        "name":"Italian",
+        "nativeName":"Italiano"
+    },
+    "iu":{
+        "name":"Inuktitut",
+        "nativeName":"ᐃᓄᒃᑎᑐᑦ"
+    },
+    "ja":{
+        "name":"Japanese",
+        "nativeName":"日本語 (にほんご／にっぽんご)"
+    },
+    "jv":{
+        "name":"Javanese",
+        "nativeName":"basa Jawa"
+    },
+    "kl":{
+        "name":"Kalaallisut, Greenlandic",
+        "nativeName":"kalaallisut, kalaallit oqaasii"
+    },
+    "kn":{
+        "name":"Kannada",
+        "nativeName":"ಕನ್ನಡ"
+    },
+    "kr":{
+        "name":"Kanuri",
+        "nativeName":"Kanuri"
+    },
+    "ks":{
+        "name":"Kashmiri",
+        "nativeName":"कश्मीरी, كشميري‎"
+    },
+    "kk":{
+        "name":"Kazakh",
+        "nativeName":"Қазақ тілі"
+    },
+    "km":{
+        "name":"Khmer",
+        "nativeName":"ភាសាខ្មែរ"
+    },
+    "ki":{
+        "name":"Kikuyu, Gikuyu",
+        "nativeName":"Gĩkũyũ"
+    },
+    "rw":{
+        "name":"Kinyarwanda",
+        "nativeName":"Ikinyarwanda"
+    },
+    "ky":{
+        "name":"Kirghiz, Kyrgyz",
+        "nativeName":"кыргыз тили"
+    },
+    "kv":{
+        "name":"Komi",
+        "nativeName":"коми кыв"
+    },
+    "kg":{
+        "name":"Kongo",
+        "nativeName":"KiKongo"
+    },
+    "ko":{
+        "name":"Korean",
+        "nativeName":"한국어 (韓國語), 조선말 (朝鮮語)"
+    },
+    "ku":{
+        "name":"Kurdish",
+        "nativeName":"Kurdî, كوردی‎"
+    },
+    "kj":{
+        "name":"Kwanyama, Kuanyama",
+        "nativeName":"Kuanyama"
+    },
+    "la":{
+        "name":"Latin",
+        "nativeName":"latine, lingua latina"
+    },
+    "lb":{
+        "name":"Luxembourgish, Letzeburgesch",
+        "nativeName":"Lëtzebuergesch"
+    },
+    "lg":{
+        "name":"Luganda",
+        "nativeName":"Luganda"
+    },
+    "li":{
+        "name":"Limburgish, Limburgan, Limburger",
+        "nativeName":"Limburgs"
+    },
+    "ln":{
+        "name":"Lingala",
+        "nativeName":"Lingála"
+    },
+    "lo":{
+        "name":"Lao",
+        "nativeName":"ພາສາລາວ"
+    },
+    "lt":{
+        "name":"Lithuanian",
+        "nativeName":"lietuvių kalba"
+    },
+    "lu":{
+        "name":"Luba-Katanga",
+        "nativeName":""
+    },
+    "lv":{
+        "name":"Latvian",
+        "nativeName":"latviešu valoda"
+    },
+    "gv":{
+        "name":"Manx",
+        "nativeName":"Gaelg, Gailck"
+    },
+    "mk":{
+        "name":"Macedonian",
+        "nativeName":"македонски јазик"
+    },
+    "mg":{
+        "name":"Malagasy",
+        "nativeName":"Malagasy fiteny"
+    },
+    "ms":{
+        "name":"Malay",
+        "nativeName":"bahasa Melayu, بهاس ملايو‎"
+    },
+    "ml":{
+        "name":"Malayalam",
+        "nativeName":"മലയാളം"
+    },
+    "mt":{
+        "name":"Maltese",
+        "nativeName":"Malti"
+    },
+    "mi":{
+        "name":"Māori",
+        "nativeName":"te reo Māori"
+    },
+    "mr":{
+        "name":"Marathi (Marāṭhī)",
+        "nativeName":"मराठी"
+    },
+    "mh":{
+        "name":"Marshallese",
+        "nativeName":"Kajin M̧ajeļ"
+    },
+    "mn":{
+        "name":"Mongolian",
+        "nativeName":"монгол"
+    },
+    "na":{
+        "name":"Nauru",
+        "nativeName":"Ekakairũ Naoero"
+    },
+    "nv":{
+        "name":"Navajo, Navaho",
+        "nativeName":"Diné bizaad, Dinékʼehǰí"
+    },
+    "nb":{
+        "name":"Norwegian Bokmål",
+        "nativeName":"Norsk bokmål"
+    },
+    "nd":{
+        "name":"North Ndebele",
+        "nativeName":"isiNdebele"
+    },
+    "ne":{
+        "name":"Nepali",
+        "nativeName":"नेपाली"
+    },
+    "ng":{
+        "name":"Ndonga",
+        "nativeName":"Owambo"
+    },
+    "nn":{
+        "name":"Norwegian Nynorsk",
+        "nativeName":"Norsk nynorsk"
+    },
+    "no":{
+        "name":"Norwegian",
+        "nativeName":"Norsk"
+    },
+    "ii":{
+        "name":"Nuosu",
+        "nativeName":"ꆈꌠ꒿ Nuosuhxop"
+    },
+    "nr":{
+        "name":"South Ndebele",
+        "nativeName":"isiNdebele"
+    },
+    "oc":{
+        "name":"Occitan",
+        "nativeName":"Occitan"
+    },
+    "oj":{
+        "name":"Ojibwe, Ojibwa",
+        "nativeName":"ᐊᓂᔑᓈᐯᒧᐎᓐ"
+    },
+    "cu":{
+        "name":"Old Church Slavonic, Church Slavic, Church Slavonic, Old Bulgarian, Old Slavonic",
+        "nativeName":"ѩзыкъ словѣньскъ"
+    },
+    "om":{
+        "name":"Oromo",
+        "nativeName":"Afaan Oromoo"
+    },
+    "or":{
+        "name":"Oriya",
+        "nativeName":"ଓଡ଼ିଆ"
+    },
+    "os":{
+        "name":"Ossetian, Ossetic",
+        "nativeName":"ирон æвзаг"
+    },
+    "pa":{
+        "name":"Panjabi, Punjabi",
+        "nativeName":"ਪੰਜਾਬੀ, پنجابی‎"
+    },
+    "pi":{
+        "name":"Pāli",
+        "nativeName":"पाऴि"
+    },
+    "fa":{
+        "name":"Persian",
+        "nativeName":"فارسی"
+    },
+    "pl":{
+        "name":"Polish",
+        "nativeName":"polski"
+    },
+    "ps":{
+        "name":"Pashto, Pushto",
+        "nativeName":"پښتو"
+    },
+    "pt":{
+        "name":"Portuguese",
+        "nativeName":"Português"
+    },
+    "qu":{
+        "name":"Quechua",
+        "nativeName":"Runa Simi, Kichwa"
+    },
+    "rm":{
+        "name":"Romansh",
+        "nativeName":"rumantsch grischun"
+    },
+    "rn":{
+        "name":"Kirundi",
+        "nativeName":"kiRundi"
+    },
+    "ro":{
+        "name":"Romanian, Moldavian, Moldovan",
+        "nativeName":"română"
+    },
+    "ru":{
+        "name":"Russian",
+        "nativeName":"русский язык"
+    },
+    "sa":{
+        "name":"Sanskrit (Saṁskṛta)",
+        "nativeName":"संस्कृतम्"
+    },
+    "sc":{
+        "name":"Sardinian",
+        "nativeName":"sardu"
+    },
+    "sd":{
+        "name":"Sindhi",
+        "nativeName":"सिन्धी, سنڌي، سندھی‎"
+    },
+    "se":{
+        "name":"Northern Sami",
+        "nativeName":"Davvisámegiella"
+    },
+    "sm":{
+        "name":"Samoan",
+        "nativeName":"gagana faa Samoa"
+    },
+    "sg":{
+        "name":"Sango",
+        "nativeName":"yângâ tî sängö"
+    },
+    "sr":{
+        "name":"Serbian",
+        "nativeName":"српски језик"
+    },
+    "gd":{
+        "name":"Scottish Gaelic; Gaelic",
+        "nativeName":"Gàidhlig"
+    },
+    "sn":{
+        "name":"Shona",
+        "nativeName":"chiShona"
+    },
+    "si":{
+        "name":"Sinhala, Sinhalese",
+        "nativeName":"සිංහල"
+    },
+    "sk":{
+        "name":"Slovak",
+        "nativeName":"slovenčina"
+    },
+    "sl":{
+        "name":"Slovene",
+        "nativeName":"slovenščina"
+    },
+    "so":{
+        "name":"Somali",
+        "nativeName":"Soomaaliga, af Soomaali"
+    },
+    "st":{
+        "name":"Southern Sotho",
+        "nativeName":"Sesotho"
+    },
+    "es":{
+        "name":"Spanish; Castilian",
+        "nativeName":"español, castellano"
+    },
+    "su":{
+        "name":"Sundanese",
+        "nativeName":"Basa Sunda"
+    },
+    "sw":{
+        "name":"Swahili",
+        "nativeName":"Kiswahili"
+    },
+    "ss":{
+        "name":"Swati",
+        "nativeName":"SiSwati"
+    },
+    "sv":{
+        "name":"Swedish",
+        "nativeName":"svenska"
+    },
+    "ta":{
+        "name":"Tamil",
+        "nativeName":"தமிழ்"
+    },
+    "te":{
+        "name":"Telugu",
+        "nativeName":"తెలుగు"
+    },
+    "tg":{
+        "name":"Tajik",
+        "nativeName":"тоҷикӣ, toğikī, تاجیکی‎"
+    },
+    "th":{
+        "name":"Thai",
+        "nativeName":"ไทย"
+    },
+    "ti":{
+        "name":"Tigrinya",
+        "nativeName":"ትግርኛ"
+    },
+    "bo":{
+        "name":"Tibetan Standard, Tibetan, Central",
+        "nativeName":"བོད་ཡིག"
+    },
+    "tk":{
+        "name":"Turkmen",
+        "nativeName":"Türkmen, Түркмен"
+    },
+    "tl":{
+        "name":"Tagalog",
+        "nativeName":"Wikang Tagalog, ᜏᜒᜃᜅ᜔ ᜆᜄᜎᜓᜄ᜔"
+    },
+    "tn":{
+        "name":"Tswana",
+        "nativeName":"Setswana"
+    },
+    "to":{
+        "name":"Tonga (Tonga Islands)",
+        "nativeName":"faka Tonga"
+    },
+    "tr":{
+        "name":"Turkish",
+        "nativeName":"Türkçe"
+    },
+    "ts":{
+        "name":"Tsonga",
+        "nativeName":"Xitsonga"
+    },
+    "tt":{
+        "name":"Tatar",
+        "nativeName":"татарча, tatarça, تاتارچا‎"
+    },
+    "tw":{
+        "name":"Twi",
+        "nativeName":"Twi"
+    },
+    "ty":{
+        "name":"Tahitian",
+        "nativeName":"Reo Tahiti"
+    },
+    "ug":{
+        "name":"Uighur, Uyghur",
+        "nativeName":"Uyƣurqə, ئۇيغۇرچە‎"
+    },
+    "uk":{
+        "name":"Ukrainian",
+        "nativeName":"українська"
+    },
+    "ur":{
+        "name":"Urdu",
+        "nativeName":"اردو"
+    },
+    "uz":{
+        "name":"Uzbek",
+        "nativeName":"zbek, Ўзбек, أۇزبېك‎"
+    },
+    "ve":{
+        "name":"Venda",
+        "nativeName":"Tshivenḓa"
+    },
+    "vi":{
+        "name":"Vietnamese",
+        "nativeName":"Tiếng Việt"
+    },
+    "vo":{
+        "name":"Volapük",
+        "nativeName":"Volapük"
+    },
+    "wa":{
+        "name":"Walloon",
+        "nativeName":"Walon"
+    },
+    "cy":{
+        "name":"Welsh",
+        "nativeName":"Cymraeg"
+    },
+    "wo":{
+        "name":"Wolof",
+        "nativeName":"Wollof"
+    },
+    "fy":{
+        "name":"Western Frisian",
+        "nativeName":"Frysk"
+    },
+    "xh":{
+        "name":"Xhosa",
+        "nativeName":"isiXhosa"
+    },
+    "yi":{
+        "name":"Yiddish",
+        "nativeName":"ייִדיש"
+    },
+    "yo":{
+        "name":"Yoruba",
+        "nativeName":"Yorùbá"
+    },
+    "za":{
+        "name":"Zhuang, Chuang",
+        "nativeName":"Saɯ cueŋƅ, Saw cuengh"
+    }
+};
+/**
+ * Vector
+ * 
+ * @param {Object} acceleration Acceleration object
+ */
 iShake.model.Vector = function(acceleration) {
     this.update(acceleration);
 }
 
 iShake.model.Vector.prototype = {
+    
+    /**
+     * Compares stores vector with specified vector and determines whether
+     * move of devices is big enough, that it shaking
+     *
+     * @param {Object} vector 
+     * @return {boolean}
+     */
     isShaking: function(vector) {
         var dx = Math.abs(vector.x - this.x),
             dy = Math.abs(vector.y - this.y),
@@ -2225,54 +3819,96 @@ iShake.model.Vector.prototype = {
 
         return false;
     },
+    
+    /**
+     * Updates vector
+     *
+     * @param {Object} acceleration object with acceleration data
+     */
     update: function(acceleration) {
         this.x = acceleration.x;
         this.y = acceleration.y;
         this.z = acceleration.z;
     }
 };
+/**
+ * List Repository
+ *
+ */
 iShake.repository.list = {
     lists: amplify.store('lists') || {},
     currentId_: amplify.store('currentListId') || 0,
-    currentId: function(id)
-    {
+    
+    /**
+     * Returns currently selected list id
+     * @param {integer} id Optional ID, if specified, stores new id value
+     * @return {integer}
+     */
+    currentId: function(id) {
         if (id)
         {
             this.currentId_ = id;
             amplify.store('currentListId', id);
         }
         
-        return this.currentId_ || 0;
-        
+        return this.currentId_ || 0;        
     },
-    add: function(lists)
-    {
-        for (var i = 0; i < lists.length; i++)
+    
+    /**
+     * Stores locally specified lists
+     *
+     * @param {Array} listData An array with list objects
+     * @return {Array.<iShake.ui.model.List>}
+     */
+    add: function(listData) {
+        var lists = [], list;
+        for (var i = 0; i < listData.length; i++)
         {
             // storing lists
-            this.lists[lists[i].id] = lists[i];
+            list = listData[i];
+            this.lists[listData[i].id] = list;
+            
+            lists.push(list);
         }
 
         amplify.store('lists', this.lists);
+        
+        return lists;
     },
-    create: function(name, callback, scope)
-    {
+    
+    /**
+     * Creates a new list with specified name
+     * 
+     * @param {string} name Name of the list
+     * @param {Function} callback Callback funtion
+     * @param {Object} scope Callback scope
+     */
+    create: function(name, callback, scope) {
         app.request('/list/add', function(data) {
             var listIds = iShake.repository.user.listIds();
             listIds.push(data.list.id);
             iShake.repository.user.listIds(listIds);
-            this.add([data.list]);            
+            var list = this.add([data.list])[0];            
             
             if (callback)
             {
-                callback.call(scope, data.list);
+                callback.call(scope, list);
             }
         }, this, {
-            name: name
+            name: name,
+            language: navigator.language
         });
     },
-    addItem: function(listId, name, callback, scope)
-    {
+    
+    /**
+     * Adds a new item to the list
+     *
+     * @param {string} listId Id of list, where the item should be added
+     * @param {string} name Name of item
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
+    addItem: function(listId, name, callback, scope) {
         app.request('/list-item/add', function(data) {
             var list = this.lists[listId];
             if (list && list.items)
@@ -2291,22 +3927,41 @@ iShake.repository.list = {
             text: name
         });
     },
-    all: function(callback, scope, options)
-    {
+    
+    /**
+     * Loads lists from server. Lists can be filterd with options object.
+     * 
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     * @param {Object} options Configuration filter
+     */
+    all: function(callback, scope, options) {
         /*
          * startLists
          */
         app.request('/list/all', function(data) {
             var lists = data.lists;
             
-            this.add(lists);
+            lists = this.add(lists);
             
             callback.call(scope, lists);
             
         }, this, options);
     },
-    get: function(id, callback, scope, options)
-    {
+    
+    /**
+     * Gets single list from server
+     * @param {integer} id Id of list
+     * @param {Function} callback Callback object
+     * @param {Object} scope Callback scope object
+     * @param {Object} options Object with fetch parameters
+     */
+    get: function(id, callback, scope, options) {
+        if (!id)
+        {
+            throw new Error('id is undefined');
+        }
+        
         options = options || {};
         
         if (this.lists[id] && this.lists[id].items && !options.remote)
@@ -2318,12 +3973,19 @@ iShake.repository.list = {
             app.request('/list/get/id/' + id, function(data) {
                 this.lists[id] = data.list;
                 amplify.store('lists', this.lists);
-                callback.call(scope, data.list);
+                callback.call(scope, this.lists[id]);
             }, this, null, options.silent);
         }
     },
-    item: function(id, callback, scope)
-    {
+    
+    /**
+     * Returns list item with specified id
+     * 
+     * @param {integer} id Item's id
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
+    item: function(id, callback, scope) {
         app.request('/list-item/get', function(data) {
             if (callback)
             {
@@ -2333,8 +3995,15 @@ iShake.repository.list = {
             id: id
         });
     },
-    update: function(list, callback, scope)
-    {
+    
+    /**
+     * Updates list
+     * 
+     * @param {Object} list List data
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
+    update: function(list, callback, scope) {
         app.request('/list/update', function(data) {
             
             this.lists[data.id] = data;
@@ -2342,16 +4011,25 @@ iShake.repository.list = {
             
             if (typeof callback == 'function')
             {
-                callback.call(scope, data.list);
+                callback.call(scope, this.lists[data.id]);
             }
         }, this, {
             id: list.id,
             name: list.name, 
-            isPublic: list.isPublic
+            isPublic: list.isPublic,
+            category: list.category,
+            language: list.language
         });
     },
-    updateItem: function(item, callback, scope)
-    {
+    
+    /**
+     * Updates list item
+     * 
+     * @param {Object} item List item
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
+    updateItem: function(item, callback, scope) {
         app.request('/list-item/update', function(data) {
             this.lists[data.list.id]  = data.list;
             amplify.store('lists', this.lists);
@@ -2367,8 +4045,15 @@ iShake.repository.list = {
             backsideText: item.backsideText
         });
     },
-    remove: function(list, callback, scope)
-    {
+    
+    /**
+     * Deletes list
+     * 
+     * @param {Object} list List data
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
+    remove: function(list, callback, scope) {
         delete this.lists[list.id];
         amplify.store('lists', this.lists);
         
@@ -2393,8 +4078,15 @@ iShake.repository.list = {
             }
         );
     },
-    removeItem: function(item, callback, scope)
-    {
+    
+    /**
+     * Removes an item from specified list
+     * 
+     * @param {Object} item Item to be deleted
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
+    removeItem: function(item, callback, scope) {
         app.request('/list-item/delete', function(data) {
             this.lists[data.list.id]  = data.list;
             amplify.store('lists', this.lists);
@@ -2411,6 +4103,13 @@ iShake.repository.list = {
 iShake.repository.user = {
     user_: null,
     listIds_: null,
+    completedItemIds_: amplify.store('completedids') || [],
+    
+    /**
+     * Returns currently loaded user
+     * 
+     * @param {Object} userData if provided stores currently loaded user
+     */
     current: function(userData) {
         if (userData)
         {
@@ -2431,20 +4130,32 @@ iShake.repository.user = {
 
         return this.user_;
     },
+    
+    /**
+     * Stores that user has answered the question
+     * 
+     * @param {Array.<integer>} ids Array with list items
+     */
+    completedItemIds: function(ids) {
+        if (ids)
+        {
+            this.completedItemIds_ = ids;        
+            amplify.store('completedids', this.completedItemIds_);        
+        }
+            
+        return this.completedItemIds_;
+    },
+    
+    /**
+     * Stores selected by user list ids
+     * 
+     * @param {Array} listIds Array of list ids
+     */
     listIds: function(listIds) {
         var user = this.current();
         
         if (listIds)
         {
-//            removes doubles (there should be no doubles in the list)
-//            for (var i = listIds.length - 1; i >= 0; i--)
-//            {
-//                if ($.inArray(listIds[i], listIds, i + 1) != -1)
-//                {
-//                    listIds.splice(i, 1);
-//                }
-//            }
-            
             var currentId = iShake.repository.list.currentId();
             if (listIds.length && $.inArray(currentId, listIds) == -1)
             {
@@ -2478,6 +4189,13 @@ iShake.repository.user = {
         
         return this.listIds_;
     },
+    
+    /**
+     * Loads user lists
+     * 
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback object
+     */
     lists: function(callback, scope) {
         var listIds = this.listIds(),
             listRepo = iShake.repository.list;
@@ -2491,11 +4209,12 @@ iShake.repository.user = {
                 {
                     listIds.push(lists[i].id);
                 }
+                
                 this.listIds(listIds);
                 
                 callback.call(scope, lists);
                 
-                }, this, {startLists: true}
+                }, this, {ids: [52, 13]}
             );
         }
         else
@@ -2508,30 +4227,58 @@ iShake.repository.user = {
                 // one of the lists is not in cache
                 if (!list)
                 {
-                    this.refresh(function() {
-                        this.lists(callback, scope);
+                    listRepo.get(listIds[i], function() {
+                        this.lists(callback, scope);                        
                     }, this);
                     return;
-                }               
+                }
                 
                 lists.push(list);
             }
             callback.call(scope, lists);
         }
-    }, 
+    },
+    
+    /**
+     * Removes doubly stored items
+     */
+    repair: function() {
+        var listIds = this.listIds();
+        
+        //removes doubles (there should be no doubles in the list)
+        for (var i = listIds.length - 1; i >= 0; i--) 
+        {
+            if ($.inArray(Number(listIds[i]), listIds, i + 1) != -1 ||
+                $.inArray(String(listIds[i]), listIds, i + 1) != -1) 
+            {
+                listIds.splice(i, 1);
+            }
+        }
+        
+        this.listIds(listIds);
+    },
+    
+    /**
+     * Refreshes user data and lists
+     *
+     * @param {Function} callback Callback function
+     * @param {Object} scope Callback scope
+     */
     refresh: function(callback, scope) {
         app.request('/user/get', function(data) {
             this.current(data.user);
             iShake.repository.list.add(data.lists);
-            
-            if (callback)
-            {
+
+            if (callback) {
                 callback.call(scope);
             }
-        }, this);
+        }, this);        
     },
-    setFacebook: function()
-    {
+    
+    /**
+     * Sets facebook
+     */
+    setFacebook: function() {
         app.request('/user/facebook-login', function(data) {
             iShake.repository.user.current(data.user);            
             iShake.repository.list.add(data.lists);
@@ -2539,9 +4286,27 @@ iShake.repository.user = {
         });
     }
 };
-iShake.ui.Form = function(el)
+/**
+ * Form component
+ * 
+ * @param {Element} el Form element
+ * @param {string} url Post-Back URL
+ * @param {Function} callback Callback function
+ * @param {Object} scope Callback scope
+ */
+iShake.ui.Form = function(el, url, callback, scope)
 {
     this.el = el;
+    this.url = url;
+    this.callback = callback;
+    this.scope = scope;
+    
+    var me = this;
+    el.on('submit', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        me.submit();
+    });
     el.on('keydown keyup', function(e) {
         var target = $(e.target);
         target.parent().toggleClass('empty', !target.val());
@@ -2549,14 +4314,24 @@ iShake.ui.Form = function(el)
 }
 
 iShake.ui.Form.prototype = {
+    /**
+     * Disposes form
+     */
     dispose: function()
     {
-        this.el.off('keydown keyup');
+        this.el.off('keydown keyup submit');
         this.el[0].reset();
     },
+    
+    /**
+     * Sets form data
+     * @param {Object} data Object with form data, where key stands for name of
+     *      field.
+     */
     setData: function(data)
     {
         var formEl = this.el, el;
+        
         for (var key in data)
         {
             el = formEl.find('[name=' + key + ']');
@@ -2565,7 +4340,7 @@ iShake.ui.Form.prototype = {
             {
                 case 'checkbox':
                     el[0].checked = !!data[key];
-                    break;
+                    break;                    
                 default:
                     el.val(data[key]);
                     el.parent().toggleClass('empty', !data[key]);
@@ -2573,11 +4348,15 @@ iShake.ui.Form.prototype = {
             }
         }
     },
-    submit: function(url, callback, scope)
+    
+    /**
+     * Submits form
+     */
+    submit: function()
     {
         app.setLoading(true);
         var data = this.el.serialize();
-        app.request(url, function(data) {
+        app.request(this.url, function(data) {
             app.setLoading(false);
             
             if (!data.success)
@@ -2586,11 +4365,18 @@ iShake.ui.Form.prototype = {
             }
             else
             {
-                callback.call(scope, data);
+                this.callback.call(this.scope, data);
             }  
         }, this, data);        
         
     },
+    
+    /**
+     * Returns value of speicified field element
+     * 
+     * @param {string} name
+     * @return {string}
+     */
     val: function(name)
     {
         var el = this.el.find('[name=' + name + ']');
@@ -2603,40 +4389,94 @@ iShake.ui.Form.prototype = {
         }
     }
 };
-iShake.ui.Menu = function(el)
+/**
+ * Input box for new list item
+ * 
+ * @param {string} defaultText Default empty text
+ * @param {Function} callback Callback method
+ * @param {Object} scope Callback's scope object
+ */
+iShake.ui.NewItemInput = function(defaultText, callback, scope)
 {
-    el.on('click', function() {
-        $('#menu').css('visibility', 'visible');
-    });
+    this.defaultText = defaultText;
+    this.callback = callback;
+    this.cbScope = scope;
+    
 }
-iShake.ui.NewItemInput = function(input, callback, scope)
+
+/**
+ * Renders component to specified parent element
+ * 
+ * @param {Element} parent Container element where input should be rendered
+ */
+iShake.ui.NewItemInput.prototype.render = function(parent)
 {
+    var html = [
+        '<li class="new-item-li empty">',
+            '<span class="new-item">',
+                '<span class="item-loader"><span class="spinner"></span></span>',
+                '<span class="new-item-wrap"><input type="text" class="new-item-input" name="new" value="" /></span>',
+                '<span class="new-item-empty">' + this.defaultText + '</span>',
+            '</span>',
+            '<span class="disclosure-wrap"><span class="disclosure icon-button plus"></span></span>',
+        '</li>'].join('');
+    
+    
+    parent.append(html);
+    
+    
+    var input = $('.new-item-input'),
+        me = this;
+    
+//    input.on('change', function(e) {
+//        input.parent().parent().parent().addClass('loading');        
+//        me.callback.call(me.cbScope, e.target.value);        
+//    });
+    
     input.on('keyup keydown', function(e) {
-        input.parent().toggleClass('empty', !input.val());            
+        input.parent().parent().parent().toggleClass('empty', !input.val());
+
         if (e.keyCode == 13)
         {
             e.target.blur();
         }
     });
-        
-    input.on('change', function(e) {
-        input.parent().addClass('loading');        
-        callback.call(scope, e.target.value);        
+    
+    $('.new-item-li .plus', parent).on('click', function() {
+        input.parent().parent().parent().addClass('loading');        
+        me.callback.call(me.cbScope, input.val());
     });
     
     this.input = input;
     
+    
 }
 
+/**
+ * Resets form
+ */
 iShake.ui.NewItemInput.prototype.reset = function()
 {
     this.input.val('');
     
-    var li = this.input.parent();
-    li.addClass('empty');
+    var li = this.input.parent().parent().parent();
     li.removeClass('loading');
+    li.addClass('empty');
 }
+/**
+ * Notification object
+ */
 iShake.ui.notify = {
+    
+    /**
+     * Alers message
+     * 
+     * @param {string} message Message to be displayed
+     * @param {Function} alertCallback Function to be called after user pressed
+     *      okay
+     * @param {string} title Title text for message box
+     * @param {string} buttonName Button's label
+     */
     alert: function(message, alertCallback, title, buttonName)
     {
         if (navigator.notification)
@@ -2654,6 +4494,16 @@ iShake.ui.notify = {
 
 
     },
+    
+    /**
+     * Shows confirm dialog
+     * 
+     * @param {string} message Message to be displayed
+     * @param {Function} confirmCallback Function to be called after user pressed
+     *      okay
+     * @param {string} title Title text for message box
+     * @param {string} buttonLabels Comma separated list of labels
+     */
     confirm: function(message, confirmCallback, title, buttonLabels)
     {
         if (navigator.notification)
@@ -2672,18 +4522,25 @@ iShake.ui.notify = {
         }
     }
 };
+/**
+ * 
+ */
 iShake.ui.PageTransition = function() {
     
     
 };
 
 iShake.ui.PageTransition.prototype = {
+    /**
+     * Slides page
+     * 
+     * @param {Object} opts Flip options
+     */
     slide: function(opts) {
         var body = $(document.body),
             inEl = opts.to,
             outEl = opts.from,
             direction = opts.direction,
-            fn = opts.fn,
             slideWise = {
                 rtl: ['slide-out-to-left', 'slide-in-from-right'],
                 ltr: ['slide-out-to-right', 'slide-in-from-left']
@@ -2694,25 +4551,33 @@ iShake.ui.PageTransition.prototype = {
 //                inEl.off('webkitAnimationEnd');
                 outEl.addClass('hidden');                
                 outEl.removeClass(wise[0]);
-                inEl.removeClass(wise[1]);                
-                if (fn) fn.apply();
+                inEl.removeClass(wise[1]);                                
             };
 
         body.addClass('sliding'),          
         inEl.removeClass('hidden');        
-        // webkitAnimationEnd on android is fired when
+        
+        // In webkit on android webkitAnimationEnd event was fire just after
+        // animation has been completed and elements were set to their
+        // original positions, that's why it has been replaced with timer
+//        webkitAnimationEnd on android is fired when
 //        inEl.on('webkitAnimationEnd', reset);
+
         setTimeout(reset, 350);
         outEl.addClass(wise[0]);
         inEl.addClass(wise[1]);
     },
+    
+    /**
+     * Flips the page
+     * @param {Object} opts Flip options
+     */
     flip: function(opts)
     {
         var body = $(document.body),
             inEl = opts.to,
             outEl = opts.from,
             direction = opts.direction,
-            fn = opts.fn,
             flipWise = {
                 clockwise: ['flip-out-to-left', 'flip-in-from-left'],
                 anticlockwise: ['flip-out-to-right', 'flip-in-from-right']
@@ -2725,8 +4590,7 @@ iShake.ui.PageTransition.prototype = {
                 inEl.removeClass('flip');
                 outEl.removeClass('flip');
                 outEl.removeClass(wise[0]);
-                inEl.removeClass(wise[1]);
-                if (fn) fn.apply();
+                inEl.removeClass(wise[1]);                
             };
 
             body.addClass('viewport-flip');
@@ -2744,6 +4608,10 @@ iShake.view = {
         this.name = name;
         this.el = el;                        
     },
+    
+    /**
+     * Initializes scrolling on android, iOS uses native scrolling via CSS
+     */
     initScroll: function()
     {
         if ($.os.android)
@@ -2753,6 +4621,9 @@ iShake.view = {
             this.scroller.refresh();
         }
     },
+    /**
+     * Disposes scrolling
+     */
     disposeScroll: function()
     {
         if ($.os.android)
@@ -2761,6 +4632,9 @@ iShake.view = {
         }
     }
 };
+/**
+ * Home view
+ */
 iShake.view.home = function(name, el)
 {
     this.init(name, el);
@@ -2770,73 +4644,133 @@ iShake.view.home = function(name, el)
     if (!currentId)
     {
         location.hash = '/lists';
-        return;    
+        return;
     }
     
     this.watchId = 0;
     
-    $('#phone').removeClass('animate');    
+    $('#phone').removeClass('animate');        
     this.resultNode = $('#result');        
     
-    app.setLoading(true);
-    
+    // Showing loading status
+    app.setLoading(true);    
     $('section', el).removeClass('has-backside');
     
+    // Display no connection warning after 5 seconds timeout
     this.timerId = setTimeout(function() {
-        app.setLoading(false);        
-        app.showNoConnection();        
+        app.setLoading(false);
+        app.showNoConnection(true);
     }, 5000);
     
-    // Getting list data
+    // Getting current list data (from local storage if possible)
     iShake.repository.list.get(currentId, this.initMotion, this);
 }
 
 iShake.view.home.prototype = {
+    /**
+     * Defines whether device is shaking
+     * @type {boolean}
+     */
     isShaking: false,
+    
+    /**
+     * Current list
+     */
+    currentList_: null,
+    
+    /**
+     * Sets current list
+     */
+    currentList: function(list)
+    {
+        if (list)
+        {
+            var completedIds = iShake.repository.user.completedItemIds(),
+                items = list.items;
+
+            // Removing completed items
+            for (var i = items.length - 1; i >= 0; i--)
+            {
+                if (iShake.util.indexOf(completedIds, items[i].id) != -1)
+                {
+                    items.splice(i, 1);
+                }
+            }
+            
+            if (list.items.length == 0)                
+            {
+                iShake.ui.notify.alert('home.list-finished');
+                iShake.repository.list.get(list.id, this.resetList, this, {
+                    remote: true
+                });
+            }
+
+            this.currentList_ = list;
+        }
+        
+        
+        return this.currentList_;
+    },
+    
+    /**
+     * Initializes motion events
+     */
     initMotion: function(list)
     {
+        // Setting current list and filtering completed items
+        this.currentList(list);
+        
         clearTimeout(this.timerId);
         
+        // Displays ready to shake animation
         this.el.toggleClass('ready', true);
         
         app.setLoading(false);
         
+        // Refreshing current list from server
         if (navigator.onLine)
         {
             iShake.repository.list.get(list.id, function(list) {
-                this.currentList = list;                
+                this.currentList(list);                
             }, this, {remote: true, silent: true});
         }
         
-        this.currentList = list;
-        this.currentItem = null;
+        this.currentItem = amplify.store('currentitem') || null;
         
         var me = this;
         
+        // Adding Motion listeners
         $(window).on('devicemotion', function(e) {            
             me.onDeviceMotion(e.accelerationIncludingGravity);
         });
         
-        // Setting name of list              
-        $('#phone').addClass('animate');
-        var msg = $.os.android ? app.getMsg('common.start') : app.getMsg('common.shake');
-        $('#phone-text').html(msg);
-        
-        // this is needed for android
-        setTimeout(function() {
-            me.el[0].style.webkitTransform = 'translate(0, 0)';
-//            var phone = $('#phone');
-//            phone.css('top', '200px');
-        }, 1000);
-        
-        
-        // Disabling shaking after 8 seconds
-        setTimeout(function() {
-            $('#phone').removeClass('animate');
+        // If user comes from homeback view, display current item
+        if (this.currentItem)
+        {
+            this.el.toggleClass('ready', false);
+            this.setResult(this.currentItem);
+            $('section', this.el).toggleClass('has-backside', 
+                this.currentItem.hasBackside);    
             
-        }, 16000);
-        
-        // Tap = Shake
+            
+            var completedIds = iShake.repository.user.completedItemIds(),
+                alreadyAnswered = iShake.util.indexOf(completedIds, this.currentItem.id) != -1;
+            $('.complete', this.el).toggleClass('completed', alreadyAnswered);
+        }
+        else
+        {
+            // Displaying shaking phone    
+            $('#phone').addClass('animate');
+            var msg = $.os.android ? app.getMsg('common.start') : app.getMsg('common.shake');
+            $('#phone-text').html(msg);
+            
+            // Disabling shaking after 8 seconds
+            setTimeout(function() {
+                $('#phone').removeClass('animate');            
+            }, 16000);
+        }
+                
+        // Adding listeners
         var evt = $.os.version ? 'tap' : 'click';
         $('section', this.el).on(evt, function(e) {
             if (!e.target.href && !$(e.target).hasClass('menu-button'))
@@ -2844,8 +4778,44 @@ iShake.view.home.prototype = {
                 me.startShake();
             }            
         });
-        this.el.on('swipeLeft swipeRight', function(e) {
+        
+        // Disables vertical move of page while swipeLeft / swipeRight
+        this.el.on('touchmove', function(e) {
             e.preventDefault();
+        });
+        
+        $('.complete', this.el).on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            var ids = iShake.repository.user.completedItemIds(),
+                target = $(e.target);
+            
+            if (target.hasClass('completed'))
+            {
+                var index = iShake.util.indexOf(ids, me.currentItem.id);
+                
+                if (index != -1)
+                {
+                    ids.splice(index, 1);
+                }
+            }
+            else
+            {
+                ids.push(me.currentItem.id);                
+            }
+            
+            iShake.repository.user.completedItemIds(ids);            
+            
+            var list = me.currentList();
+            me.currentList(list);
+            target.toggleClass('completed');
+        });
+        
+        // Attaching swipe event listeners
+        this.el.on('swipeLeft swipeRight', function(e) {
+            e.preventDefault();            
+            this.unload();
             
             if (me.currentItem && me.currentItem.hasBackside)
             {
@@ -2853,15 +4823,26 @@ iShake.view.home.prototype = {
             }
             
         });
+        
+        // Android Webkit: Refresh layout
+        me.el[0].style.webkitTransform = 'translate(0, 1)';        
+        setTimeout(function() {
+            me.el[0].style.webkitTransform = 'translate(0, 0)';
+        }, 300);
     },
+    
+    /**
+     * Device motion listener, verifies whether Device is shaking and starts
+     * shaking animation
+     */
     onDeviceMotion: function(acceleration)
     {
         if (!this.vector)
         {
+            // Saving move vector
             this.vector = new iShake.model.Vector(acceleration);
             return;
-        }            
-        
+        }
         
         var vector = this.vector,
             isShaking = (vector.isShaking(acceleration));
@@ -2873,25 +4854,52 @@ iShake.view.home.prototype = {
 
         vector.update(acceleration);       
     },
+    
+    /**
+     * Returns random item from current list
+     */
     random: function()
     {
-        var index = Math.floor(Math.random() * this.currentList.items.length);
-        return this.currentList.items[index];
+        var index = Math.floor(Math.random() * this.currentList().items.length);
+        return this.currentList().items[index];
     },
+    
+    resetList: function(list)
+    {
+        var completedIds = iShake.repository.user.completedItemIds();
+        for (var i = 0; i < list.items.length; i++)
+        {
+            var index = iShake.util.indexOf(completedIds, list.items[i].id);
+            completedIds.splice(index, 1);
+        }
+        
+        iShake.repository.user.completedItemIds(completedIds);
+        
+        this.currentList(list);
+    },
+    
+    /**
+     * Displays text of specified item and centers it's position on the screen
+     */
     setResult: function(item)
     {        
         this.resultNode.html(item.text);
         
-        var top = (window.innerHeight - this.resultNode[0].offsetHeight) / 2 - 40;
+        var top = (app.winHeight - this.resultNode[0].offsetHeight) / 2 - 40;
         this.resultNode.css({
             top: top + 'px'
         });
     },
+    
+    /**
+     * Starts shaking animation and draws a random item
+     */
     startShake: function()
     {
         var me = this;
         
         $('section', me.el).removeClass('has-backside');
+        $('.complete', me.el).removeClass('completed');
         
         this.resultNode.addClass('shaking');
         this.el.toggleClass('ready', false);
@@ -2901,6 +4909,7 @@ iShake.view.home.prototype = {
             clearTimeout(this.timeout);
         }
 
+        // Stopping animation after specified amount of time
         this.timeout = setTimeout(function() {
             clearInterval(me.interval);
             me.interval = 0;
@@ -2911,70 +4920,113 @@ iShake.view.home.prototype = {
             
             amplify.store('currentitem', me.currentItem);
             
+            me.resultNode.toggleClass('rotate-left', false);
+            me.resultNode.toggleClass('rotate-right', false);   
+            
             me.isShaking = false;
             
             $('section', me.el).toggleClass('has-backside', me.currentItem.hasBackside);                                    
-        }, 3000);
+        }, 2000);
 
         this.isShaking = true;   
         
-        if (!this.interval)
+        // Animating manually, in case device doesn't support css3 animations.
+        if (!Modernizr.cssanimations)
         {
-            this.interval = setInterval(function() {
-                me.setResult(me.random());
-            }, 300); 
+            me.resultNode.toggleClass('rotate-left', true);
         }
         
+        // Displays random result
+        if (!this.interval)
+        {
+            var intervalTime = Modernizr.cssanimations ? 300 : 80;
+            this.interval = setInterval(function() {
+                me.setResult(me.random());
+                if (!Modernizr.cssanimations)
+                {
+                    me.resultNode.toggleClass('rotate-left');
+                    me.resultNode.toggleClass('rotate-right');                    
+                }
+                
+            }, intervalTime); 
+        }        
     },
+    
+    /**
+     * Disposes view
+     */
     unload: function()
     {
         $('#phone').removeClass('animate');    
         $('section', this.el).off('tap');
         $('section', this.el).off('click');
-        this.el.off('swipeLeft swipeRight');
+        $('.complete', this.el).off('click');
+        this.el.off('swipeLeft swipeRight touchmove');
         $(window).off('devicemotion');
         
     }
 };
 
 $.extend(iShake.view.home.prototype, iShake.view);
+/**
+ * Backside of flash card
+ * @param {string} name Name of view
+ * @param {Element} el View's element
+ */
 iShake.view.homeback = function(name, el)
 {
     this.init(name, el);
     
+    // Getting an item from localStorage
     var currentItem = amplify.store('currentitem');
     
+    // Setting text
     var backsideText = $('#backside-text');
     backsideText.html(currentItem.backsideText.replace(/[\n]/g, '<br />'));
     
-    var top = (window.innerHeight - backsideText[0].offsetHeight) / 2 - 40;
+    // Centering position of text
+    var winHeight = $(window).height() || app.winHeight;
+    var top = (winHeight - backsideText[0].offsetHeight) / 2 - 40;
     backsideText.css({
         top: top + 'px'
     });
-    
+        
     var me = this;
     
-    $(me.el).on('swipeRight swipeLeft', function(e) {
-        location.hash = '/home';
+    // Preventing vertical move of page on swipe events
+    this.el.on('touchmove', function(e) {
+        e.preventDefault();
     });
     
-    
+    // Switching page by swipeLeft / swipeRight events
+    $('.scroll', this.el).on('click swipeRight swipeLeft', function(e) {
+        me.unload();
+        location.hash = '/home';
+    });
 }
 
 iShake.view.homeback.prototype = {
+    
+    /**
+     * Disposes view
+     */
     unload: function() {
-//        $(this.el).off('swipeRight');
-//        $(this.el).off('swipeLeft');
+        $('section', this.el).off('touchmove swipeRight swipeLeft click');        
     }
 };
 
 $.extend(iShake.view.homeback.prototype, iShake.view);
+/**
+ * Item view
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ * @param {string} id Item's id
+ */
 iShake.view.item = function(name, el, id)
 {
     this.init(name, el);
     
-    this.form = new iShake.ui.Form($('form', el));        
-    
+    this.form = new iShake.ui.Form($('form', el));            
     this.enableBackText(false);
     
     this.listRepo = iShake.repository.list;
@@ -2982,14 +5034,27 @@ iShake.view.item = function(name, el, id)
 }
 
 iShake.view.item.prototype = {
+    /**
+     * Controls visibility of backtext
+     *
+     * @param {boolean} isEnabled Defines whether backside text form should be 
+     *      visible
+     */
     enableBackText: function(isEnabled)
     {
         $('[name=backside_text]').parent().toggleClass('hidden', !isEnabled);
     },
+    
+    /**
+     * Initializes editor form
+     *
+     * @param {Object} item Initializes
+     */
     initForm: function(item)
     {
         this.item = item;
         
+        // Setting form data
         this.form.setData({
             'text': item.text,
             'has_backside': item.hasBackside,
@@ -3024,6 +5089,10 @@ iShake.view.item.prototype = {
             }, 'item.confirm-delete-item-bd');
         });
     },
+    
+    /**
+     * Disposes view
+     */
     unload: function()
     {
         $('.red-button', this.el).off('click');
@@ -3033,6 +5102,13 @@ iShake.view.item.prototype = {
 };
 
 $.extend(iShake.view.item.prototype, iShake.view);
+/**
+ * View with list items
+ * 
+ * @param {string} name
+ * @param {Element} el
+ * @param {string} id
+ */
 iShake.view.list = function(name, el, id)
 {
     this.init(name, el);
@@ -3044,19 +5120,10 @@ iShake.view.list = function(name, el, id)
 }
 
 iShake.view.list.prototype = {
-    getItem: function(itemId)
-    {
-        var items = this.listData.items;
-        for (var i = 0; i < items.length; i++)
-        {
-            if (items[i].id == itemId)
-            {
-                return items[i];
-            }
-        }
-        
-        return null;
-    },
+    /**
+     * Initializes lists data
+     * @param {integer} id
+     */
     initData: function(id)
     {                
         this.listRepo.get(id, function(data) {
@@ -3093,12 +5160,11 @@ iShake.view.list.prototype = {
             this.editor.reset();
             
             var li = document.createElement('li');
-            li.innerHTML = '<a class="item-content" href="#/item/' + newItemData.id + '">' + newItemData.text + '</a>';
+            li.innerHTML = '<a class="item-content" href="#/item/' + newItemData.id + '">' + newItemData.text + '</a><span class="disclosure-wrap"></span>';
             $(li).data('id', newItemData.id);
 
-            var editorLi = $('li.new-item', this.el);
+            var editorLi = $('li.new-item-li', this.el);
             editorLi.before(li);
-
         }, this);
         
     },
@@ -3120,7 +5186,14 @@ iShake.view.list.prototype = {
         
         for (var i = 0; i < items.length; i++)
         {
-            listName = canEdit ? '<a class="item-content" href="#/item/' + items[i].id + '">' + items[i].text + '</a>' :
+            listName = canEdit ? '<a class="item-content" href="#/item/' + 
+                                    items[i].id + '">' + items[i].text + 
+                                    '</a>' + 
+                                  '<span class="disclosure-wrap">' + 
+                                  '<a href="#/item/' + 
+                                    items[i].id + '" class="disclosure icon-button"></a>' + 
+                                  '</span>' :
+                                    
                                  '<span class="item-content">' + items[i].text + '</span>';
             
             html.push([
@@ -3130,64 +5203,93 @@ iShake.view.list.prototype = {
             ].join(''));
         }
         
-        if (canEdit)
-        {
-            html.push([
-                '<li class="new-item empty">',
-                    '<span class="item-loader"><span class="spinner"></span></span>',
-                    '<input type="text" class="list-edit" name="new" value="" />',
-                    '<span class="new-item-empty">' + app.getMsg('list.new-item') + '</span>',
-                '</li>'].join('')        
-            );
-        }
-        
         $('section ul', this.el).html(html.join(''));                
         
         if (canEdit)
         {
-            var newInput = $('#view-list .new-item input');
             this.editor = new iShake.ui.NewItemInput(
-                newInput, 
+                app.getMsg('list.new-item'), 
                 this.onNewItem,
                 this
             );
+            this.editor.render($('section ul', this.el));
         }
-        
-        this.initScroll();
     },
     unload: function()
     {
-         this.disposeScroll();
+         
     }
 };
 
 $.extend(iShake.view.list.prototype, iShake.view);
 
+/**
+ * List edit view
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ * @param {integer} id List's id
+ * 
+ */
 iShake.view.listedit = function(name, el, id)
 {
     this.init(name, el);    
     
     this.form = new iShake.ui.Form($('form', el));
     
-    iShake.repository.list.get(id, this.initForm, this);    
+    // Initializing dropdown with languages
+    if (!iShake.view.listedit.langsInitialized)
+    {
+        var options = $('select[name=language]')[0].options,
+            langName;
+            
+        for (var isoCode in iShake.lang.de.isoLangs)
+        {
+            langName = iShake.lang.de.isoLangs[isoCode].name;
+            
+            // todo: improve perfomance
+            if (langName.split(',').length > 1)
+            {
+                langName = langName.split(',')[0];
+            }
+            else if(name.split(';').length > 0)
+            {
+                langName = langName.split(';')[0];
+            }
+            
+            options[options.length] = new Option(langName, isoCode);
+        }
+        
+        iShake.view.listedit.langsInitialized = true;
+    }
+    
+    iShake.repository.list.get(id, this.initForm, this);
 }
 
 iShake.view.listedit.prototype = {
+    
+    /**
+     * Initializes form
+     * @param {Object} item Object with list data
+     */
     initForm: function(item)
     {
         this.item = item;
         
         var me = this;
         
-        
         this.form.setData({
             'name': item.name,
+            'language': item.language,
+            'category': item.category,
             'is_public': item.isPublic
         });
         
+        // Save button
         $('.header-button-right', this.el).on('click', function() {
             
             me.item.name = me.form.val('name');            
+            me.item.language = me.form.val('language');
+            me.item.category = me.form.val('category');
             me.item.isPublic = me.form.val('is_public');
             
             iShake.repository.list.update(me.item, function(listData) {
@@ -3195,6 +5297,7 @@ iShake.view.listedit.prototype = {
             }, me);
         });
                 
+        // Delete button
         $('.red-button', this.el).on('click', function(e) {
             iShake.ui.notify.confirm('listedit.confirm-delete-list-hd', function() {
                 iShake.repository.list.remove(me.item, function() {
@@ -3204,6 +5307,10 @@ iShake.view.listedit.prototype = {
             }, 'listedit.confirm-delete-list-bd');
         });
     },
+    
+    /**
+     * Disposes view
+     */
     unload: function()
     {
         this.form.dispose();
@@ -3214,29 +5321,60 @@ iShake.view.listedit.prototype = {
 };
 
 $.extend(iShake.view.listedit.prototype, iShake.view);
-iShake.view.lists = function(name, el)
+/**
+ * Lists view
+ * 
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ * @param {integer} id optionally id of list to be added to users lists
+ * 
+ */
+iShake.view.lists = function(name, el, id)
 {
     this.init(name, el);
+    
+    app.updateLoginStatus();
+    
+    // If id provided, adding list with specified ID to user's lists
+    if (id)
+    {
+        var listIds = iShake.repository.user.listIds();
+        
+        if (iShake.util.indexOf(listIds, id) == -1)
+        {
+            listIds.push(id);
+            iShake.repository.user.listIds(listIds);            
+        }        
+    }
     
     this.listRepo = iShake.repository.list;
     
     $('section', el).html('');    
     
+    // Back button
     $('.header-button-left', this.el).toggleClass('hidden', !iShake.repository.list.currentId());
     
-    app.updateLoginStatus();
+    // Showing loading animation
     app.setLoading(true);
     
+    // Displaying no connection warning after specified timeout
     this.timerId = setTimeout(function() {
         app.setLoading(false);
-        $('#no-connection').css('display', 'block');
-    }, 3000);
+        app.showNoConnection(true);
+    }, 5000);
     
     // Getting user lists
-    iShake.repository.user.lists(this.initLists, this);   
+    iShake.repository.user.lists(this.initLists, this);
+    
+//    iShake.repository.user.repair();
 }
 
 iShake.view.lists.prototype = {
+    /**
+     * Initializes currently selected list and renders listview with lists
+     * 
+     * @param {Array.<Object>} lists Array of lists to be rendered
+     */
     initLists: function(lists)
     {
         app.setLoading(false);
@@ -3247,9 +5385,13 @@ iShake.view.lists.prototype = {
             this.listRepo.currentId(lists[0].id);
         }
         
-        this.renderLists(lists);
+        this.renderLists(lists);        
     },
     
+    /**
+     * Processes click event, when user selects one of the lists
+     * @param {Event} e
+     */
     onClick: function(e)
     {
         var target = $(e.target);
@@ -3262,32 +5404,51 @@ iShake.view.lists.prototype = {
         
         e.preventDefault();
         
+        // Storing selected list id in localStorage
         this.listRepo.currentId(id);
         
+        amplify.store('currentitem', '');
+        
+        // Adding selected class
         $('#view-lists .selected').removeClass('selected');
         target.parent().addClass('selected');
         
+        // Redirecting to homepage
         setTimeout(function() {
             location.hash = '/';
         }, 500);
     },
     
+    /**
+     * Processes an event when user created a new list
+     * 
+     * @param {string} name
+     */
     onNewList: function(name)
     {
         this.listRepo.create(name, function(newListData) {
+            
+            // Creating new list item
             var li = document.createElement('li');
             li.innerHTML = '<span data-id="' + newListData.id + '" class="item-content">' + newListData.name + '</span>' +
-                '<a href="#/list/' + newListData.id + '" class="disclosure"></a>';
+                '<a href="#/list/' + newListData.id + '" class="disclosure icon-button"></a>';
 
+            // Inserting list item
             var editorLi = $('li.new-item', this.el);
             editorLi.before(li);
             
+            
             this.editor.reset();
             
+            // Redirecting to list editor
             location.hash = '#/list/' + newListData.id;
         }, this);
     },
     
+    /**
+     * Renders list items
+     * @param {Array.<Object>} lists An array with list objects
+     */
     renderLists: function(lists)
     {
         var html = [],
@@ -3307,8 +5468,13 @@ iShake.view.lists.prototype = {
         
         iShake.util.sortByAlphabet(lists, 'name');
         
+        /**
+         * Defines whether list is prefetched in localStorage
+         * @type {boolean}
+         */
         var hasList = false;
         
+        // Rendering items
         for (var i = 0; i < lists.length; i++)
         {
             hasList = !!iShake.repository.list.lists[lists[i].id].items;
@@ -3319,40 +5485,35 @@ iShake.view.lists.prototype = {
                 (hasList ? '' : ' online')
                 ,'">',
                     '<span data-id="' + lists[i].id + '" class="item-content">' + lists[i].name + '</span>',
-                    '<a href="#/list/' + lists[i].id + '" class="disclosure online"></a>',
+                    '<span class="disclosure-wrap"><a href="#/list/' + lists[i].id + '" class="disclosure icon-button online"></a></span>',
                 '</li>'
             ].join(''));
         }
         
-        var user = app.user();
-        
-        if (user && user.registered)
-        {
-            html.push([
-                '<li class="new-item empty">',
-                    '<span class="item-loader"><span class="spinner"></span></span>',
-                    '<input type="text" class="list-edit" name="new" value="" />',
-                    '<span class="new-item-empty">' + app.getMsg('lists.new-list') + '</span>',
-                '</li>'].join('')        
-            );
-        }
-        
         $('section ul', this.el).html(html.join(''));
         
-        $('section li', this.el).on('click', function(e) {
+        // Adding event listeners
+        $('.item-content', this.el).on('click', function(e) {
             me.onClick(e);
         });
         
+        $('a', this.el).on('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            location.hash = e.target.hash;
+        });
         
-        
+        // If user is registered, rendering inline editor
+        var user = app.user();
         if (user && user.registered)
         {
-            var newInput = $('#view-lists .new-item input');
             this.editor = new iShake.ui.NewItemInput(
-                newInput, 
+                app.getMsg('lists.new-list'),
                 this.onNewList,
                 this
             );
+                
+            this.editor.render($('section ul', this.el));                                
         }        
         
         this.initScroll();
@@ -3364,25 +5525,37 @@ iShake.view.lists.prototype = {
 };
 
 $.extend(iShake.view.lists.prototype, iShake.view);
+/**
+ * Login view
+ *
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ */
 iShake.view.login = function(name, el)
 {
     this.init(name, el);
     
-    this.form = new iShake.ui.Form($('form', el));
-    
-    var me = this;
-    
-    $('.header-button-right', el).on('click', function() {
-        // Sending data to server
-        me.form.submit('/user/login/', function(data) {
+    // Initializing login form
+    this.form = new iShake.ui.Form(
+        $('form', el), 
+        '/user/login/', 
+        function(data) {
             iShake.repository.user.current(data.user);            
             iShake.repository.list.add(data.lists);
             app.updateLoginStatus();
             
-            history.back();
+            location.hash = '/';
         }, this);
+    
+    var me = this;
+    
+    // Save button
+    $('.header-button-right', el).on('click', function() {
+        // Sending data to server
+        me.form.submit();
     });
     
+    // Facebook login event
     function onFbLogin(response)
     {
         if (response.status == 'connected')
@@ -3397,12 +5570,16 @@ iShake.view.login = function(name, el)
         }
     }
     
+    // Facebook login button
     $('.facebook-login', this.el).on('click', function() {
         FB.login(onFbLogin);
     });
 }
 
 iShake.view.login.prototype = {
+    /**
+     * Disposes view
+     */
     unload: function()
     {
         $('.header-button-right', this.el).off('click');
@@ -3411,6 +5588,11 @@ iShake.view.login.prototype = {
 };
 
 $.extend(iShake.view.login.prototype, iShake.view);
+/**
+ * Online view
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ */
 iShake.view.online = function(name, el)
 {
     this.init(name, el);
@@ -3428,6 +5610,10 @@ iShake.view.online = function(name, el)
 }
 
 iShake.view.online.prototype = {
+    /**
+     * Processes click event
+     * @param {Event} e Browser click event
+     */
     onClick: function(e)
     {
 //        e.preventDefault();
@@ -3459,6 +5645,9 @@ iShake.view.online.prototype = {
             iShake.repository.user.listIds(userListIds);              
         }
     },
+    /**
+     * Renders list items
+     */
     renderItems: function()
     {
         var html = [],
@@ -3474,7 +5663,7 @@ iShake.view.online.prototype = {
             html.push([
                 '<li>',
                     '<a href="#/list/' + items[i].id + '" data-id="' + items[i].id + '" class="item-content">' + items[i].name + '</a>',
-                    '<span class="disclosure ' + cls + '" data-id="' + items[i].id + '"></span>',
+                    '<span class="disclosure-wrap"><span class="disclosure icon-button ' + cls + '" data-id="' + items[i].id + '"></span></span>',
                 '</li>'
             ].join(''));
         }
@@ -3483,38 +5672,52 @@ iShake.view.online.prototype = {
         $('section li', this.el).on('click', function(e) {
             me.onClick(e);
         });
+        
+        this.initScroll();
     },
     unload: function()
     {
-        
+        this.disposeScroll();
     }
 };
 
 $.extend(iShake.view.online.prototype, iShake.view);
+/**
+ * Registration view
+ * 
+ * @param {string} name View's name
+ * @param {Element} el View's element
+ */
 iShake.view.register = function(name, el) {
     this.init(name, el);
     
-    this.form = new iShake.ui.Form($('form', el));
+    // Initializing form
+    this.form = new iShake.ui.Form($('form', el), 
+        '/user/register/', 
+        function(data) {
+            iShake.repository.user.current(data.user);            
+            iShake.repository.list.add(data.lists);
+            app.updateLoginStatus();
+            location.hash = '/';
+        }, this);
     
     var me = this;
     
+    // In case user already logged in with facebook, redirecting back to home
     setTimeout(function() {
         FB.getLoginStatus(function(response) {
             location.hash = '/';
         });
     }, 3000);
-    
-    
+        
+    // Registers save button
     $('.header-button-right', el).on('click', function() {
+        
         // Sending data to server
-        me.form.submit('/user/register/', function(data) {
-            iShake.repository.user.current(data.user);            
-            iShake.repository.list.add(data.lists);
-            app.updateLoginStatus();
-            history.back();
-        }, this);
+        me.form.submit();
     });
     
+    // Initializing facebook login button
     $('.facebook-login', this.el).on('click', function() {
         FB.login(function(response) { 
             if (response.status == 'connected')
@@ -3527,6 +5730,9 @@ iShake.view.register = function(name, el) {
 }
 
 iShake.view.register.prototype = {
+    /**
+     * Disposes view
+     */
     unload: function() {
         $('.header-button-right', this.el).off('click');
         this.form.dispose();
