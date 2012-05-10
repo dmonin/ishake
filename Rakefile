@@ -76,7 +76,7 @@ task :concat, [:addons] => :whitespace do |task, args|
 
   File.open(File.join(ISHAKE_DIST_DIR, 'ishake.js'), 'w') do |f|
     f.puts components.map { |component|
-      File.read File.join(ISHAKE_SRC_DIR, "#{component}.js")
+      File.read File.join(ISHAKE_SRC_DIR, "#{component}.js"), :encoding => "utf-8"
     }
   end
 end
