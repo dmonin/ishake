@@ -64,7 +64,7 @@ header h1, #fake-header h1 {
 
 /* line 57, ../scss/layout/_core.scss */
 .icon-button {
-  background: #ea841f url('../img/sprite-s33794b6d03.png') 0 -160px no-repeat;
+  background: #ea841f url('../img/sprite-s233d455098.png') 0 0 no-repeat;
   border-radius: 5px;
   height: 30px;
   width: 30px;
@@ -77,19 +77,19 @@ header h1, #fake-header h1 {
 }
 /* line 71, ../scss/layout/_core.scss */
 .icon-button.plus {
-  background-position: 0 -240px;
+  background-position: 0 -80px;
 }
 /* line 75, ../scss/layout/_core.scss */
 .icon-button.minus {
-  background-position: 0 -80px;
+  background-position: 0 -160px;
 }
 /* line 79, ../scss/layout/_core.scss */
 .icon-button.rotate {
-  background-position: 0 -320px;
+  background-position: 0 -485px;
 }
 /* line 83, ../scss/layout/_core.scss */
 .icon-button.complete {
-  background-position: 0 0;
+  background-position: 0 -316px;
 }
 
 /* line 89, ../scss/layout/_core.scss */
@@ -102,9 +102,8 @@ header h1, #fake-header h1 {
 /* line 96, ../scss/layout/_core.scss */
 #no-connection-msg {
   background: rgba(0, 0, 0, 0.5);
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -144,9 +143,8 @@ header h1, #fake-header h1 {
 
 /* line 1, ../scss/layout/_header-nav.scss */
 .header-button {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   /*    background: transparent url(../img/iphone/button-active.png) no-repeat;*/
   cursor: pointer;
@@ -213,7 +211,7 @@ header h1, #fake-header h1 {
 
 /* line 75, ../scss/layout/_header-nav.scss */
 .header-button-menu {
-  background: transparent url('../img/sprite-s33794b6d03.png') 10px -546px no-repeat;
+  background: transparent url('../img/sprite-s233d455098.png') 10px -553px no-repeat;
   height: 44px;
   right: 5px;
   top: 0px;
@@ -221,7 +219,7 @@ header h1, #fake-header h1 {
 }
 /* line 83, ../scss/layout/_header-nav.scss */
 .header-button-menu.tappable-active {
-  background-position: 10px -477px;
+  background-position: 10px -622px;
 }
 
 /* line 1, ../scss/layout/_view.scss */
@@ -235,9 +233,8 @@ header h1, #fake-header h1 {
   width: 100%;
   top: 0;
   left: 0;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   bottom: 0;
   z-index: 2;
@@ -251,9 +248,8 @@ header h1, #fake-header h1 {
   position: absolute;
   top: 44px;
   width: 100%;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   -webkit-overflow-scrolling: touch;
 }
@@ -1109,7 +1105,7 @@ ul.tableview li a.item-content.tappable-active {
 }
 /* line 78, ../scss/layout/_tableview.scss */
 ul.tableview li.selected .item-content {
-  background: transparent url('../img/sprite-s33794b6d03.png') 9px -617px no-repeat;
+  background: transparent url('../img/sprite-s233d455098.png') 9px -230px no-repeat;
 }
 /* line 82, ../scss/layout/_tableview.scss */
 ul.tableview li .disclosure-wrap {
@@ -1184,9 +1180,8 @@ ul.tableview li.loading .item-loader .spinner {
   -webkit-user-select: text;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-user-drag: none;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 
@@ -1232,9 +1227,8 @@ ul.tableview li.loading .item-loader .spinner {
   padding: 7px;
   text-shadow: 1px 1px rgba(255, 255, 255, 0.4);
   text-align: center;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 /* line 83, ../scss/layout/form/_core.scss */
@@ -1243,7 +1237,7 @@ ul.tableview li.loading .item-loader .spinner {
 }
 
 /* line 2, ../scss/layout/form/_checkbox.scss */
-.flexbox .form-item-checkbox {
+.ios .form-item-checkbox {
   background: transparent;
   border: 1px solid #ccc;
   border-radius: 0;
@@ -1256,9 +1250,8 @@ ul.tableview li.loading .item-loader .spinner {
   -webkit-user-select: text;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-user-drag: none;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   display: -webkit-box;
   display: -moz-box;
@@ -1269,7 +1262,7 @@ ul.tableview li.loading .item-loader .spinner {
   box-orient: horizontal;
 }
 /* line 29, ../scss/layout/form/_checkbox.scss */
-.flexbox .form-item-checkbox .form-item-label {
+.ios .form-item-checkbox .form-item-label {
   -webkit-box-flex: 1;
   -o-box-flex: 1;
   box-flex: 1;
@@ -1277,7 +1270,7 @@ ul.tableview li.loading .item-loader .spinner {
   padding-top: 9px;
 }
 /* line 38, ../scss/layout/form/_checkbox.scss */
-.flexbox .form-item-checkbox input[type=checkbox] {
+.ios .form-item-checkbox input[type=checkbox] {
   border: 1px solid rgba(150, 150, 150, 0.6);
   height: 29px;
   width: 79px;
@@ -1297,27 +1290,27 @@ ul.tableview li.loading .item-loader .spinner {
   box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.3);
 }
 /* line 58, ../scss/layout/form/_checkbox.scss */
-.flexbox .form-item-checkbox input:checked[type=checkbox] {
+.ios .form-item-checkbox input:checked[type=checkbox] {
   background-position: -8px 0;
   -webkit-appearance: none;
   -webkit-animation-name: checkbox-switch-on;
 }
 /* line 66, ../scss/layout/form/_checkbox.scss */
-.flexbox .form-item-checkbox .disabled input.form-item-checkbox[type=checkbox],
-.flexbox .form-item-checkbox input.form-item-checkbox[type=checkbox][disabled] {
+.ios .form-item-checkbox .disabled input.form-item-checkbox[type=checkbox],
+.ios .form-item-checkbox input.form-item-checkbox[type=checkbox][disabled] {
   opacity: 0.5;
 }
 
 /* line 72, ../scss/layout/form/_checkbox.scss */
-.no-flexbox .form-item-label {
+.no-ios .form-item-label {
   float: left;
 }
 /* line 76, ../scss/layout/form/_checkbox.scss */
-.no-flexbox .form-item-checkbox {
+.no-ios .form-item-checkbox {
   overflow: hidden;
 }
 /* line 80, ../scss/layout/form/_checkbox.scss */
-.no-flexbox input[type=checkbox] {
+.no-ios input[type=checkbox] {
   float: right;
 }
 
@@ -1368,10 +1361,10 @@ select {
   visibility: hidden;
   top: 44px;
   z-index: 5;
-  -moz-transform: translate3d(0, 0, 0);
   -webkit-transform: translate3d(0, 0, 0);
-  -o-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
   -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
   transform: translate3d(0, 0, 0);
   /*    @include transition(right .5s);*/
 }
@@ -1409,10 +1402,12 @@ select {
   background: #fbe4ce;
 }
 
-/* line 1, ../scss/layout/_login-toolbar.scss */
-.login-toolbar {
+/* line 1, ../scss/layout/_footer-toolbar.scss */
+.footer-toolbar {
   background: transparent url(../img/iphone/footer-toolbar.png) repeat-x;
+  color: #fff;
   /*    display: -moz-box;
+      
       display: -webkit-box;
       display: box;*/
   height: 44px;
@@ -1427,12 +1422,17 @@ select {
   -moz-box-pack: center;
   box-pack: center;
 }
-/* line 20, ../scss/layout/_login-toolbar.scss */
-.logged .login-toolbar {
+/* line 23, ../scss/layout/_footer-toolbar.scss */
+.footer-toolbar .text {
+  padding: 10px;
+  text-align: center;
+}
+/* line 28, ../scss/layout/_footer-toolbar.scss */
+.logged .footer-toolbar {
   display: none;
 }
-/* line 24, ../scss/layout/_login-toolbar.scss */
-.login-toolbar .button {
+/* line 32, ../scss/layout/_footer-toolbar.scss */
+.footer-toolbar .button {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #3a3a3a), color-stop(100%, #1c1c1c));
   background: -webkit-linear-gradient(top, #3a3a3a, #1c1c1c);
   background: -moz-linear-gradient(top, #3a3a3a, #1c1c1c);
@@ -1447,17 +1447,16 @@ select {
   margin: 5px;
   height: 30px;
   padding: 3px 10px;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 12pt;
   text-shadow: 1px -1px black;
   text-decoration: none;
   -webkit-touch-callout: none;
 }
-/* line 42, ../scss/layout/_login-toolbar.scss */
-.login-toolbar .button.tappable-active {
+/* line 50, ../scss/layout/_footer-toolbar.scss */
+.footer-toolbar .button.tappable-active {
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #1c1c1c), color-stop(100%, #3a3a3a));
   background: -webkit-linear-gradient(top, #1c1c1c, #3a3a3a);
   background: -moz-linear-gradient(top, #1c1c1c, #3a3a3a);
@@ -1503,10 +1502,10 @@ select {
   top: 118px;
   text-align: center;
   width: 90%;
-  -moz-transform: rotate(0deg);
   -webkit-transform: rotate(0deg);
-  -o-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
   -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
   transform: rotate(0deg);
   -webkit-transition: all .5s;
 }
@@ -1516,18 +1515,18 @@ select {
 }
 /* line 36, ../scss/view/_home.scss */
 #result.rotate-left {
-  -moz-transform: rotate(8deg);
   -webkit-transform: rotate(8deg);
-  -o-transform: rotate(8deg);
+  -moz-transform: rotate(8deg);
   -ms-transform: rotate(8deg);
+  -o-transform: rotate(8deg);
   transform: rotate(8deg);
 }
 /* line 41, ../scss/view/_home.scss */
 #result.rotate-right {
-  -moz-transform: rotate(-8deg);
   -webkit-transform: rotate(-8deg);
-  -o-transform: rotate(-8deg);
+  -moz-transform: rotate(-8deg);
   -ms-transform: rotate(-8deg);
+  -o-transform: rotate(-8deg);
   transform: rotate(-8deg);
 }
 /* line 45, ../scss/view/_home.scss */
@@ -1589,8 +1588,9 @@ select {
   position: absolute;
   top: 0px;
   width: 22px;
-  -moz-transition: opacity 0.5s 0.3s;
   -webkit-transition: opacity 0.5s 0.3s;
+  -moz-transition: opacity 0.5s 0.3s;
+  -ms-transition: opacity 0.5s 0.3s;
   -o-transition: opacity 0.5s 0.3s;
   transition: opacity 0.5s 0.3s;
 }
@@ -1602,10 +1602,10 @@ select {
 /* line 113, ../scss/view/_home.scss */
 #phone-left {
   left: 40px;
-  -moz-transform: rotate(-180deg);
   -webkit-transform: rotate(-180deg);
-  -o-transform: rotate(-180deg);
+  -moz-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
+  -o-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 /* line 117, ../scss/view/_home.scss */
@@ -1790,7 +1790,7 @@ select {
 
 /* line 212, ../scss/view/_home.scss */
 .home-menu-button {
-  background-position: 4px -484px;
+  background-position: 4px -629px;
   top: 5px;
   right: 5px;
   z-index: 1000;
@@ -1801,8 +1801,9 @@ select {
   height: 160px;
   opacity: 1;
   overflow: hidden;
-  -moz-transition: opacity 0.5s, height 0.5s;
   -webkit-transition: opacity 0.5s, height 0.5s;
+  -moz-transition: opacity 0.5s, height 0.5s;
+  -ms-transition: opacity 0.5s, height 0.5s;
   -o-transition: opacity 0.5s, height 0.5s;
   transition: opacity 0.5s, height 0.5s;
 }
@@ -1814,11 +1815,10 @@ select {
 
 /* line 2, ../scss/view/_user.scss */
 .facebook-login {
-  background: #637bad url('../img/sprite-s33794b6d03.png') -1px -401px no-repeat;
+  background: #637bad url('../img/sprite-s233d455098.png') -1px -397px no-repeat;
   border: 1px solid #29447e;
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-  -ms-box-sizing: border-box;
+  -moz-box-sizing: border-box;
   box-sizing: border-box;
   color: #fff;
   display: block;

@@ -21,7 +21,9 @@ iShake.lang.en = {
 
     'lists.hd': 'My lists',
     'lists.new-list': 'Add list...',
+    'lists.list-is-empty': 'This list is empty',
     'lists.list-deleted': 'Sorry, this list was deleted by user.',
+    'lists.select-list': 'Select a list...',
     
     'online.hd': 'Online lists',
     

@@ -69,6 +69,8 @@ iShake.view.home.prototype = {
                 iShake.repository.list.get(list.id, this.resetList, this, {
                     remote: true
                 });
+                
+                location.hash = '/lists';
             }
 
             this.currentList_ = list;
@@ -139,10 +141,12 @@ iShake.view.home.prototype = {
         // Adding listeners
         var evt = $.os.version ? 'tap' : 'click';
         $('section', this.el).on(evt, function(e) {
-            if (!e.target.href && !$(e.target).hasClass('menu-button'))
+            if (!e.target.href && 
+                !$(e.target).hasClass('menu-button') &&
+                !$(e.target).hasClass('complete'))
             {
                 me.startShake();
-            }            
+            }
         });
         
         // Disables vertical move of page while swipeLeft / swipeRight
@@ -181,7 +185,7 @@ iShake.view.home.prototype = {
         // Attaching swipe event listeners
         this.el.on('swipeLeft swipeRight', function(e) {
             e.preventDefault();            
-            this.unload();
+            me.unload();
             
             if (me.currentItem && me.currentItem.hasBackside)
             {
@@ -239,9 +243,7 @@ iShake.view.home.prototype = {
             completedIds.splice(index, 1);
         }
         
-        iShake.repository.user.completedItemIds(completedIds);
-        
-        this.currentList(list);
+        iShake.repository.user.completedItemIds(completedIds);        
     },
     
     /**

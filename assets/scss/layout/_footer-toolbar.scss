@@ -1,6 +1,9 @@
-.login-toolbar {
+.footer-toolbar {
     background: transparent url(../img/iphone/footer-toolbar.png) repeat-x;
+    color: #fff;    
+    
 /*    display: -moz-box;
+    
     display: -webkit-box;
     display: box;*/
     height: 44px;
@@ -16,6 +19,11 @@
     -webkit-box-pack: center;
     -moz-box-pack: center;
     box-pack: center;
+    
+    .text {
+        padding: 10px;
+        text-align: center;
+    }
     
     .logged & {
         display: none;

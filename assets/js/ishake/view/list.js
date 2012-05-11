@@ -36,7 +36,7 @@ iShake.view.list.prototype = {
                     iShake.repository.user.listIds(listIds)
                 }
                 
-                location.hash = '#/lists';
+                location.hash = '/lists';
                 return;
             }
             
@@ -108,7 +108,7 @@ iShake.view.list.prototype = {
                 this.onNewItem,
                 this
             );
-            this.editor.render($('section ul', this.el));
+            this.editor.render($('section ul', this.el));            
         }
     },
     unload: function()

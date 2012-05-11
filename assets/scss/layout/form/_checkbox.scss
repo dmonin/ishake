@@ -1,4 +1,4 @@
-.flexbox .form-item-checkbox
+.ios .form-item-checkbox
 {
     background: transparent;
     border: 1px solid #ccc;
@@ -68,7 +68,7 @@
     }
 }
 
-.no-flexbox {
+.no-ios {
     .form-item-label {
         float: left;
     }

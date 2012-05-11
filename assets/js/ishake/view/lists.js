@@ -10,6 +10,8 @@ iShake.view.lists = function(name, el, id)
 {
     this.init(name, el);
     
+    this.lists = {};
+    
     app.updateLoginStatus();
     
     // If id provided, adding list with specified ID to user's lists
@@ -62,6 +64,11 @@ iShake.view.lists.prototype = {
             this.listRepo.currentId(lists[0].id);
         }
         
+        for (var i = 0; i < lists.length; i++)
+        {
+            this.lists[lists[i].id] = lists[i];
+        }
+        
         this.renderLists(lists);        
     },
     
@@ -80,6 +87,14 @@ iShake.view.lists.prototype = {
         }
         
         e.preventDefault();
+        
+        var list = this.lists[id];
+        if (list.itemCount == 0)
+        {
+            iShake.ui.notify.alert('lists.list-is-empty');
+            return;
+        }
+        
         
         // Storing selected list id in localStorage
         this.listRepo.currentId(id);
@@ -118,7 +133,7 @@ iShake.view.lists.prototype = {
             this.editor.reset();
             
             // Redirecting to list editor
-            location.hash = '#/list/' + newListData.id;
+            location.hash = '/list/' + newListData.id;
         }, this);
     },
     

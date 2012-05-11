@@ -21,7 +21,9 @@ iShake.lang.de = {
 
     'lists.hd': 'Meine Listen',
     'lists.new-list': 'Liste hinzufügen...',
+    'lists.list-is-empty': 'Diese Liste ist leer',
     'lists.list-deleted': 'Diese Liste wurde vom Besitzer gelöscht.',
+    'lists.select-list': 'Wähle die Liste aus...',
     
     'online.hd': 'Online Listen',
     

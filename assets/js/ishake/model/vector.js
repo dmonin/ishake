@@ -27,7 +27,7 @@ iShake.model.Vector.prototype = {
             dz > threshold)
         {
             return true;
-        }        
+        }
 
         return false;
     },

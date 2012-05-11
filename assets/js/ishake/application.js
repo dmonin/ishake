@@ -67,13 +67,13 @@ iShake.App = function()
             _gaq.push(['_trackPageview', viewName]);
         }
         
-        var nextView = $('#view-' + viewName);
+        var nextViewEl = $('#view-' + viewName);
 //        nextView.css('height', window.innerHeight + 'px');
 
         if (!currentView || !Modernizr.cssanimations)
         {
             $('.view').addClass('hidden');
-            nextView.removeClass('hidden');
+            nextViewEl.removeClass('hidden');
         }
         else if (currentView.name == viewName)
         {
@@ -92,7 +92,7 @@ iShake.App = function()
             if (isFlip)
             {
                 pageTransition.flip({
-                    to: nextView,
+                    to: nextViewEl,
                     from: currentView.el,
                     direction: viewName == 'home' || viewName == 'homeback' ? 'clockwise' : 'anticlockwise'
                 });
@@ -104,7 +104,7 @@ iShake.App = function()
                             'rtl' : 'ltr';
                         
                 pageTransition.slide({
-                    to: nextView,
+                    to: nextViewEl,
                     from: currentView.el,
                     direction: dir
                 }); 
@@ -116,7 +116,7 @@ iShake.App = function()
             currentView.unload();
         }
         
-        currentView = new iShake.view[viewName](viewName, nextView, id);
+        currentView = new iShake.view[viewName](viewName, nextViewEl, id);
         
         app.updateOnlineStatus();
     }
@@ -135,10 +135,16 @@ iShake.App = function()
             // 0 later in mobile opera
             this.winHeight = $(window).height();
             
+            // Currently, it's impossible to detect whether browser supports
+            // feature detection for -webkit-appearance: none; for checkboxes
+            $(document.body).toggleClass('ios', $.os.ios);
+            $(document.body).toggleClass('no-ios', !$.os.ios);
+            
             this.initLanguage();
             this.initMenu();
             this.initRouting();
             this.initTouches();
+            this.initAppCache();
         },
         
         /**
@@ -154,6 +160,29 @@ iShake.App = function()
             }
             
             return iShake.lang[this.lang][label] || label;
+        },
+        
+        /**
+         * Initializes cache update events
+         */
+        initAppCache: function()
+        {
+            // Check if a new cache is available on page load.
+            window.addEventListener('load', function(e) {
+                window.applicationCache.addEventListener('updateready', function(e) {
+                    if (window.applicationCache.status == window.applicationCache.UPDATEREADY) 
+                    {               
+                        // Browser downloaded a new app cache.
+                        // Swap it in and reload the page to get the new hotness.
+                        window.applicationCache.swapCache();
+                        window.location.reload();                
+                    }
+                    else
+                    {
+                        // Manifest didn't changed. Nothing new to server.
+                    }
+                }, false);
+            }, false);
         },
         
         /**

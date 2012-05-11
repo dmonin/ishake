@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 require 'rake/packagetask'
 
 ZEPTO_VERSION  = "0.8"
@@ -74,7 +76,7 @@ task :concat, [:addons] => :whitespace do |task, args|
     puts "Building ishake.js by including: #{components.join(', ')}"
   end
 
-  File.open(File.join(ISHAKE_DIST_DIR, 'ishake.js'), 'w') do |f|
+  File.open(File.join(ISHAKE_DIST_DIR, 'ishake.js'), 'w', encoding: 'utf-8') do |f|
     f.puts components.map { |component|
       File.read File.join(ISHAKE_SRC_DIR, "#{component}.js"), :encoding => "utf-8"
     }
@@ -94,7 +96,7 @@ def uglifyjs(src, target)
     return false
   end
   puts "Minifying #{src} with UglifyJS..."
-  File.open(target, "w"){|f| f.puts Uglifier.new.compile(File.read(src))}
+  File.open(target, "w", encoding: 'utf-8'){|f| f.puts Uglifier.new.compile(File.read(src, encoding: 'utf-8'))}
 end
 
 def process_minified(src, target)
@@ -115,5 +117,5 @@ desc "Generates a minified version for distribution, using UglifyJS."
 task :dist do
   src, target = File.join(ISHAKE_DIST_DIR,'ishake.js'), File.join(ISHAKE_DIST_DIR,'ishake.min.js')
   uglifyjs src, target
-  process_minified src, target
+  #process_minified src, target
 end

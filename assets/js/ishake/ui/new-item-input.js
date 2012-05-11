@@ -34,7 +34,7 @@ iShake.ui.NewItemInput.prototype.render = function(parent)
     parent.append(html);
     
     
-    var input = $('.new-item-input'),
+    var input = $('.new-item-input', parent),
         me = this;
     
 //    input.on('change', function(e) {
